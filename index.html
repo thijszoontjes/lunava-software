@@ -3,346 +3,107 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f4f2eb">
-  <meta name="description" content="Lunava Software is an independent Dutch studio creating thoughtful Android apps for everyday life.">
+  <meta name="theme-color" content="#0c0913">
+  <meta name="description" content="Lunava Software makes thoughtful Android apps for calmer mornings and more focused strength training.">
   <meta name="google-site-verification" content="GsjJGZc0oKuvWBZpQny0kcY4O_nEGJ9Fuy-WOLv4fyc">
-  <meta property="og:title" content="Lunava Software — Better days, by design">
-  <meta property="og:description" content="Discover SecureSets and Sunrise Alarm, thoughtful Android apps by independent Dutch studio Lunava Software.">
+  <meta property="og:title" content="Lunava Software — Android apps for everyday rhythms">
+  <meta property="og:description" content="Meet Sunrise Alarm and SecureSets, independent Android apps by Lunava Software.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://thijszoontjes.github.io/lunava-software/">
-  <title>Lunava Software — Better days, by design</title>
+  <link rel="icon" href="assets/branding/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/site.css">
+  <title>Lunava Software — Android apps for everyday rhythms</title>
   <script>document.documentElement.classList.add('js');</script>
-  <style>
-    :root {
-      color-scheme: light;
-      --paper: #f4f2eb;
-      --paper-light: #fbfaf5;
-      --ink: #14251f;
-      --muted: #66756d;
-      --line: rgba(20, 37, 31, .13);
-      --moss: #456b58;
-      --lime: #d2e879;
-      --coral: #ef9667;
-      --serif: Georgia, "Times New Roman", serif;
-      --sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    }
-    *, *::before, *::after { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
-    a { color: inherit; }
-    img { display: block; max-width: 100%; }
-    .wrap { width: min(1220px, calc(100% - 64px)); margin-inline: auto; }
-    .skip { position: absolute; z-index: 20; top: 12px; left: 12px; padding: 12px 16px; transform: translateY(-160%); border-radius: 99px; background: var(--ink); color: white; }
-    .skip:focus { transform: translateY(0); }
-    .site-header { position: relative; z-index: 5; height: 82px; border-bottom: 1px solid var(--line); }
-    .header-inner, .brand, .nav, .nav-link, .button, .footer-inner { display: flex; align-items: center; }
-    .header-inner { height: 100%; justify-content: space-between; }
-    .brand { gap: 11px; text-decoration: none; font-size: 14px; font-weight: 740; letter-spacing: -.04em; }
-    .brand-icon { display: grid; width: 35px; height: 35px; place-items: center; border-radius: 12px; background: var(--ink); color: var(--lime); }
-    .brand-icon svg { width: 21px; }
-    .nav { gap: 34px; }
-    .nav-link { gap: 7px; color: var(--muted); font-size: 12px; font-weight: 620; text-decoration: none; transition: color .2s ease; }
-    .nav-link:hover { color: var(--ink); }
-    .nav-link svg { width: 13px; }
-    .hero { position: relative; isolation: isolate; overflow: hidden; padding: 93px 0 75px; }
-    .hero::before, .hero::after { position: absolute; z-index: -1; content: ""; pointer-events: none; }
-    .hero::before { top: -240px; right: -155px; width: 700px; height: 700px; border: 1px solid rgba(69, 107, 88, .15); border-radius: 50%; animation: orbit 58s linear infinite; }
-    .hero::after { top: -82px; right: -65px; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(210, 232, 121, .22), rgba(239, 150, 103, .13) 42%, transparent 69%); filter: blur(8px); animation: breathe 8s ease-in-out infinite alternate; }
-    .hero-grid { display: grid; grid-template-columns: 1fr .95fr; align-items: center; gap: 48px; }
-    .eyebrow { display: inline-flex; align-items: center; gap: 10px; color: var(--moss); font-size: 10px; font-weight: 760; letter-spacing: .17em; text-transform: uppercase; }
-    .eyebrow::before { width: 24px; height: 1px; background: currentColor; content: ""; }
-    h1, h2, h3, p { margin-top: 0; }
-    h1 { max-width: 650px; margin: 17px 0 22px; font-family: var(--serif); font-size: clamp(58px, 7.4vw, 98px); font-weight: 400; letter-spacing: -.075em; line-height: .92; }
-    h1 em { color: var(--moss); font-weight: 400; }
-    .hero-copy { max-width: 475px; margin-bottom: 27px; color: var(--muted); font-size: 15px; line-height: 1.8; }
-    .button { width: fit-content; min-height: 48px; justify-content: center; gap: 12px; padding: 0 19px; border: 1px solid var(--ink); border-radius: 99px; background: var(--ink); color: var(--paper-light); font-size: 12px; font-weight: 680; text-decoration: none; transition: transform .25s ease, background .25s ease, box-shadow .25s ease; }
-    .button:hover { transform: translateY(-3px); background: var(--moss); box-shadow: 0 12px 30px rgba(20, 37, 31, .16); }
-    .button svg { width: 16px; }
-    :focus-visible { outline: 3px solid #829e59; outline-offset: 4px; }
-    .hero-meta { display: flex; align-items: center; gap: 12px; margin-top: 27px; color: var(--muted); font-size: 11px; }
-    .pulse-dot { width: 8px; height: 8px; border-radius: 50%; background: #78a17a; box-shadow: 0 0 0 5px rgba(120, 161, 122, .15); animation: pulse 2.2s ease-in-out infinite; }
-    .hero-art { position: relative; min-height: 526px; }
-    .art-orbit { position: absolute; top: 42px; right: 11px; width: 450px; height: 450px; border: 1px solid rgba(69, 107, 88, .22); border-radius: 50%; transform: rotate(-19deg) scaleY(.79); animation: orbit 44s linear infinite reverse; }
-    .art-orbit::before, .art-orbit::after { position: absolute; width: 9px; height: 9px; border-radius: 50%; content: ""; }
-    .art-orbit::before { top: 24px; left: 55px; background: var(--coral); box-shadow: 0 0 0 7px rgba(239, 150, 103, .15); }
-    .art-orbit::after { right: 25px; bottom: 81px; width: 6px; height: 6px; background: var(--moss); }
-    .sun-disc { position: absolute; top: 91px; right: 79px; width: 305px; height: 305px; border-radius: 49% 51% 45% 55%; background: radial-gradient(circle at 35% 32%, #f4dfad, #ebd8a3 38%, #cad8a8 74%, #b5c8aa); filter: saturate(.84); animation: morph 13s ease-in-out infinite alternate; }
-    .phone { position: absolute; overflow: hidden; padding: 6px; border: 1px solid rgba(20, 37, 31, .17); border-radius: 32px; background: #18201e; box-shadow: 0 25px 70px rgba(22, 37, 30, .22); }
-    .phone img { width: 100%; height: 100%; border-radius: 26px; object-fit: cover; }
-    .phone-primary { top: 32px; right: 102px; z-index: 2; width: 224px; animation: float 6.7s ease-in-out infinite; }
-    .phone-secondary { top: 184px; left: 15px; z-index: 1; width: 192px; transform: rotate(-9deg); animation: float-left 7.8s ease-in-out infinite; }
-    .phone-tertiary { right: -3px; bottom: 14px; z-index: 3; width: 150px; transform: rotate(8deg); animation: float-right 7.2s ease-in-out infinite; }
-    .art-label { position: absolute; z-index: 4; bottom: 43px; left: 40px; display: inline-flex; align-items: center; gap: 8px; padding: 10px 13px; border: 1px solid rgba(20, 37, 31, .1); border-radius: 99px; background: rgba(251, 250, 245, .87); box-shadow: 0 8px 25px rgba(20, 37, 31, .08); color: var(--muted); font-size: 10px; font-weight: 650; backdrop-filter: blur(10px); }
-    .art-label svg { width: 14px; color: var(--moss); }
-    .studio-strip { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-    .strip-inner { display: grid; grid-template-columns: repeat(3, 1fr); padding: 21px 0; }
-    .strip-item { display: flex; align-items: center; justify-content: center; gap: 10px; color: var(--muted); font-size: 11px; }
-    .strip-item + .strip-item { border-left: 1px solid var(--line); }
-    .strip-item strong { color: var(--ink); font-weight: 700; }
-    .strip-item svg { width: 17px; color: var(--moss); }
-    .section { padding: 108px 0; }
-    .section-head { display: flex; align-items: end; justify-content: space-between; gap: 35px; margin-bottom: 37px; }
-    .section-head h2, .about h2, .closing h2 { margin: 13px 0 0; font-family: var(--serif); font-size: clamp(43px, 5.5vw, 69px); font-weight: 400; letter-spacing: -.065em; line-height: .99; }
-    .section-head h2 { max-width: 620px; }
-    .section-intro { max-width: 340px; margin: 0 0 4px; color: var(--muted); font-size: 12px; line-height: 1.8; }
-    .projects { display: grid; grid-template-columns: 1fr 1fr; gap: 21px; }
-    .project-card { position: relative; display: flex; overflow: hidden; min-height: 610px; flex-direction: column; border: 1px solid rgba(20, 37, 31, .08); border-radius: 23px; text-decoration: none; transition: transform .35s cubic-bezier(.2,.7,.2,1), box-shadow .35s ease; }
-    .project-card:hover { transform: translateY(-7px); box-shadow: 0 26px 55px rgba(20, 37, 31, .14); }
-    .project-card--sets { background: #dce7d9; }
-    .project-card--sunrise { background: #f0dfd0; }
-    .project-visual { position: relative; display: grid; min-height: 398px; place-items: center; overflow: hidden; }
-    .project-card--sets .project-visual { background: radial-gradient(ellipse at 50% 52%, #edf2dc 0, #dce7d9 60%, #cad9c9 100%); }
-    .project-card--sunrise .project-visual { background: radial-gradient(ellipse at 50% 53%, #f5e6cb 0, #f0dfd0 59%, #e7caba 100%); }
-    .project-visual::before { position: absolute; width: 300px; height: 300px; border: 1px solid rgba(20, 37, 31, .13); border-radius: 50%; content: ""; animation: orbit 48s linear infinite; }
-    .project-visual::after { position: absolute; top: 75px; right: 14%; width: 7px; height: 7px; border-radius: 50%; background: var(--coral); content: ""; box-shadow: 0 0 0 6px rgba(239, 150, 103, .13); }
-    .shot { position: absolute; overflow: hidden; width: 155px; padding: 5px; border: 1px solid rgba(20, 37, 31, .15); border-radius: 25px; background: #18201e; box-shadow: 0 18px 45px rgba(20, 37, 31, .18); transition: transform .45s cubic-bezier(.2,.7,.2,1); }
-    .shot img { width: 100%; height: 100%; border-radius: 20px; object-fit: cover; }
-    .shot--back-left { left: calc(50% - 186px); transform: translateY(26px) rotate(-12deg) scale(.88); }
-    .shot--front { z-index: 2; transform: translateY(0) rotate(-1deg); }
-    .shot--back-right { right: calc(50% - 186px); transform: translateY(29px) rotate(12deg) scale(.88); }
-    .project-card:hover .shot--back-left { transform: translateY(14px) rotate(-15deg) scale(.9); }
-    .project-card:hover .shot--front { transform: translateY(-9px) rotate(1deg); }
-    .project-card:hover .shot--back-right { transform: translateY(14px) rotate(15deg) scale(.9); }
-    .project-index { position: absolute; z-index: 3; top: 18px; left: 19px; display: inline-flex; align-items: center; gap: 7px; color: rgba(20, 37, 31, .68); font-size: 9px; font-weight: 730; letter-spacing: .13em; text-transform: uppercase; }
-    .project-index::before { width: 6px; height: 6px; border-radius: 50%; background: var(--moss); content: ""; }
-    .project-card--sunrise .project-index::before { background: #bd7550; }
-    .project-copy { display: flex; flex: 1; flex-direction: column; padding: 25px 28px 28px; background: rgba(251, 250, 245, .76); }
-    .project-top { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-    .project-name { display: flex; align-items: center; gap: 12px; }
-    .app-icon { display: grid; width: 43px; height: 43px; place-items: center; border: 1px solid rgba(20, 37, 31, .11); border-radius: 14px; background: var(--ink); color: var(--lime); font-family: var(--serif); font-size: 24px; }
-    .project-card--sunrise .app-icon { background: #262638; color: #ffc47d; }
-    .project-name h3 { margin: 0 0 3px; font-size: 19px; font-weight: 730; letter-spacing: -.045em; }
-    .project-name span { color: var(--muted); font-size: 10px; }
-    .arrow { display: grid; width: 38px; height: 38px; flex: 0 0 38px; place-items: center; border: 1px solid var(--line); border-radius: 50%; color: var(--ink); transition: transform .25s ease, background .25s ease; }
-    .arrow svg { width: 15px; }
-    .project-card:hover .arrow { transform: translate(2px, -2px); background: var(--lime); }
-    .project-copy p { max-width: 480px; margin: 18px 0 20px; color: var(--muted); font-size: 12px; line-height: 1.8; }
-    .project-cta { display: flex; align-items: center; gap: 8px; margin-top: auto; color: var(--moss); font-size: 11px; font-weight: 760; }
-    .project-cta svg { width: 14px; }
-    .about { position: relative; overflow: hidden; background: var(--ink); color: var(--paper-light); }
-    .about::after { position: absolute; top: -270px; right: -160px; width: 620px; height: 620px; border: 1px solid rgba(210, 232, 121, .16); border-radius: 50%; content: ""; animation: orbit 75s linear infinite; pointer-events: none; }
-    .about-grid { position: relative; z-index: 1; display: grid; grid-template-columns: 1.05fr .95fr; align-items: center; gap: 100px; }
-    .about .eyebrow { color: var(--lime); }
-    .about h2 { max-width: 590px; margin: 16px 0 22px; }
-    .about-copy { max-width: 490px; margin: 0; color: #bdc9bf; font-size: 13px; line-height: 1.9; }
-    .about-note { position: relative; padding: 30px; border: 1px solid rgba(255, 255, 255, .17); border-radius: 18px; background: rgba(255, 255, 255, .045); }
-    .about-note::before { position: absolute; top: -16px; right: 25px; width: 42px; height: 42px; border: 1px solid rgba(210, 232, 121, .45); border-radius: 50%; content: ""; animation: breathe 5s ease-in-out infinite alternate; }
-    .about-note blockquote { margin: 0 0 25px; font-family: var(--serif); font-size: clamp(24px, 3vw, 34px); letter-spacing: -.04em; line-height: 1.15; }
-    .about-note p { margin: 0; color: #bdc9bf; font-size: 11px; line-height: 1.8; }
-    .about-note strong { display: block; margin-top: 20px; color: white; font-size: 11px; }
-    .closing { padding: 96px 0; text-align: center; }
-    .closing .eyebrow { justify-content: center; }
-    .closing h2 { max-width: 650px; margin: 15px auto 22px; }
-    .closing p { max-width: 430px; margin: 0 auto 25px; color: var(--muted); font-size: 12px; line-height: 1.8; }
-    .closing .button { margin-inline: auto; }
-    .site-footer { border-top: 1px solid var(--line); }
-    .footer-inner { min-height: 84px; justify-content: space-between; gap: 20px; color: var(--muted); font-size: 10px; }
-    .footer-brand { color: var(--ink); font-size: 12px; }
-    .footer-brand .brand-icon { width: 29px; height: 29px; border-radius: 10px; }
-    .footer-brand .brand-icon svg { width: 17px; }
-    .footer-right { display: flex; align-items: center; gap: 20px; }
-    .footer-right a { color: inherit; text-decoration: none; }
-    .footer-right a:hover { color: var(--ink); }
-    .reveal { transition: opacity .8s ease, transform .8s cubic-bezier(.2,.7,.2,1); transition-delay: var(--delay, 0ms); }
-    .js .reveal { opacity: 0; transform: translateY(20px); }
-    .js .reveal.is-visible { opacity: 1; transform: none; }
-    @keyframes orbit { to { transform: rotate(341deg) scaleY(.79); } }
-    @keyframes breathe { from { transform: scale(.96); opacity: .7; } to { transform: scale(1.05); opacity: 1; } }
-    @keyframes morph { from { border-radius: 49% 51% 45% 55%; transform: rotate(-4deg); } to { border-radius: 56% 44% 53% 47%; transform: rotate(6deg); } }
-    @keyframes float { 0%,100% { transform: translateY(0) rotate(2deg); } 50% { transform: translateY(-12px) rotate(0deg); } }
-    @keyframes float-left { 0%,100% { transform: translateY(0) rotate(-9deg); } 50% { transform: translateY(10px) rotate(-7deg); } }
-    @keyframes float-right { 0%,100% { transform: translateY(0) rotate(8deg); } 50% { transform: translateY(-8px) rotate(10deg); } }
-    @keyframes pulse { 0%,100% { box-shadow: 0 0 0 5px rgba(120, 161, 122, .13); } 50% { box-shadow: 0 0 0 9px rgba(120, 161, 122, .04); } }
-    @media (max-width: 920px) {
-      .wrap { width: min(100% - 44px, 760px); }
-      .hero { padding-top: 70px; }
-      .hero-grid { grid-template-columns: 1fr; gap: 20px; }
-      .hero-copy { max-width: 600px; }
-      .hero-art { width: min(100%, 520px); min-height: 495px; margin-inline: auto; }
-      .art-orbit { right: 21px; }
-      .phone-primary { right: 126px; }
-      .about-grid { gap: 55px; }
-      .project-card { min-height: 600px; }
-      .shot { width: 137px; }
-      .shot--back-left { left: calc(50% - 164px); }
-      .shot--back-right { right: calc(50% - 164px); }
-    }
-    @media (max-width: 620px) {
-      .wrap { width: calc(100% - 36px); }
-      .site-header { height: 70px; }
-      .nav { gap: 16px; }
-      .nav-link { font-size: 10px; }
-      .nav-link:nth-child(2) { display: none; }
-      .brand { gap: 8px; font-size: 12px; }
-      .brand-icon { width: 31px; height: 31px; }
-      .hero { padding: 58px 0 43px; }
-      h1 { font-size: clamp(55px, 13.2vw, 76px); }
-      .hero-copy { font-size: 13px; }
-      .hero-art { min-height: 397px; margin-top: 8px; }
-      .hero::before { top: -120px; right: -280px; width: 500px; height: 500px; }
-      .art-orbit { top: 18px; right: 1%; width: min(90vw, 390px); height: auto; aspect-ratio: 1; }
-      .sun-disc { top: 73px; right: 17%; width: 64%; }
-      .phone-primary { top: 20px; right: 19%; width: 45%; }
-      .phone-secondary { top: 155px; left: 2%; width: 39%; }
-      .phone-tertiary { right: 1%; bottom: 0; width: 32%; }
-      .art-label { bottom: 17px; left: 7%; padding: 8px 10px; font-size: 9px; }
-      .strip-inner { grid-template-columns: 1fr; gap: 13px; padding: 18px 0; }
-      .strip-item { justify-content: flex-start; }
-      .strip-item + .strip-item { border: 0; }
-      .section { padding: 77px 0; }
-      .section-head { display: block; margin-bottom: 27px; }
-      .section-head h2, .about h2, .closing h2 { font-size: clamp(42px, 10vw, 58px); }
-      .section-intro { margin-top: 16px; }
-      .projects { grid-template-columns: 1fr; gap: 16px; }
-      .project-card { min-height: auto; border-radius: 20px; }
-      .project-visual { min-height: 350px; }
-      .shot { width: 127px; border-radius: 22px; }
-      .shot img { border-radius: 17px; }
-      .shot--back-left { left: calc(50% - 150px); }
-      .shot--back-right { right: calc(50% - 150px); }
-      .project-copy { padding: 22px; }
-      .project-copy p { font-size: 11px; }
-      .about-grid { grid-template-columns: 1fr; gap: 35px; }
-      .about-note { padding: 24px; }
-      .closing { padding: 72px 0; }
-      .footer-inner { min-height: 105px; flex-wrap: wrap; justify-content: center; padding: 17px 0; text-align: center; }
-      .footer-right { width: 100%; justify-content: center; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      html { scroll-behavior: auto; }
-      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
-      .js .reveal { opacity: 1; transform: none; }
-    }
-  </style>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
     <div class="wrap header-inner">
-      <a class="brand" href="#top" aria-label="Lunava Software home">
-        <span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 16.5a7.5 7.5 0 1 1 12.7-5.4A7.5 7.5 0 0 1 5 16.5Z" stroke="currentColor" stroke-width="1.7"/><path d="M4 19h16M7 15l3-3 2.4 2.1L17 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <a class="brand" href="index.html" aria-label="Lunava Software home" data-reveal>
+        <img src="assets/branding/lunava-logo.png" alt="" width="54" height="54">
         <span>Lunava Software</span>
       </a>
       <nav class="nav" aria-label="Main navigation">
-        <a class="nav-link" href="#apps">The apps <span aria-hidden="true">↘</span></a>
-        <a class="nav-link" href="#studio">The studio</a>
-        <a class="nav-link" href="https://play.google.com/store/apps/details?id=com.securesets.app" target="_blank" rel="noopener noreferrer">Google Play <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M5 15 15 5M6 5h9v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></a>
+        <a href="#apps">Apps</a>
+        <a href="#studio">Studio</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </div>
   </header>
+
   <main id="main">
-    <section class="hero" id="top">
-      <div class="wrap hero-grid">
-        <div class="hero-copy-wrap reveal">
-          <div class="eyebrow">Independent software studio · The Netherlands</div>
-          <h1>Better days,<br><em>by design.</em></h1>
-          <p class="hero-copy">Lunava Software makes thoughtful Android apps for the small routines that shape a day—from a softer start in the morning to a more focused workout.</p>
-          <a class="button" href="#apps">Meet the apps <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-          <div class="hero-meta"><span class="pulse-dot" aria-hidden="true"></span>Two independent apps, made with care</div>
-        </div>
-        <div class="hero-art" aria-label="SecureSets and Sunrise Alarm app screenshots">
-          <div class="art-orbit" aria-hidden="true"></div>
-          <div class="sun-disc" aria-hidden="true"></div>
-          <div class="phone phone-primary"><img src="assets/screens/sunrise-alarm-1.png" alt="Sunrise Alarm app home screen showing an 8:00 wake-up and gradual sunrise" fetchpriority="high"></div>
-          <div class="phone phone-secondary"><img src="assets/screens/securesets-1.png" alt="SecureSets progress screen with workout history and strength chart" fetchpriority="high"></div>
-          <div class="phone phone-tertiary"><img src="assets/screens/securesets-2.png" alt="SecureSets workout screen" loading="lazy" decoding="async"></div>
-          <div class="art-label"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2v16M2 10h16M4.3 4.3l11.4 11.4m0-11.4L4.3 15.7" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>Made for everyday moments</div>
-        </div>
+    <section class="hero wrap" id="top">
+      <div class="hero-copy">
+        <h1 class="hero-title">
+          <span class="mask"><span data-line style="--i: 0">Wake gently.</span></span>
+          <span class="mask"><span data-line style="--i: 1">Train better.</span></span>
+        </h1>
+        <p class="hero-text" data-reveal style="--delay: 260ms">Independent Android apps for two everyday rituals: a gradual sunrise and strength training you can track.</p>
+        <a class="button" href="#apps" data-reveal style="--delay: 340ms">Meet the apps <span aria-hidden="true">↘</span></a>
       </div>
+      <figure class="hero-image" data-reveal style="--delay: 260ms" aria-label="Screens from SecureSets and Sunrise Alarm">
+        <img src="assets/screens/securesets-1.png" alt="SecureSets progress screen with workout history and a strength chart" width="370" height="800" fetchpriority="high">
+        <img src="assets/screens/sunrise-alarm-3.png" alt="Sunrise Alarm settings for a gradual wake-up" width="270" height="585" fetchpriority="high">
+      </figure>
     </section>
-    <div class="studio-strip" aria-label="Studio facts">
-      <div class="wrap strip-inner">
-        <div class="strip-item"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 10.5 7.3 15 17 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg><span><strong>Independent</strong> by design</span></div>
-        <div class="strip-item"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M10 2.5c2.8 3.1 4.4 5.5 4.4 8a4.4 4.4 0 1 1-8.8 0c0-2.5 1.6-4.9 4.4-8Z" stroke="currentColor" stroke-width="1.5"/></svg><span>Built in <strong>the Netherlands</strong></span></div>
-        <div class="strip-item"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><rect x="4" y="2.5" width="12" height="15" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 6h6M7 9h6m-6 3h3" stroke="currentColor" stroke-width="1.35" stroke-linecap="round"/></svg><span><strong>Android</strong> apps on Google Play</span></div>
+
+    <section class="apps-section wrap" id="apps" aria-labelledby="apps-title">
+      <div class="section-intro" data-reveal>
+        <h2 id="apps-title">Two daily rhythms.</h2>
+        <p>Choose an app to see its full listing on Google Play.</p>
       </div>
-    </div>
-    <section class="section" id="apps">
-      <div class="wrap">
-        <div class="section-head reveal">
-          <div><div class="eyebrow">Made for everyday moments</div><h2>Small tools.<br>More in your rhythm.</h2></div>
-          <p class="section-intro">Tap anywhere on an app to see its full details on Google Play. Every preview below is taken from the real app listing.</p>
+
+      <a class="project-link" href="https://play.google.com/store/apps/details?id=com.securesets.app" target="_blank" rel="noopener noreferrer" aria-label="Open SecureSets on Google Play">
+        <div class="project-copy" data-reveal>
+          <h3>SecureSets</h3>
+          <p class="project-meta">Strength training · Android</p>
+          <p>Plan workouts, log sets and reps, and follow your training history. Optional workout generation runs on your device.</p>
+          <span class="project-cta">View SecureSets on Google Play <span aria-hidden="true">↗</span></span>
         </div>
-        <div class="projects">
-          <a class="project-card project-card--sets reveal" href="https://play.google.com/store/apps/details?id=com.securesets.app" target="_blank" rel="noopener noreferrer" aria-label="Open SecureSets on Google Play">
-            <div class="project-visual">
-              <span class="project-index">01 · Training</span>
-              <span class="shot shot--back-left"><img src="assets/screens/securesets-2.png" alt="SecureSets workout logging screen" loading="lazy" decoding="async"></span>
-              <span class="shot shot--front"><img src="assets/screens/securesets-1.png" alt="SecureSets workout progress and history screen" loading="lazy" decoding="async"></span>
-              <span class="shot shot--back-right"><img src="assets/screens/securesets-3.png" alt="SecureSets strength training screen" loading="lazy" decoding="async"></span>
-            </div>
-            <div class="project-copy">
-              <div class="project-top">
-                <div class="project-name"><span class="app-icon" aria-hidden="true">S</span><div><h3>SecureSets</h3><span>Strength training · Android</span></div></div>
-                <span class="arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 15 15 5M6 5h9v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              </div>
-              <p>Build a plan around your goals, log sets and reps, and follow your training history. Optional workout generation runs on your device.</p>
-              <span class="project-cta">Explore on Google Play <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </div>
-          </a>
-          <a class="project-card project-card--sunrise reveal" href="https://play.google.com/store/apps/details?id=com.lunavasoftware.sunrisealarm" target="_blank" rel="noopener noreferrer" aria-label="Open Sunrise Alarm on Google Play" style="--delay: 130ms">
-            <div class="project-visual">
-              <span class="project-index">02 · Rest</span>
-              <span class="shot shot--back-left"><img src="assets/screens/sunrise-alarm-2.png" alt="Sunrise Alarm sleep tracking screen" loading="lazy" decoding="async"></span>
-              <span class="shot shot--front"><img src="assets/screens/sunrise-alarm-1.png" alt="Sunrise Alarm wake-up screen with sunrise light" loading="lazy" decoding="async"></span>
-              <span class="shot shot--back-right"><img src="assets/screens/sunrise-alarm-3.png" alt="Sunrise Alarm screen" loading="lazy" decoding="async"></span>
-            </div>
-            <div class="project-copy">
-              <div class="project-top">
-                <div class="project-name"><span class="app-icon" aria-hidden="true">☼</span><div><h3>Sunrise Alarm</h3><span>Gentler mornings · Android</span></div></div>
-                <span class="arrow" aria-hidden="true"><svg viewBox="0 0 20 20" fill="none"><path d="M5 15 15 5M6 5h9v9" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-              </div>
-              <p>Wake gently with a gradual sunrise, then explore optional sleep tracking and private, on-device insights.</p>
-              <span class="project-cta">Explore on Google Play <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-            </div>
-          </a>
+        <div class="project-images project-images--training" aria-label="SecureSets app screenshots">
+          <img src="assets/screens/securesets-2.png" alt="SecureSets screen for logging sets and reps" width="370" height="800" loading="lazy" decoding="async" data-reveal>
+          <img src="assets/screens/securesets-3.png" alt="SecureSets workout plan with exercise and training targets" width="370" height="800" loading="lazy" decoding="async" data-reveal style="--delay: 100ms">
         </div>
-      </div>
+      </a>
+
+      <a class="project-link project-link--sunrise" href="https://play.google.com/store/apps/details?id=com.lunavasoftware.sunrisealarm" target="_blank" rel="noopener noreferrer" aria-label="Open Sunrise Alarm on Google Play">
+        <div class="project-copy" data-reveal>
+          <h3>Sunrise Alarm</h3>
+          <p class="project-meta">Gentler mornings · Android</p>
+          <p>Wake to a gradual sunrise, then explore optional sleep tracking and private, on-device insights.</p>
+          <span class="project-cta">View Sunrise Alarm on Google Play <span aria-hidden="true">↗</span></span>
+        </div>
+        <div class="project-images project-images--sunrise" aria-label="Sunrise Alarm app screenshots">
+          <img src="assets/screens/sunrise-alarm-2.png" alt="Sunrise Alarm saved wake-ups screen" width="270" height="585" loading="lazy" decoding="async" data-reveal>
+          <img src="assets/screens/sunrise-alarm-3.png" alt="Sunrise Alarm settings for a gradual wake-up" width="270" height="585" loading="lazy" decoding="async" data-reveal style="--delay: 100ms">
+        </div>
+      </a>
     </section>
-    <section class="section about" id="studio">
-      <div class="wrap about-grid">
-        <div class="reveal">
-          <div class="eyebrow">The person behind Lunava</div>
-          <h2>Curious by nature.<br>Useful by choice.</h2>
-          <p class="about-copy">I’m Thijs Zoontjes, founder of Lunava Software. I build and publish independent apps for Android, with an eye for calm interfaces, helpful details and ideas that earn a place in your everyday life.</p>
-        </div>
-        <div class="about-note reveal" style="--delay: 130ms">
-          <blockquote>“The best software makes a little more room for the life around it.”</blockquote>
-          <p>Lunava is an independent software studio in the Netherlands, building products one thoughtful detail at a time.</p>
-          <strong>Thijs Zoontjes <span aria-hidden="true">·</span> Founder</strong>
-        </div>
+
+    <section class="studio-section wrap" id="studio" aria-labelledby="studio-title">
+      <div class="studio-copy" data-reveal>
+        <h2 id="studio-title">Built by Thijs Zoontjes.</h2>
+        <p>I’m the founder of Lunava Software. I build independent Android apps with calm interfaces, useful details and a focus on the small routines that shape a day.</p>
       </div>
-    </section>
-    <section class="closing">
-      <div class="wrap reveal">
-        <div class="eyebrow">Find a new rhythm</div>
-        <h2>Start with one small moment.</h2>
-        <p>Explore the Lunava apps on Google Play and find the one that fits your day.</p>
-        <a class="button" href="#apps">Browse the apps <svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M4 10h11m-4-4 4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-      </div>
+      <a class="studio-contact" href="contact.html" data-reveal style="--delay: 100ms">Get in touch <span aria-hidden="true">↗</span></a>
     </section>
   </main>
+
   <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <a class="brand footer-brand" href="#top"><span class="brand-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M5 16.5a7.5 7.5 0 1 1 12.7-5.4A7.5 7.5 0 0 1 5 16.5Z" stroke="currentColor" stroke-width="1.7"/><path d="M4 19h16M7 15l3-3 2.4 2.1L17 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Lunava Software</span></a>
+    <div class="wrap footer-top">
+      <img class="footer-logo" src="assets/branding/lunava-logo.png" alt="Lunava Software logo" width="150" height="150" loading="lazy" data-reveal>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="#apps">Apps</a>
+        <a href="#studio">Studio</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </div>
+    <div class="wrap footer-bottom">
+      <span>KVK 42195099</span>
+      <span>© 2026 Thijs Zoontjes</span>
       <span>Independent software studio · The Netherlands</span>
-      <div class="footer-right"><a href="#apps">Apps</a><a href="https://play.google.com/store/apps/details?id=com.securesets.app" target="_blank" rel="noopener noreferrer">Google Play</a><span>KVK 42195099</span><span>© 2026 Thijs Zoontjes</span></div>
     </div>
   </footer>
-  <script>
-    if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const observer = new IntersectionObserver((items) => {
-        items.forEach((item) => {
-          if (item.isIntersecting) {
-            item.target.classList.add('is-visible');
-            observer.unobserve(item.target);
-          }
-        });
-      }, { rootMargin: '0px 0px -6% 0px', threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach((item) => observer.observe(item));
-    } else {
-      document.querySelectorAll('.reveal').forEach((item) => item.classList.add('is-visible'));
-    }
-  </script>
+  <script src="assets/site.js" defer></script>
 </body>
 </html>
