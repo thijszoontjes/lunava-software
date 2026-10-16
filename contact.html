@@ -39,7 +39,11 @@
     <div class="contact-content">
       <h1 id="contact-title" data-reveal>Get in touch.</h1>
       <p data-reveal style="--delay: 100ms">App questions, online service ideas, collaborations, or a new project? Write to Thijs at Lunava Software.</p>
-      <a class="contact-email" href="mailto:lunavasoftware@gmail.com" data-reveal style="--delay: 180ms"><span>lunavasoftware@</span><wbr><span>gmail.com</span></a>
+      <a class="contact-email" href="mailto:lunavasoftware@gmail.com" data-reveal style="--delay: 180ms">
+        <svg class="contact-email-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.25" y="5.25" width="17.5" height="13.5" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="m4.5 7 6.45 5.2a1.7 1.7 0 0 0 2.1 0L19.5 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="contact-email-copy"><small>Email</small><strong>lunavasoftware@gmail.com</strong></span>
+        <span class="contact-email-arrow" aria-hidden="true">↗</span>
+      </a>
       <p class="contact-name" data-reveal style="--delay: 260ms">Thijs Zoontjes · Founder</p>
     </div>
    </section>
@@ -48,15 +52,15 @@
       <div class="contact-app-list">
         <a class="contact-app" href="https://play.google.com/store/apps/details?id=com.securesets.app" target="_blank" rel="noopener noreferrer" aria-label="Open SecureSets on Google Play">
           <span class="contact-app-images">
-            <img src="assets/screens/securesets-2.png" alt="SecureSets workout screen" width="370" height="800" decoding="async" data-reveal>
-            <img src="assets/screens/securesets-3.png" alt="SecureSets training plan" width="370" height="800" decoding="async" data-reveal style="--delay: 80ms">
+            <span class="phone-frame phone-frame--training" data-reveal><img src="assets/screens/securesets-2.png" alt="SecureSets workout screen" width="333" height="592" decoding="async"></span>
+            <span class="phone-frame phone-frame--training phone-frame--small" data-reveal style="--delay: 80ms"><img src="assets/screens/securesets-3.png" alt="SecureSets training plan" width="333" height="592" decoding="async"></span>
           </span>
           <span class="contact-app-title" data-reveal>SecureSets <span aria-hidden="true">↗</span></span>
         </a>
         <a class="contact-app" href="https://play.google.com/store/apps/details?id=com.lunavasoftware.sunrisealarm" target="_blank" rel="noopener noreferrer" aria-label="Open Sunrise Alarm on Google Play">
           <span class="contact-app-images">
-            <img src="assets/screens/sunrise-alarm-2.png" alt="Sunrise Alarm saved wake-ups screen" width="270" height="585" decoding="async" data-reveal>
-            <img src="assets/screens/sunrise-alarm-3.png" alt="Sunrise Alarm settings" width="270" height="585" decoding="async" data-reveal style="--delay: 80ms">
+            <span class="phone-frame phone-frame--sunrise" data-reveal><img src="assets/screens/sunrise-alarm-home.svg" alt="Sunrise Alarm home screen with the I’m going to sleep button" width="360" height="800" decoding="async"></span>
+            <span class="phone-frame phone-frame--sunrise phone-frame--small" data-reveal style="--delay: 80ms"><img src="assets/screens/sunrise-sleep-insights.svg" alt="Sample Sunrise Alarm sleep insights with realistic sleep data" width="360" height="800" decoding="async"></span>
           </span>
           <span class="contact-app-title" data-reveal>Sunrise Alarm <span aria-hidden="true">↗</span></span>
         </a>
@@ -74,9 +78,9 @@
       </nav>
     </div>
     <div class="wrap footer-bottom">
+      <span data-reveal>Lunava Software · Thijs Zoontjes</span>
       <span data-reveal>KVK 42195099</span>
-      <span data-reveal>© 2026 Thijs Zoontjes</span>
-      <span data-reveal>Independent software studio · The Netherlands</span>
+      <span data-reveal>© 2026 · The Netherlands</span>
     </div>
   </footer>
   <script src="assets/site.js" defer></script>

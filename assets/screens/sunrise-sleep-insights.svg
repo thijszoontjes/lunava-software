@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 800" role="img" aria-labelledby="title desc">
+  <title id="title">Sunrise Alarm sleep insights sample</title>
+  <desc id="desc">An illustrative sample night with experimental sleep-stage estimates, 7 hours 42 minutes asleep, and 78 percent signal confidence.</desc>
+  <rect width="360" height="800" fill="#08090D"/>
+  <text x="25" y="23" fill="#F6F4EF" font-family="Arial,sans-serif" font-size="12" font-weight="600">7:12</text>
+  <g fill="none" stroke="#F6F4EF" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M278 18h2m3-3v6m4-8v10m5-6v6"/><path d="M298 15c5 0 8 3 8 7h-16c0-4 3-7 8-7Z"/><rect x="316" y="14" width="19" height="10" rx="2"/><path d="M337 17v4"/></g><rect x="318" y="16" width="13" height="6" rx="1" fill="#F6F4EF"/>
+  <text x="20" y="69" fill="#FFB56B" font-family="Arial,sans-serif" font-size="10" font-weight="800" letter-spacing="2">YOUR REST</text>
+  <text x="20" y="101" fill="#F6F4EF" font-family="Arial,sans-serif" font-size="27" font-weight="700">Sleep insights</text>
+  <rect x="247" y="68" width="96" height="33" rx="17" fill="#12151D" stroke="#292E3A"/>
+  <rect x="250" y="71" width="44" height="27" rx="14" fill="#FFB56B"/><text x="272" y="89" text-anchor="middle" fill="#2B1B0D" font-family="Arial,sans-serif" font-size="11" font-weight="800">Day</text><text x="318" y="89" text-anchor="middle" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="11" font-weight="700">Week</text>
+  <rect x="16" y="121" width="328" height="36" rx="18" fill="#12151D" stroke="#292E3A"/>
+  <circle cx="37" cy="139" r="13" fill="#1A1E28" stroke="#292E3A"/><path d="m40 135-4 4 4 4" fill="none" stroke="#F6F4EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="180" y="143" text-anchor="middle" fill="#F6F4EF" font-family="Arial,sans-serif" font-size="12" font-weight="700">Thursday, Oct 15 · Sample night</text>
+  <circle cx="323" cy="139" r="13" fill="#1A1E28" stroke="#292E3A"/><path d="m320 135 4 4-4 4" fill="none" stroke="#F6F4EF" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="16" y="169" width="328" height="176" rx="23" fill="#12151D" stroke="#292E3A"/>
+  <text x="34" y="195" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="10" font-weight="700" letter-spacing="1">SLEEP STAGES</text>
+  <text x="34" y="216" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="9">Experimental estimate · not medical</text>
+  <rect x="34" y="232" width="292" height="43" rx="11" fill="#1A1E28"/>
+  <rect x="34" y="232" width="44" height="43" rx="10" fill="#6F9AB5"/><rect x="78" y="232" width="23" height="43" fill="#6262A8"/><rect x="101" y="232" width="26" height="43" fill="#6F9AB5"/><rect x="127" y="232" width="20" height="43" fill="#8C73B7"/><rect x="147" y="232" width="35" height="43" fill="#6F9AB5"/><rect x="182" y="232" width="20" height="43" fill="#6262A8"/><rect x="202" y="232" width="32" height="43" fill="#6F9AB5"/><rect x="234" y="232" width="29" height="43" fill="#8C73B7"/><rect x="263" y="232" width="12" height="43" fill="#B16E62"/><rect x="275" y="232" width="26" height="43" fill="#6F9AB5"/><rect x="301" y="232" width="17" height="43" fill="#8C73B7"/><rect x="318" y="232" width="8" height="43" rx="4" fill="#6F9AB5"/>
+  <text x="34" y="293" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="9">23:10</text><text x="326" y="293" text-anchor="end" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="9">07:22</text>
+  <g font-family="Arial,sans-serif" font-size="9" fill="#A6A7B0"><circle cx="42" cy="319" r="4" fill="#6262A8"/><text x="51" y="322">Deep</text><circle cx="104" cy="319" r="4" fill="#8C73B7"/><text x="113" y="322">REM</text><circle cx="163" cy="319" r="4" fill="#6F9AB5"/><text x="172" y="322">Light</text><circle cx="236" cy="319" r="4" fill="#B16E62"/><text x="245" y="322">Awake</text></g>
+  <rect x="16" y="357" width="158" height="115" rx="22" fill="#12151D" stroke="#292E3A"/>
+  <text x="33" y="382" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing=".8">SLEEP SCORE</text>
+  <text x="33" y="438" fill="#FFB56B" font-family="Arial,sans-serif" font-size="48" font-weight="300">89</text>
+  <text x="33" y="456" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="9">Experimental estimate</text>
+  <rect x="186" y="357" width="158" height="115" rx="22" fill="#12151D" stroke="#292E3A"/>
+  <text x="203" y="382" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="9" font-weight="700" letter-spacing=".8">TOTAL SLEEP</text>
+  <text x="203" y="426" fill="#F6F4EF" font-family="Arial,sans-serif" font-size="28" font-weight="700">7h 42m</text>
+  <text x="203" y="456" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="9">Signal confidence 78%</text>
+  <rect x="16" y="484" width="158" height="67" rx="18" fill="#12151D" stroke="#292E3A"/><text x="32" y="506" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="9" font-weight="700">TIME IN BED</text><text x="32" y="535" fill="#F6F4EF" font-family="Arial,sans-serif" font-size="19" font-weight="700">8h 12m</text>
+  <rect x="186" y="484" width="158" height="67" rx="18" fill="#12151D" stroke="#292E3A"/><text x="202" y="506" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="9" font-weight="700">ESTIMATED DEEP</text><text x="202" y="535" fill="#F6F4EF" font-family="Arial,sans-serif" font-size="19" font-weight="700">1h 16m</text>
+  <rect x="16" y="563" width="158" height="67" rx="18" fill="#12151D" stroke="#292E3A"/><text x="32" y="585" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="9" font-weight="700">ESTIMATED REM</text><text x="32" y="614" fill="#F6F4EF" font-family="Arial,sans-serif" font-size="19" font-weight="700">1h 51m</text>
+  <rect x="186" y="563" width="158" height="67" rx="18" fill="#12151D" stroke="#292E3A"/><text x="202" y="585" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="9" font-weight="700">BREATHING RATE</text><text x="202" y="614" fill="#F6F4EF" font-family="Arial,sans-serif" font-size="19" font-weight="700">14 / min</text>
+  <rect x="16" y="642" width="328" height="48" rx="16" fill="#12151D" stroke="#292E3A"/><text x="33" y="671" fill="#A6A7B0" font-family="Arial,sans-serif" font-size="10">Disturbances</text><text x="326" y="671" text-anchor="end" fill="#F6F4EF" font-family="Arial,sans-serif" font-size="13" font-weight="700">2</text>
+  <rect x="0" y="713" width="360" height="87" fill="#12151D" stroke="#292E3A"/>
+  <g font-family="Arial,sans-serif" font-size="9" text-anchor="middle">
+    <circle cx="48" cy="740" r="8" fill="none" stroke="#A6A7B0" stroke-width="1.5"/><path d="M48 727v-3m0 32v-3m-13-9h-3m32 0h-3m-22-9-2-2m22 22-2-2m0-18 2-2m-22 22 2-2" stroke="#A6A7B0" stroke-width="1.3"/><text x="48" y="768" fill="#A6A7B0">Alarm</text>
+    <circle cx="136" cy="740" r="8" fill="none" stroke="#A6A7B0" stroke-width="1.5"/><path d="M136 735v6l4 2" fill="none" stroke="#A6A7B0" stroke-width="1.4" stroke-linecap="round"/><text x="136" y="768" fill="#A6A7B0">Alarms</text>
+    <path d="M224 731a9 9 0 1 0 10 13 8 8 0 0 1-10-13Z" fill="none" stroke="#FFB56B" stroke-width="1.5"/><text x="224" y="768" fill="#FFB56B" font-weight="700">Sleep</text>
+    <circle cx="312" cy="740" r="8" fill="none" stroke="#A6A7B0" stroke-width="1.5"/><circle cx="312" cy="740" r="2.5" fill="none" stroke="#A6A7B0" stroke-width="1.4"/><path d="M312 728v3m0 18v3m-12-12h3m18 0h3" stroke="#A6A7B0" stroke-width="1.4"/><text x="312" y="768" fill="#A6A7B0">Settings</text>
+  </g>
+  <rect x="145" y="786" width="70" height="4" rx="2" fill="#F6F4EF"/>
+</svg>
