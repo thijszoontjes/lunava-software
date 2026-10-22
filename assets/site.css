@@ -76,8 +76,14 @@ h1, h2, h3, p { margin-top: 0; }
 .phone-frame img { width: 100%; height: 100%; border-radius: 25px; object-fit: cover; }
 .phone-frame--training { aspect-ratio: 9 / 20; }
 .phone-frame--small { width: min(38%, 230px); }
-.project-link:hover .project-copy h3, .project-link:focus-visible .project-copy h3 { color: var(--accent); }
-.project-link:hover .project-cta, .project-link:focus-visible .project-cta { color: var(--accent); transform: translateX(5px); }
+.project-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
+.project-store-button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 9px; padding: 0 16px; border-radius: 4px; background: var(--ink); color: var(--ground); font-size: 13px; font-weight: 650; text-decoration: none; transition: transform 180ms var(--ease-out), background-color 180ms ease; }
+.project-store-button:hover { transform: translateY(-2px); background: var(--accent); }
+.project-store-button span { font-size: 16px; }
+.project-store-button:focus-visible { outline-offset: 4px; }
+.project-link:hover .project-copy h3, .project-link:focus-within .project-copy h3 { color: var(--accent); }
+.project-link:hover .project-cta, .project-link:focus-within .project-cta { color: var(--accent); transform: translateX(5px); }
+.project-link:hover .project-store-button { background: var(--accent); }
 .project-link:hover .project-images .phone-frame:first-child { transform: translateY(-7px); }
 .project-link:hover .project-images .phone-frame + .phone-frame { transform: translateY(7px); }
 
