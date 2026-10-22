@@ -1,21 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://thijszoontjes.github.io/lunava-software/</loc>
-  </url>
-  <url>
-    <loc>https://thijszoontjes.github.io/lunava-software/contact.html</loc>
-  </url>
-  <url>
-    <loc>https://thijszoontjes.github.io/lunava-software/securesets.html</loc>
-  </url>
-  <url>
-    <loc>https://thijszoontjes.github.io/lunava-software/sunrise-alarm.html</loc>
-  </url>
-  <url>
-    <loc>https://thijszoontjes.github.io/lunava-software/developer-nightmare.html</loc>
-  </url>
-  <url>
-    <loc>https://thijszoontjes.github.io/lunava-software/ai-youtube-channel.html</loc>
-  </url>
+  <url><loc>https://lunavasoftware.nl/</loc></url>
+  <url><loc>https://lunavasoftware.nl/contact/</loc></url>
+  <url><loc>https://lunavasoftware.nl/securesets/</loc></url>
+  <url><loc>https://lunavasoftware.nl/sunrise-alarm/</loc></url>
+  <url><loc>https://lunavasoftware.nl/developer-nightmare/</loc></url>
+  <url><loc>https://lunavasoftware.nl/ai-youtube-channel/</loc></url>
 </urlset>
