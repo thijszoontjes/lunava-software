@@ -96,6 +96,27 @@ h1, h2, h3, p { margin-top: 0; }
 .youtube-project-stat--views { display: grid; justify-items: start; }
 .youtube-project-stat--views strong { margin: -4px 0 0; color: #bd3d32; font-size: clamp(2.8rem, 4.4vw, 4.2rem); font-weight: 430; letter-spacing: -.07em; line-height: 1; }
 .youtube-project-stat--views span { margin-top: 8px; color: var(--soft-ink); font-size: 13px; }
+.extension-project { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr .9fr; align-items: center; gap: clamp(32px, 6vw, 84px); overflow: hidden; margin-top: 18px; padding: clamp(32px, 5vw, 68px); border-radius: 30px; background: linear-gradient(125deg, #29242a, #413247); color: #fffdf9; box-shadow: 0 16px 48px rgba(41, 36, 42, .14); }
+.extension-project::before { position: absolute; z-index: -1; top: -160px; left: -100px; width: 360px; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(175, 139, 199, .23), rgba(175, 139, 199, .06) 58%, transparent 72%); content: ""; }
+.extension-project .project-meta { color: #cbb4d7; }
+.extension-project .project-copy h3 { max-width: 540px; color: #fffdf9; }
+.extension-project .project-copy > p:not(.project-kicker) { margin-bottom: 28px; color: rgba(255, 253, 249, .72); }
+.extension-project .project-cta { color: #fffdf9; }
+.extension-project .project-cta span { color: #d6b5e4; }
+.extension-preview { display: grid; justify-items: center; gap: 14px; min-width: 0; }
+.extension-browser { width: min(100%, 420px); overflow: hidden; border: 1px solid rgba(255, 255, 255, .3); border-radius: 20px; background: #fffdf9; color: var(--ink); box-shadow: 0 24px 60px rgba(0, 0, 0, .22); transform: rotate(-1.5deg); }
+.extension-browser-bar { display: flex; min-height: 43px; align-items: center; gap: 14px; padding: 0 16px; border-bottom: 1px solid rgba(74, 53, 42, .1); background: #f2ede6; }
+.extension-browser-dots { display: flex; gap: 5px; }
+.extension-browser-dots i { width: 7px; height: 7px; border-radius: 50%; background: #c6b8ad; }
+.extension-browser-dots i:first-child { background: #d88b78; }
+.extension-browser-url { color: var(--soft-ink); font-size: 11px; }
+.extension-browser-content { display: grid; gap: 14px; padding: 28px 24px 30px; }
+.extension-browser-heading { justify-self: start; margin-bottom: 2px; font-size: clamp(2rem, 4vw, 3rem); font-weight: 450; letter-spacing: -.07em; line-height: .98; transform: translateX(8px) rotate(-1.2deg); }
+.extension-browser-line { height: 8px; border-radius: 99px; background: #ded6ce; }
+.extension-browser-line--long { width: 92%; transform: translateX(-5px) rotate(.7deg); }
+.extension-browser-line--short { width: 69%; transform: translateX(9px) rotate(-.5deg); }
+.extension-browser-action { justify-self: start; margin-top: 4px; padding: 10px 14px; border-radius: 99px; background: #eee6f1; color: #493a52; font-size: 12px; font-weight: 650; transform: translateX(3px) rotate(1deg); }
+.extension-preview-caption { color: rgba(255, 253, 249, .6); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; }
 
 .studio-section { display: flex; align-items: end; justify-content: space-between; gap: 60px; padding-block: 110px 150px; }
 .studio-copy { max-width: 720px; }
@@ -158,6 +179,7 @@ h1, h2, h3, p { margin-top: 0; }
   .project-images .phone-frame { width: min(42%, 250px); }
   .project-images .phone-frame--small { width: min(35%, 215px); }
   .youtube-project { grid-template-columns: 1fr; gap: 34px; }
+  .extension-project { grid-template-columns: 1fr; gap: 34px; }
   .studio-section { align-items: flex-start; flex-direction: column; gap: 32px; padding-block: 90px 110px; }
   .contact-main { grid-template-columns: 1.1fr .8fr; gap: 36px; }
   .contact-content p { font-size: 18px; }
@@ -198,6 +220,11 @@ h1, h2, h3, p { margin-top: 0; }
   .youtube-project .project-meta { margin-bottom: 17px; font-size: 14px; }
   .youtube-project .project-copy > p:not(.project-kicker) { font-size: 16px; }
   .youtube-project-stat { padding: 19px; border-radius: 17px; }
+  .extension-project { gap: 27px; margin-top: 14px; padding: 30px 23px 34px; border-radius: 24px; }
+  .extension-project .project-copy h3 { font-size: 2.8rem; }
+  .extension-project .project-meta { margin-bottom: 17px; font-size: 14px; }
+  .extension-project .project-copy > p:not(.project-kicker) { font-size: 16px; }
+  .extension-browser-content { padding: 24px 20px 26px; }
   .studio-section { gap: 27px; padding-block: 74px 90px; }
   .footer-top { min-height: 130px; gap: 20px; }
   .footer-logo { width: 112px; height: 112px; }
