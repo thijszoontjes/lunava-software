@@ -109,8 +109,6 @@ h1, h2, h3, p { margin-top: 0; }
 .extension-preview-link:focus-visible { outline: 3px solid #d6b5e4; outline-offset: 5px; }
 .extension-preview-link img { display: block; width: 100%; height: auto; }
 .extension-preview-caption { color: rgba(255, 253, 249, .6); font-size: 11px; font-weight: 600; letter-spacing: .1em; text-align: center; text-transform: uppercase; }
-.extension-project .extension-install-note { margin: 8px 0 0; color: rgba(255, 253, 249, .56); font-size: 12px; line-height: 1.6; }
-.extension-install-note code { color: rgba(255, 253, 249, .82); font: inherit; }
 .studio-section { display: flex; align-items: end; justify-content: space-between; gap: 60px; padding-block: 110px 150px; }
 .studio-copy { max-width: 720px; }
 .studio-copy h2 { margin-bottom: 24px; }
