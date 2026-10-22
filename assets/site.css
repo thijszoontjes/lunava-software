@@ -81,6 +81,22 @@ h1, h2, h3, p { margin-top: 0; }
 .project-link:hover .project-images .phone-frame:first-child { transform: translateY(-7px); }
 .project-link:hover .project-images .phone-frame + .phone-frame { transform: translateY(7px); }
 
+.other-projects-section { padding-block: 0 22px; }
+.other-projects-section .section-intro { margin-bottom: 28px; }
+.other-projects-section .section-intro > div { display: grid; gap: 12px; }
+.other-projects-eyebrow { margin: 0; color: var(--accent); font-size: 12px; font-weight: 650; letter-spacing: .1em; text-transform: uppercase; }
+.youtube-project { position: relative; isolation: isolate; display: grid; grid-template-columns: 1fr .9fr; align-items: center; gap: clamp(32px, 6vw, 84px); overflow: hidden; padding: clamp(32px, 5vw, 68px); border: 1px solid rgba(116, 80, 57, .1); border-radius: 30px; background: linear-gradient(125deg, #fffdf9 8%, #f8f0e6 100%); box-shadow: 0 14px 42px rgba(83, 62, 48, .055); }
+.youtube-project::before { position: absolute; z-index: -1; top: -160px; right: -120px; width: 380px; aspect-ratio: 1; border-radius: 50%; background: radial-gradient(circle, rgba(211, 59, 50, .16), rgba(237, 182, 160, .08) 55%, transparent 72%); content: ""; }
+.youtube-project .project-copy h3 { max-width: 540px; }
+.youtube-project .project-copy > p:not(.project-kicker) { margin-bottom: 28px; }
+.youtube-project .project-cta span { color: #bd3d32; }
+.youtube-project-metrics { display: grid; gap: 14px; min-width: 0; }
+.youtube-project-stat { min-width: 0; padding: 22px; border: 1px solid rgba(116, 80, 57, .1); border-radius: 20px; background: rgba(255, 253, 249, .82); }
+.youtube-project-stat-label { margin-bottom: 14px; color: var(--soft-ink); font-size: 12px; font-weight: 650; letter-spacing: .08em; text-transform: uppercase; }
+.youtube-project-stat--views { display: grid; justify-items: start; }
+.youtube-project-stat--views strong { margin: -4px 0 0; color: #bd3d32; font-size: clamp(2.8rem, 4.4vw, 4.2rem); font-weight: 430; letter-spacing: -.07em; line-height: 1; }
+.youtube-project-stat--views span { margin-top: 8px; color: var(--soft-ink); font-size: 13px; }
+
 .studio-section { display: flex; align-items: end; justify-content: space-between; gap: 60px; padding-block: 110px 150px; }
 .studio-copy { max-width: 720px; }
 .studio-copy h2 { margin-bottom: 24px; }
@@ -141,6 +157,7 @@ h1, h2, h3, p { margin-top: 0; }
   .project-images { justify-content: flex-start; }
   .project-images .phone-frame { width: min(42%, 250px); }
   .project-images .phone-frame--small { width: min(35%, 215px); }
+  .youtube-project { grid-template-columns: 1fr; gap: 34px; }
   .studio-section { align-items: flex-start; flex-direction: column; gap: 32px; padding-block: 90px 110px; }
   .contact-main { grid-template-columns: 1.1fr .8fr; gap: 36px; }
   .contact-content p { font-size: 18px; }
@@ -174,6 +191,13 @@ h1, h2, h3, p { margin-top: 0; }
   .project-images .phone-frame { width: min(48%, 220px); }
   .project-images .phone-frame--small { width: min(39%, 180px); }
   .project-cta { font-size: 14px; }
+  .other-projects-section { padding-block: 0 10px; }
+  .other-projects-section .section-intro { margin-bottom: 24px; }
+  .youtube-project { gap: 27px; padding: 30px 23px 34px; border-radius: 24px; }
+  .youtube-project .project-copy h3 { font-size: 2.8rem; }
+  .youtube-project .project-meta { margin-bottom: 17px; font-size: 14px; }
+  .youtube-project .project-copy > p:not(.project-kicker) { font-size: 16px; }
+  .youtube-project-stat { padding: 19px; border-radius: 17px; }
   .studio-section { gap: 27px; padding-block: 74px 90px; }
   .footer-top { min-height: 130px; gap: 20px; }
   .footer-logo { width: 112px; height: 112px; }
