@@ -159,14 +159,9 @@ h1, h2, h3, p { margin-top: 0; }
 .contact-apps h2 { margin-bottom: 46px; font-size: clamp(2.8rem, 5.3vw, 5.4rem); font-weight: 390; letter-spacing: -.07em; line-height: .98; }
 .contact-app-list { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(36px, 7vw, 100px); }
 .contact-app { display: block; text-decoration: none; }
-.contact-app-images { display: flex; align-items: flex-start; gap: clamp(14px, 2.4vw, 32px); }
-.contact-app-images .phone-frame { width: min(43%, 220px); }
-.contact-app-images .phone-frame--small { width: min(37%, 190px); }
-.contact-app-title { display: flex; align-items: center; gap: 12px; margin-top: 24px; font-size: 24px; font-weight: 520; transition: color 180ms ease; }
+.contact-app-title { display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 520; transition: color 180ms ease; }
 .contact-app-title span { color: var(--accent); }
 .contact-app:hover .contact-app-title, .contact-app:focus-visible .contact-app-title { color: var(--accent); }
-.contact-app:hover .contact-app-images .phone-frame:first-child { transform: translateY(-7px); }
-.contact-app:hover .contact-app-images .phone-frame + .phone-frame { transform: translateY(7px); }
 
 .project-store-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 16px; color: rgba(255, 253, 249, .68); font-size: 13px; text-underline-offset: 4px; }
 .project-store-link:hover { color: #fffdf9; }
@@ -343,9 +338,7 @@ h1, h2, h3, p { margin-top: 0; }
   .contact-apps { padding-bottom: 85px; }
   .contact-apps h2 { margin-bottom: 32px; font-size: clamp(2.8rem, 11vw, 4.2rem); }
   .contact-app-list { grid-template-columns: 1fr; gap: 50px; }
-  .contact-app-images .phone-frame { width: min(44%, 220px); }
-  .contact-app-images .phone-frame--small { width: min(37%, 180px); }
-  .contact-app-title { margin-top: 18px; font-size: 21px; }
+  .contact-app-title { font-size: 21px; }
   .product-detail { padding-block: 30px 75px; }
   .product-breadcrumb { margin-bottom: 22px; }
   .product-hero { gap: 34px; padding: 30px 23px 34px; border-radius: 24px; }
@@ -371,11 +364,9 @@ h1, h2, h3, p { margin-top: 0; }
 
 @media (max-width: 760px) {
   .project-images .phone-frame,
-  .product-visual .phone-frame,
-  .contact-app-images .phone-frame { padding: 0; }
+  .product-visual .phone-frame { padding: 0; }
   .project-images .phone-frame img,
-  .product-visual .phone-frame img,
-  .contact-app-images .phone-frame img {
+  .product-visual .phone-frame img {
     position: absolute;
     top: 7px;
     left: 6px;
