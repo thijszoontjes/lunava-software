@@ -285,12 +285,11 @@ h1, h2, h3, p { margin-top: 0; }
 .saluun-shot figcaption span { color: #7563cf; font-size: 11px; font-weight: 750; letter-spacing: .08em; }
 .saluun-shot figcaption strong { font-size: 14px; font-weight: 620; }
 .saluun-shot figcaption small { margin-left: auto; color: var(--soft-ink); font-size: 11px; }
-.saluun-demo-note { margin: 13px 0 0; color: var(--soft-ink); font-size: 12px; line-height: 1.6; }
 .saluun-page .product-tier-section--saluun { background: linear-gradient(135deg, #f1efff, #f8f6ff); }
 .saluun-page .product-tier--saluun { border-color: rgba(104, 81, 201, .18); box-shadow: 0 10px 32px rgba(57, 48, 119, .07); }
 .saluun-page .product-benefits { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
 .saluun-price { margin: 0 0 5px; color: #c92c3a; font-size: clamp(2.4rem, 4.5vw, 4rem); font-weight: 650; letter-spacing: -.06em; line-height: 1; }
-.saluun-price small { color: #c92c3a; font-size: .42em; font-weight: 600; letter-spacing: -.02em; }
+.saluun-price small { display: block; margin-top: 8px; color: #c92c3a; font-size: .34em; font-weight: 600; letter-spacing: -.02em; }
 .saluun-price-note { margin: 0 0 22px; color: #a32834; font-size: 12px; font-weight: 650; }
 .saluun-page .product-final-cta .product-button { flex: 0 0 auto; }
 
