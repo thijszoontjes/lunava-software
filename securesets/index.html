@@ -3,137 +3,319 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fbf8f2">
-  <meta name="description" content="Plan strength workouts, log sets and track lift progress with SecureSets, an Android workout planner and training logbook. Optional Pro adds progression tools.">
-  <meta property="og:title" content="SecureSets: Workout Planner &amp; Logbook">
-  <meta property="og:description" content="Plan strength workouts, log sets and track lift progress with the SecureSets Android workout planner and training logbook.">
+  <meta name="theme-color" content="#f7f5f0">
+  <meta name="description" content="Plan strength workouts, log sets and weights, and review your training history with SecureSets for Android.">
+  <meta property="og:title" content="SecureSets — Workout planner and logbook for Android">
+  <meta property="og:description" content="Plan strength workouts, log sets and weights, and review your training history with SecureSets for Android.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lunavasoftware.nl/securesets/">
   <link rel="canonical" href="https://lunavasoftware.nl/securesets/">
   <link rel="icon" href="../assets/branding/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="icon" href="../assets/branding/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/branding/apple-touch-icon.png">
-  <link rel="stylesheet" href="../assets/site.css?v=20261022-app-detail-pro">
-  <title>SecureSets: Workout Planner &amp; Logbook | Lunava Software</title>
-  <script>document.documentElement.classList.add('js');</script>
+  <title>SecureSets — Workout planner and logbook for Android | Lunava Software</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #211d19;
+      --muted: #706860;
+      --paper: #f7f5f0;
+      --card: #fff;
+      --line: #e8e1d9;
+      --orange: #f47721;
+      --orange-dark: #c95410;
+      --soft-orange: #fff0e4;
+      --green: #2d7457;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; }
+    a:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+    .site-header {
+      display: flex;
+      min-height: 82px;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 760; letter-spacing: -.03em; }
+    .brand-mark { display: block; width: 44px; height: 44px; flex: 0 0 auto; border-radius: 12px; object-fit: cover; }
+    .brand-name { font-size: 19px; }
+    .brand-note { display: block; margin-top: -3px; color: var(--muted); font-size: 11px; font-weight: 550; letter-spacing: .08em; text-transform: uppercase; }
+    .nav { display: flex; align-items: center; gap: 25px; font-size: 14px; }
+    .nav a:not(.button) { color: var(--muted); text-decoration: none; }
+    .nav a:not(.button):hover { color: var(--ink); }
+    .button {
+      display: inline-flex;
+      min-height: 48px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 20px;
+      border: 0;
+      border-radius: 999px;
+      color: #fff;
+      background: var(--orange);
+      font-size: 15px;
+      font-weight: 730;
+      text-decoration: none;
+      transition: background .15s ease, transform .15s ease;
+    }
+    .button:hover { background: var(--orange-dark); transform: translateY(-1px); }
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr .82fr;
+      align-items: center;
+      gap: clamp(40px, 8vw, 100px);
+      padding: 86px 0 68px;
+    }
+    .eyebrow { margin: 0 0 14px; color: var(--orange-dark); font-size: 12px; font-weight: 780; letter-spacing: .13em; text-transform: uppercase; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1 { max-width: 660px; margin-bottom: 21px; font-size: clamp(42px, 6vw, 70px); line-height: .99; letter-spacing: -.065em; }
+    h1 span { color: var(--orange-dark); }
+    .hero-copy > p:not(.eyebrow) { max-width: 570px; margin-bottom: 25px; color: var(--muted); font-size: 18px; }
+    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 13px 18px; }
+    .cta-note { margin: 0; color: var(--muted); font-size: 13px; }
+    .quick-facts { display: flex; flex-wrap: wrap; gap: 10px 19px; margin: 25px 0 0; padding: 0; color: var(--muted); font-size: 13px; list-style: none; }
+    .quick-facts li::before { content: "✓"; margin-right: 7px; color: var(--green); font-weight: 800; }
+    .hero-shot { width: min(100%, 365px); justify-self: center; margin: 0; padding: 10px; border: 1px solid var(--line); border-radius: 31px; background: var(--card); box-shadow: 0 24px 65px #5b453017; transform: rotate(1.2deg); }
+    .hero-shot img { display: block; width: 100%; height: auto; border-radius: 23px; }
+    .hero-shot figcaption { padding: 11px 8px 5px; color: var(--muted); font-size: 12px; text-align: center; }
+    .section { padding: 78px 0; border-top: 1px solid var(--line); }
+    .section-heading { max-width: 700px; margin: 0 auto 36px; text-align: center; }
+    .section-heading h2, .split-copy h2, .privacy h2 { margin-bottom: 12px; font-size: clamp(30px, 4vw, 46px); line-height: 1.08; letter-spacing: -.045em; }
+    .section-heading > p:last-child, .split-copy > p:not(.eyebrow), .privacy > p:not(.eyebrow) { color: var(--muted); font-size: 16px; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .step { min-height: 168px; padding: 25px; border: 1px solid var(--line); border-radius: 22px; background: var(--card); }
+    .step-number { display: grid; width: 34px; height: 34px; margin-bottom: 19px; place-items: center; border-radius: 12px; color: var(--orange-dark); background: var(--soft-orange); font-size: 13px; font-weight: 800; }
+    .step h3 { margin-bottom: 7px; font-size: 18px; letter-spacing: -.02em; }
+    .step p { margin: 0; color: var(--muted); font-size: 14px; }
+    .screens { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+    .screen { margin: 0; padding: 10px; border: 1px solid var(--line); border-radius: 23px; background: var(--card); }
+    .screen img { display: block; width: 100%; height: auto; border-radius: 15px; }
+    .screen figcaption { min-height: 51px; padding: 12px 7px 2px; color: var(--muted); font-size: 13px; }
+    .screen figcaption strong { display: block; margin-bottom: 2px; color: var(--ink); font-size: 14px; }
+    .split { display: grid; grid-template-columns: .9fr 1fr; align-items: center; gap: clamp(35px, 8vw, 88px); }
+    .pro { background: #f1ece5; }
+    .split-copy { max-width: 520px; }
+    .split-copy ul { display: grid; gap: 9px; margin: 22px 0 0; padding: 0; list-style: none; }
+    .split-copy li { color: var(--muted); }
+    .split-copy li::before { content: "✓"; margin-right: 10px; color: var(--green); font-weight: 800; }
+    .pro-shot { width: min(100%, 410px); justify-self: center; margin: 0; padding: 10px; border: 1px solid var(--line); border-radius: 24px; background: var(--card); box-shadow: 0 18px 45px #5b453012; }
+    .pro-shot img { display: block; width: 100%; height: auto; border-radius: 15px; }
+    .pro-shot figcaption { padding: 9px 5px 3px; color: var(--muted); font-size: 12px; text-align: center; }
+    .price-note { margin: 18px 0 0; color: var(--muted); font-size: 13px; }
+    .privacy { padding: 68px; border: 1px solid #f1d3bd; border-radius: 28px; background: #fffaf6; }
+    .privacy-grid { display: grid; grid-template-columns: 1fr .82fr; gap: 42px; align-items: start; }
+    .privacy-list { margin: 0; padding: 0; color: var(--muted); font-size: 14px; list-style: none; }
+    .privacy-list li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+    .privacy-list li:last-child { border: 0; }
+    .privacy-list strong { display: block; margin-bottom: 3px; color: var(--ink); }
+    .fine-link { color: var(--orange-dark); font-weight: 650; }
+    .last-cta { padding: 78px 0 84px; text-align: center; }
+    .last-cta h2 { margin-bottom: 12px; font-size: clamp(32px, 4.5vw, 50px); letter-spacing: -.05em; }
+    .last-cta p { margin-bottom: 23px; color: var(--muted); }
+    footer { padding: 25px 0 32px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+    .footer-row { display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 18px; }
+    .footer-links a { text-decoration: none; }
+    .footer-links a:hover { color: var(--ink); }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 30px, 560px); }
+      .site-header { min-height: 72px; }
+      .nav { gap: 12px; }
+      .nav a:not(.button) { display: none; }
+      .nav .button { min-height: 42px; padding: 0 14px; font-size: 13px; }
+      .hero { grid-template-columns: 1fr; gap: 34px; padding: 54px 0 48px; }
+      h1 { font-size: clamp(42px, 12vw, 62px); }
+      .hero-shot { width: min(76%, 330px); }
+      .section { padding: 58px 0; }
+      .steps { grid-template-columns: 1fr; gap: 11px; }
+      .step { min-height: 0; padding: 19px; }
+      .step-number { margin-bottom: 12px; }
+      .screens { grid-template-columns: 1fr 1fr; gap: 10px; }
+      .screen:last-child { grid-column: 1 / -1; width: min(75%, 300px); justify-self: center; }
+      .screen figcaption { min-height: 58px; font-size: 12px; }
+      .split, .privacy-grid { grid-template-columns: 1fr; gap: 28px; }
+      .pro-shot { width: min(84%, 350px); }
+      .privacy { padding: 28px 23px; border-radius: 23px; }
+      .last-cta { padding: 60px 0; }
+      .footer-row { align-items: flex-start; flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition-duration: .01ms !important; }
+    }
+  </style>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="wrap header-inner">
-      <a class="brand" href="../" aria-label="Lunava Software home">
-        <img src="../assets/branding/lunava-logo.png" alt="" width="54" height="54">
-        <span>Lunava Software</span>
-      </a>
-      <nav class="nav" aria-label="Main navigation">
-        <a href="../#apps">Projects</a>
-        <a href="../#studio">Studio</a>
-        <a href="../contact/">Contact</a>
-      </nav>
-    </div>
+  <header class="site-header wrap">
+    <a class="brand" href="../" aria-label="Lunava Software home">
+      <img class="brand-mark" src="../assets/branding/lunava-logo.png" alt="" width="44" height="44">
+      <span class="brand-name">Lunava Software</span>
+    </a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#how">How it works</a>
+      <a href="#pro">Pro</a>
+      <a href="#privacy">Privacy</a>
+      <a class="button" href="https://play.google.com/store/apps/details?id=com.securesets.app&amp;utm_source=securesets_site&amp;utm_medium=website&amp;utm_campaign=ss_first10_2026-10&amp;utm_content=nav_cta">Get the app</a>
+    </nav>
   </header>
 
-  <main id="main" class="product-detail wrap">
-    <p class="product-breadcrumb"><a href="../#apps">Projects</a> <span aria-hidden="true">/</span> SecureSets</p>
-    <section class="product-hero" aria-labelledby="product-title">
-      <div class="product-hero-copy" data-reveal>
-        <p class="product-eyebrow">Strength training · Android</p>
-        <h1 class="product-title" id="product-title">Train your way. See what’s next.</h1>
-        <p class="product-lead">Build routines around your goals, schedule and equipment. Log workouts for free, then add SecureSets Pro when you want more structure, progression guidance and deeper training trends.</p>
-        <div class="product-actions">
-          <a class="product-button" href="https://play.google.com/store/apps/details?id=com.securesets.app" target="_blank" rel="noopener noreferrer">Get SecureSets on Google Play <span aria-hidden="true">↗</span></a>
-          <a class="product-back-link" href="../#apps">Back to all projects</a>
+  <main id="top">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow">For lifters who already have a plan</p>
+        <h1 id="hero-title">See last time.<br><span>Log today.</span></h1>
+        <p>Repeat a workout with your previous reps and weights ready to check. Log each set, then review how training is moving over time.</p>
+        <div class="cta-row">
+          <a class="button" href="https://play.google.com/store/apps/details?id=com.securesets.app&amp;utm_source=securesets_site&amp;utm_medium=website&amp;utm_campaign=ss_first10_2026-10&amp;utm_content=hero_cta">Get SecureSets on Google Play</a>
+          <p class="cta-note">Free to install · Optional Pro</p>
         </div>
-        <p class="product-trustline">No account required · Your training data stays on your device</p>
+        <ul class="quick-facts" aria-label="SecureSets highlights">
+          <li>No account required</li>
+          <li>Workout data stays on your device</li>
+        </ul>
       </div>
-      <div class="product-visual" aria-label="SecureSets app screenshots">
-        <span class="phone-frame phone-frame--training" data-reveal><img src="../assets/screens/securesets-home.png?v=20261022-105" alt="SecureSets Today screen with a workout in progress and saved routines" width="1080" height="2400" fetchpriority="high"></span>
-        <span class="phone-frame phone-frame--training phone-frame--small" data-reveal style="--delay: 100ms"><img src="../assets/screens/securesets-pro-overview.png?v=20261022-main-pro" alt="SecureSets Pro overview with an illustrative estimated-strength trend and progress insights" width="1080" height="2400" loading="lazy" decoding="async"></span>
+      <figure class="hero-shot">
+        <img src="../assets/screens/securesets/01-today.png?v=20261023-1.0.5" alt="SecureSets Today screen with a workout in progress and saved training routines" width="1080" height="2400">
+        <figcaption>Open the app and see what you planned to train.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section" id="how" aria-labelledby="how-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">From plan to progress</p>
+          <h2 id="how-title">Plan. Log. Review.</h2>
+          <p>Keep the session focused on the lifts in front of you, then use your own history to see how training is moving.</p>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <span class="step-number" aria-hidden="true">01</span>
+            <h3>Build your routine</h3>
+            <p>Create and edit workouts around your goals, equipment and schedule. Plan manually or try the optional on-device AI model.</p>
+          </article>
+          <article class="step">
+            <span class="step-number" aria-hidden="true">02</span>
+            <h3>Log each set</h3>
+            <p>Record reps and weight as you train, with a rest timer built into the workout.</p>
+          </article>
+          <article class="step">
+            <span class="step-number" aria-hidden="true">03</span>
+            <h3>Review your work</h3>
+            <p>Return to completed sessions and see how often you trained and how your lifts changed.</p>
+          </article>
+        </div>
+        <div class="screens" aria-label="SecureSets app screens">
+          <figure class="screen">
+            <img src="../assets/screens/securesets/02-routines.png?v=20261023-1.0.5" alt="SecureSets Routines screen showing AI planning, starter routines and saved training plans" width="1080" height="2400" loading="lazy" decoding="async">
+            <figcaption><strong>Reusable routines</strong>Build or import a workout plan and return to it.</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="../assets/screens/securesets/03-progress.png?v=20261023-1.0.5" alt="SecureSets Progress screen summarizing sessions, logged sets and training tools" width="1080" height="2400" loading="lazy" decoding="async">
+            <figcaption><strong>Training history</strong>Review recent sessions and explore training tools.</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="../assets/screens/securesets/04-settings.png?v=20261023-1.0.5" alt="SecureSets Settings screen with backup, restore and reminder controls" width="1080" height="2400" loading="lazy" decoding="async">
+            <figcaption><strong>Your settings</strong>Manage backups, reminders and app preferences.</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="../assets/screens/securesets/05-next-workout.png?v=20261023-1.0.5" alt="SecureSets Pro next-workout screen with progression rules and an example load proposal" width="1080" height="2400" loading="lazy" decoding="async">
+            <figcaption><strong>Next workout</strong>Set progression rules and review a suggested next session.</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="../assets/screens/securesets/06-pro.png?v=20261023-1.0.5" alt="SecureSets Pro screen showing included features and monthly or lifetime plans" width="1080" height="2400" loading="lazy" decoding="async">
+            <figcaption><strong>SecureSets Pro</strong>See what's included and choose a plan.</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="../assets/screens/securesets/07-pro-demo.png?v=20261023-1.0.5" alt="SecureSets Pro screen showing training blocks, equipment profiles and lift trends" width="1080" height="2400" loading="lazy" decoding="async">
+            <figcaption><strong>Plan and review</strong>Plan training blocks and explore deeper trends.</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="../assets/screens/securesets/08-pro-demo-chart.png?v=20261023-1.0.5" alt="Illustrative SecureSets Pro chart showing a six-week bench press trend and next-workout example" width="1080" height="2400" loading="lazy" decoding="async">
+            <figcaption><strong>Lift trends</strong>This example uses sample data; your Pro insights use your logged workouts.</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="../assets/screens/securesets/09-plate-calculator.png?v=20261023-1.0.5" alt="SecureSets plate calculator showing target weight, bar weight and available plates" width="1080" height="2400" loading="lazy" decoding="async">
+            <figcaption><strong>Plate calculator</strong>Calculate which plates to load on each side.</figcaption>
+          </figure>
+          <figure class="screen">
+            <img src="../assets/screens/securesets/10-starter-routines.png?v=20261023-1.0.5" alt="SecureSets starter routines screen with ready-made full-body and split plans" width="1080" height="2400" loading="lazy" decoding="async">
+            <figcaption><strong>Starter routines</strong>Start with a template and adapt it to your training.</figcaption>
+          </figure>
+        </div>
       </div>
     </section>
 
-    <section class="product-section" aria-labelledby="product-story-title">
-      <h2 id="product-story-title" data-reveal>A plan built around real life.</h2>
-      <div class="product-section-copy" data-reveal style="--delay: 100ms">
-        <p>Choose your goal, how often you train, the equipment you have and the time you can give a session. Exclude training splits you do not want. Start from an editable routine, build your own or use the optional on-device AI model to generate a plan.</p>
-        <p>Download the optional model once and workout generation runs on your phone, even offline. While training, SecureSets suggests your previous weights and reps, keeps unfinished sessions resumable and puts your workout history in one place.</p>
-      </div>
-    </section>
-
-    <div class="product-benefits" aria-label="SecureSets features">
-      <article class="product-benefit" data-reveal>
-        <span>01</span>
-        <h3>Make the plan yours</h3>
-        <p>Set goals, training days, equipment and session length. Edit every routine or build one exercise by exercise.</p>
-      </article>
-      <article class="product-benefit" data-reveal style="--delay: 80ms">
-        <span>02</span>
-        <h3>Stay in your workout</h3>
-        <p>Log sets, reps and weight, use the rest timer and pick up unfinished sessions when you return.</p>
-      </article>
-      <article class="product-benefit" data-reveal style="--delay: 160ms">
-        <span>03</span>
-        <h3>Keep your training history</h3>
-        <p>Review session recaps and estimated strength progress, with CSV import and JSON backups when you need them.</p>
-      </article>
-    </div>
-
-    <section class="product-tier-section" aria-labelledby="securesets-tiers-title">
-      <div class="product-tier-heading">
-        <h2 id="securesets-tiers-title" data-reveal>Start free. Add Pro for more guidance.</h2>
-        <p data-reveal style="--delay: 100ms">The core workout planner and log are free. SecureSets Pro adds tools for progression, longer-term planning and a closer look at your training.</p>
-      </div>
-      <div class="product-tier-grid">
-        <article class="product-tier" data-reveal>
-          <p class="product-tier-label">FREE · CORE TRAINING TOOLS</p>
-          <h3>Plan and log your workouts</h3>
+    <section class="section pro" id="pro" aria-labelledby="pro-title">
+      <div class="wrap split">
+        <div class="split-copy">
+          <p class="eyebrow">SecureSets Pro</p>
+          <h2 id="pro-title">See the work paying off.</h2>
+          <p>Pro makes your training history easier to read: see weekly frequency, sets by muscle group, estimated personal bests, and which lifts are moving or holding steady.</p>
           <ul>
-            <li>Build, edit and organize routines with the exercise library or your own exercises.</li>
-            <li>Log sets, reps and weights, with previous performance and a built-in rest timer.</li>
-            <li>Keep session history, resume unfinished workouts and review session recaps.</li>
-            <li>Use starter routines, CSV import, an estimated 1RM calculator and JSON backup/restore.</li>
+            <li>Track weekly training frequency</li>
+            <li>Review trends across your lifts</li>
+            <li>Use SecureSets without ads while Pro is active</li>
+            <li>Choose the Rose theme</li>
           </ul>
-          <p class="product-tier-note">The free app includes ads. Workout data is stored locally and no account is required.</p>
-        </article>
-        <article class="product-tier product-tier--pro" data-reveal style="--delay: 100ms">
-          <p class="product-tier-label">SECURESETS PRO</p>
-          <h3>Know what to work on next</h3>
-          <ul>
-            <li><strong>Progression guidance:</strong> set a rep range and weight step for each exercise; see a suggested next step and why.</li>
-            <li><strong>Training blocks:</strong> plan 1–16 weeks, set goals, and move or skip sessions as your week changes.</li>
-            <li><strong>Equipment profiles:</strong> swap in a similar exercise for the gym, home or a hotel setup.</li>
-            <li><strong>Deeper progress:</strong> review sets by muscle group, estimated personal bests and lift trends.</li>
-            <li><strong>Ad-free while Pro is active,</strong> with the Rose theme included.</li>
-          </ul>
-          <p class="product-tier-note">Choose monthly or lifetime access in the app. Google Play shows the current price before purchase.</p>
-        </article>
+          <p class="price-note">Free to install with ads. In the Netherlands, optional Pro is €0.99/month or €9.99 once; prices vary by country.</p>
+        </div>
+        <figure class="pro-shot">
+          <img src="../assets/screens/securesets/08-pro-demo-chart.png?v=20261023-1.0.5" alt="Illustrative SecureSets Pro chart showing a six-week bench press trend and next-workout example" width="1080" height="2400" loading="lazy" decoding="async">
+          <figcaption>Illustrative example. Your chart uses your own logged workouts.</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="product-final-cta" aria-label="Get SecureSets">
-      <div>
-        <h2>Build your next routine for free.</h2>
-        <p class="product-final-note">Pro plan options are available in SecureSets; the Play Store displays your localized price.</p>
+    <section class="section wrap" id="privacy" aria-labelledby="privacy-title">
+      <div class="privacy">
+        <div class="privacy-grid">
+          <div>
+            <p class="eyebrow">Your training stays yours</p>
+            <h2 id="privacy-title">No sign-in for your workout log.</h2>
+            <p>Routines and workout history are stored on your device. SecureSets does not require an account. The optional AI model downloads to your device and runs locally after setup.</p>
+            <p>SecureSets uses Google AdMob to display ads. See Google Play's Data Safety section and the privacy policy for details about data used for ads and app services.</p>
+            <a class="fine-link" href="https://play.google.com/store/apps/details?id=com.securesets.app&amp;utm_source=securesets_site&amp;utm_medium=website&amp;utm_campaign=ss_first10_2026-10&amp;utm_content=privacy_section">Review SecureSets on Google Play</a>
+          </div>
+          <ul class="privacy-list">
+            <li><strong>Workout plans and logs</strong>Saved locally on your device.</li>
+            <li><strong>Optional AI planning</strong>The downloaded model runs on your device.</li>
+            <li><strong>Ads and app services</strong>Data practices are described in Google Play and the privacy policy.</li>
+          </ul>
+        </div>
       </div>
-      <a class="product-button" href="https://play.google.com/store/apps/details?id=com.securesets.app" target="_blank" rel="noopener noreferrer">View SecureSets on Google Play <span aria-hidden="true">↗</span></a>
+    </section>
+
+    <section class="last-cta wrap" aria-labelledby="last-title">
+      <p class="eyebrow">Start with the next session</p>
+      <h2 id="last-title">Make your training easier to review.</h2>
+      <p>SecureSets is available for Android. Free to install, with optional Pro features.</p>
+      <a class="button" href="https://play.google.com/store/apps/details?id=com.securesets.app&amp;utm_source=securesets_site&amp;utm_medium=website&amp;utm_campaign=ss_first10_2026-10&amp;utm_content=closing_cta">Get it on Google Play</a>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="wrap footer-top">
-      <img class="footer-logo" src="../assets/branding/lunava-logo.png" alt="Lunava Software logo" width="150" height="150" loading="lazy">
-      <nav class="footer-nav" aria-label="Footer navigation">
-        <a href="../#apps">Projects</a>
-        <a href="../#studio">Studio</a>
-        <a href="../contact/">Contact</a>
+  <footer>
+    <div class="wrap footer-row">
+      <span>© 2026 SecureSets · Lunava Software</span>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="https://thijszoontjes.github.io/securesets-privacy/">Privacy policy</a>
+        <a href="https://github.com/thijszoontjes/securesets-app">Website source</a>
+        <a href="mailto:lunavasoftware@gmail.com">Contact</a>
       </nav>
     </div>
-    <div class="wrap footer-bottom">
-      <span>Lunava Software · Thijs Zoontjes</span>
-      <span>KVK 42195099</span>
-      <span>© 2026 · The Netherlands</span>
-    </div>
   </footer>
-  <script src="../assets/site.js" defer></script>
 </body>
 </html>
