@@ -249,6 +249,51 @@ h1, h2, h3, p { margin-top: 0; }
 .sunrise-page .product-button { background: var(--accent); color: #21141a; }
 .sunrise-page .product-button:hover { background: #ffae79; }
 
+.project-link--saluun {
+  border-color: rgba(102, 77, 196, .15);
+  background: linear-gradient(125deg, #fffefd 8%, #f2efff 100%);
+}
+.project-link--saluun::before { background: radial-gradient(circle, rgba(133, 113, 238, .24), rgba(194, 185, 255, .1) 55%, transparent 72%); }
+.project-link--saluun .project-meta { color: #6655b4; }
+.project-images--desktop { position: relative; display: grid; min-width: 0; min-height: 270px; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 0; }
+.saluun-preview { position: relative; overflow: hidden; margin: 0; border: 1px solid rgba(66, 52, 135, .15); border-radius: 13px; background: #fff; box-shadow: 0 18px 42px rgba(52, 43, 105, .16); transition: transform 450ms var(--ease-out); }
+.saluun-preview--primary { z-index: 1; }
+.saluun-preview--secondary { z-index: 2; width: 125%; margin-left: -24%; transform: translateY(23px); }
+.saluun-preview img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.project-store-button--saluun { border-color: rgba(102, 77, 196, .22); background: rgba(255, 255, 255, .72); color: #5141a1; }
+.project-link--saluun:hover .saluun-preview--primary { transform: translateY(-5px); }
+.project-link--saluun:hover .saluun-preview--secondary { transform: translateY(18px); }
+.saluun-page { --accent: #6751c9; --terracotta: #c92c3a; --line: rgba(62, 53, 112, .13); background: radial-gradient(ellipse at 86% 8%, rgba(194, 184, 255, .25), transparent 34rem), var(--ground); }
+.saluun-page .product-hero { min-height: 490px; border-color: rgba(104, 81, 201, .14); background: linear-gradient(125deg, #fffefd 8%, #f1efff 100%); box-shadow: 0 18px 55px rgba(57, 48, 119, .075); }
+.saluun-page .product-eyebrow { color: #6652c4; }
+.saluun-page .product-button { background: #6751c9; color: #fff; }
+.saluun-page .product-button:hover { background: #4f3bad; }
+.saluun-page .product-trustline { color: #6556a3; }
+.saluun-status { display: inline-flex; align-items: center; gap: 9px; width: fit-content; margin-bottom: 20px; padding: 8px 12px; border: 1px solid rgba(104, 81, 201, .17); border-radius: 99px; background: rgba(255, 255, 255, .64); color: #5146a0; font-size: 12px; font-weight: 650; }
+.saluun-status::before { width: 7px; height: 7px; border-radius: 50%; background: #7861dd; content: ""; }
+.saluun-page .product-hero .product-title { max-width: 600px; font-size: clamp(3.2rem, 5.2vw, 4.4rem); }
+.saluun-hero-visual { display: grid; min-height: 260px; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 0; }
+.saluun-page .product-final-cta { border-color: rgba(104, 81, 201, .14); background: linear-gradient(120deg, #f2efff, #f9f7ff); }
+.saluun-showcase { padding-block: 88px 24px; }
+.saluun-showcase .section-intro { margin-bottom: 30px; }
+.saluun-showcase .section-intro h2 { font-size: clamp(2.6rem, 4.8vw, 4.5rem); }
+.saluun-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 18px; }
+.saluun-shot { overflow: hidden; margin: 0; border: 1px solid rgba(66, 52, 135, .13); border-radius: 18px; background: #fff; box-shadow: 0 14px 38px rgba(46, 40, 86, .075); }
+.saluun-shot:first-child { grid-column: 1 / -1; }
+.saluun-shot img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
+.saluun-shot figcaption { display: flex; align-items: baseline; gap: 10px; padding: 13px 16px 15px; }
+.saluun-shot figcaption span { color: #7563cf; font-size: 11px; font-weight: 750; letter-spacing: .08em; }
+.saluun-shot figcaption strong { font-size: 14px; font-weight: 620; }
+.saluun-shot figcaption small { margin-left: auto; color: var(--soft-ink); font-size: 11px; }
+.saluun-demo-note { margin: 13px 0 0; color: var(--soft-ink); font-size: 12px; line-height: 1.6; }
+.saluun-page .product-tier-section--saluun { background: linear-gradient(135deg, #f1efff, #f8f6ff); }
+.saluun-page .product-tier--saluun { border-color: rgba(104, 81, 201, .18); box-shadow: 0 10px 32px rgba(57, 48, 119, .07); }
+.saluun-page .product-benefits { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+.saluun-price { margin: 0 0 5px; color: #c92c3a; font-size: clamp(2.4rem, 4.5vw, 4rem); font-weight: 650; letter-spacing: -.06em; line-height: 1; }
+.saluun-price small { color: #c92c3a; font-size: .42em; font-weight: 600; letter-spacing: -.02em; }
+.saluun-price-note { margin: 0 0 22px; color: #a32834; font-size: 12px; font-weight: 650; }
+.saluun-page .product-final-cta .product-button { flex: 0 0 auto; }
+
 .js [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity 800ms var(--ease-out), transform 900ms var(--ease-out); transition-delay: var(--delay, 0ms); }
 .js [data-reveal].is-in { opacity: 1; transform: none; }
 .js .hero-title [data-line] { transform: translateY(105%); animation: line-up 900ms var(--ease-out) forwards; animation-delay: calc(var(--i) * 110ms + 150ms); }
@@ -268,6 +313,8 @@ h1, h2, h3, p { margin-top: 0; }
   .project-images { justify-content: flex-start; }
   .project-images .phone-frame { width: min(42%, 250px); }
   .project-images .phone-frame--small { width: min(35%, 215px); }
+  .project-images--desktop { min-height: 230px; }
+  .saluun-preview--secondary { width: 125%; margin-left: -24%; }
   .youtube-project { grid-template-columns: 1fr; gap: 34px; }
   .extension-project { grid-template-columns: 1fr; gap: 34px; }
   .studio-section { align-items: flex-start; flex-direction: column; gap: 32px; padding-block: 90px 110px; }
@@ -275,6 +322,9 @@ h1, h2, h3, p { margin-top: 0; }
   .contact-content p { font-size: 18px; }
   .contact-email { font-size: clamp(2.35rem, 6vw, 4.2rem); }
   .product-hero { min-height: 0; grid-template-columns: 1fr; gap: 42px; }
+  .saluun-page .product-hero { min-height: 0; }
+  .saluun-hero-visual { min-height: 0; }
+  .saluun-page .product-benefits { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .product-visual { justify-content: flex-start; }
   .youtube-detail-stats { max-width: 560px; }
   .product-section { grid-template-columns: 1fr; gap: 28px; padding-top: 75px; }
@@ -308,6 +358,9 @@ h1, h2, h3, p { margin-top: 0; }
   .project-images { gap: 14px; }
   .project-images .phone-frame { width: min(48%, 220px); }
   .project-images .phone-frame--small { width: min(39%, 180px); }
+  .project-images--desktop { min-height: 0; grid-template-columns: 1fr; gap: 12px; }
+  .saluun-preview--secondary { width: 100%; margin-left: 0; transform: none; }
+  .project-link--saluun:hover .saluun-preview--secondary { transform: none; }
   .project-cta { font-size: 14px; }
   .other-projects-section { padding-block: 0 10px; }
   .other-projects-section .section-intro { margin-bottom: 24px; }
@@ -343,6 +396,9 @@ h1, h2, h3, p { margin-top: 0; }
   .product-breadcrumb { margin-bottom: 22px; }
   .product-hero { gap: 34px; padding: 30px 23px 34px; border-radius: 24px; }
   .product-title { font-size: clamp(3.1rem, 12vw, 4.8rem); }
+  .saluun-page .product-hero .product-title { font-size: clamp(2.8rem, 10vw, 3.7rem); }
+  .saluun-hero-visual { grid-template-columns: 1fr; gap: 12px; }
+  .saluun-hero-visual .saluun-preview--secondary { width: 100%; margin-left: 0; transform: none; }
   .product-lead { font-size: 16px; }
   .product-actions { align-items: flex-start; flex-direction: column; }
   .youtube-channel-link { margin-left: 0; }
@@ -360,6 +416,14 @@ h1, h2, h3, p { margin-top: 0; }
   .product-tier { padding: 24px 21px; border-radius: 18px; }
   .product-tier h3 { font-size: 1.65rem; }
   .product-final-cta { align-items: flex-start; flex-direction: column; margin-top: 22px; padding: 26px 22px; }
+  .saluun-showcase { padding-block: 58px 12px; }
+  .saluun-showcase .section-intro { margin-bottom: 20px; }
+  .saluun-gallery { grid-template-columns: 1fr; gap: 12px; }
+  .saluun-shot:first-child { grid-column: auto; }
+  .saluun-shot figcaption { flex-wrap: wrap; gap: 8px; }
+  .saluun-shot figcaption small { width: 100%; margin-left: 29px; }
+  .saluun-page .product-tier-section--saluun { margin-top: 42px; }
+  .saluun-page .product-benefits { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 760px) {
