@@ -8,17 +8,6 @@ document.querySelectorAll('[data-weekly-view-projection]').forEach((metric) => {
   metric.textContent = `${Math.floor((baseViews + completedWeeks * weeklyIncrease) / 1000).toLocaleString('en-US')}K+`;
 });
 
-document.querySelectorAll('[data-birth-date]').forEach((age) => {
-  const birthDate = age.dataset.birthDate.split('-').map(Number);
-  if (birthDate.length !== 3 || birthDate.some((part) => !Number.isInteger(part))) return;
-
-  const [birthYear, birthMonth, birthDay] = birthDate;
-  const today = new Date();
-  let years = today.getFullYear() - birthYear;
-  if (today.getMonth() + 1 < birthMonth || (today.getMonth() + 1 === birthMonth && today.getDate() < birthDay)) years--;
-  age.textContent = String(years);
-});
-
 if (!('IntersectionObserver' in window)) {
   document.documentElement.classList.remove('js');
 } else if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
