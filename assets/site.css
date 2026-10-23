@@ -371,9 +371,11 @@ h1, h2, h3, p { margin-top: 0; }
 
 @media (max-width: 760px) {
   .project-images .phone-frame,
-  .product-visual .phone-frame { padding: 0; }
+  .product-visual .phone-frame,
+  .contact-app-images .phone-frame { padding: 0; }
   .project-images .phone-frame img,
-  .product-visual .phone-frame img {
+  .product-visual .phone-frame img,
+  .contact-app-images .phone-frame img {
     position: absolute;
     top: 7px;
     left: 6px;

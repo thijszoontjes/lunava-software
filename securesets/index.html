@@ -42,20 +42,25 @@
     a:focus-visible { outline: 3px solid var(--orange); outline-offset: 4px; }
     .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
     .site-header {
+      position: relative;
+      z-index: 2;
+      border-bottom: 1px solid rgba(74, 53, 42, .12);
+      color: #29242a;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+    .header-inner {
       display: flex;
-      min-height: 82px;
+      width: min(1240px, calc(100% - 64px));
+      min-height: 92px;
       align-items: center;
       justify-content: space-between;
-      gap: 24px;
-      border-bottom: 1px solid var(--line);
+      margin-inline: auto;
     }
-    .brand { display: inline-flex; align-items: center; gap: 11px; text-decoration: none; font-weight: 760; letter-spacing: -.03em; }
-    .brand-mark { display: block; width: 44px; height: 44px; flex: 0 0 auto; border-radius: 12px; object-fit: cover; }
-    .brand-name { font-size: 19px; }
-    .brand-note { display: block; margin-top: -3px; color: var(--muted); font-size: 11px; font-weight: 550; letter-spacing: .08em; text-transform: uppercase; }
-    .nav { display: flex; align-items: center; gap: 25px; font-size: 14px; }
-    .nav a:not(.button) { color: var(--muted); text-decoration: none; }
-    .nav a:not(.button):hover { color: var(--ink); }
+    .brand { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 560; letter-spacing: -.03em; text-decoration: none; }
+    .brand img { width: 54px; height: 54px; object-fit: cover; }
+    .nav { display: flex; align-items: center; gap: clamp(20px, 3vw, 42px); }
+    .nav a { color: #625b61; font-size: 14px; text-decoration: none; transition: color 180ms ease; }
+    .nav a:hover { color: #7152b2; }
     .button {
       display: inline-flex;
       min-height: 48px;
@@ -165,10 +170,7 @@
 
     @media (max-width: 760px) {
       .wrap { width: min(100% - 30px, 560px); }
-      .site-header { min-height: 72px; }
-      .nav { gap: 12px; }
-      .nav a:not(.button) { display: none; }
-      .nav .button { min-height: 42px; padding: 0 14px; font-size: 13px; }
+      .header-inner { width: min(1240px, calc(100% - 48px)); }
       .hero { grid-template-columns: 1fr; gap: 34px; padding: 54px 0 48px; }
       h1 { font-size: clamp(42px, 12vw, 62px); }
       .hero-shot { width: min(72%, 250px); }
@@ -195,6 +197,13 @@
       .last-cta { padding: 60px 0; }
       .footer-row { align-items: flex-start; flex-direction: column; }
     }
+    @media (max-width: 620px) {
+      .header-inner { width: calc(100% - 36px); min-height: 78px; }
+      .brand { gap: 8px; font-size: 13px; }
+      .brand img { width: 42px; height: 42px; }
+      .nav { gap: 15px; }
+      .nav a { font-size: 13px; }
+    }
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
       *, *::before, *::after {
@@ -209,17 +218,18 @@
   <link rel="stylesheet" href="../assets/consent.css?v=20261023-analytics-consent">
 </head>
 <body>
-  <header class="site-header wrap">
-    <a class="brand" href="../" aria-label="Lunava Software home">
-      <img class="brand-mark" src="../assets/branding/lunava-logo.png" alt="" width="44" height="44">
-      <span class="brand-name">Lunava Software</span>
-    </a>
-    <nav class="nav" aria-label="Main navigation">
-      <a href="#how">How it works</a>
-      <a href="#pro">Pro</a>
-      <a href="#privacy">Privacy</a>
-      <a class="button" href="https://play.google.com/store/apps/details?id=com.securesets.app&amp;utm_source=securesets_site&amp;utm_medium=website&amp;utm_campaign=ss_first10_2026-10&amp;utm_content=nav_cta">Get the app</a>
-    </nav>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../" aria-label="Lunava Software home">
+        <img src="../assets/branding/lunava-logo.png" alt="" width="54" height="54">
+        <span>Lunava Software</span>
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <a href="../securesets/" aria-current="page">SecureSets</a>
+        <a href="../sunrise-alarm/">Sunrise Alarm</a>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </div>
   </header>
 
   <main id="top">
