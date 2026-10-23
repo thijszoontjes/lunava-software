@@ -222,6 +222,26 @@ h1, h2, h3, p { margin-top: 0; }
 .product-final-cta--extension { border: 0; background: #29242a; color: #fffdf9; }
 .product-final-cta .product-button { flex: 0 0 auto; }
 
+.sunrise-page {
+  --ground: #0b0d13;
+  --paper: #171a22;
+  --ink: #f5f1ed;
+  --soft-ink: #b8b5c3;
+  --accent: #ff9866;
+  --terracotta: #ffad7b;
+  --line: rgba(236, 224, 215, .13);
+  background: radial-gradient(ellipse at 80% 15%, rgba(251, 138, 88, .13), transparent 38rem), var(--ground);
+  color: var(--ink);
+}
+.sunrise-page .product-hero { border-color: var(--line); background: radial-gradient(circle at 78% 30%, rgba(255, 141, 83, .12), transparent 24rem), linear-gradient(125deg, #171a22 8%, #20202a 100%); box-shadow: 0 18px 55px rgba(0, 0, 0, .28); }
+.sunrise-page .product-tier-section { background: linear-gradient(135deg, #171a22, #221d25); }
+.sunrise-page .product-tier { border-color: var(--line); }
+.sunrise-page .product-tier--pro { box-shadow: 0 10px 32px rgba(0, 0, 0, .25); }
+.sunrise-page .product-final-cta { background: linear-gradient(135deg, #171a22, #222029); }
+.sunrise-page .site-footer { background: #11131a; }
+.sunrise-page .product-button { background: var(--accent); color: #21141a; }
+.sunrise-page .product-button:hover { background: #ffae79; }
+
 .js [data-reveal] { opacity: 0; transform: translateY(22px); transition: opacity 800ms var(--ease-out), transform 900ms var(--ease-out); transition-delay: var(--delay, 0ms); }
 .js [data-reveal].is-in { opacity: 1; transform: none; }
 .js .hero-title [data-line] { transform: translateY(105%); animation: line-up 900ms var(--ease-out) forwards; animation-delay: calc(var(--i) * 110ms + 150ms); }
