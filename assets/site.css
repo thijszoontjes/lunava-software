@@ -80,7 +80,7 @@ h1, h2, h3, p { margin-top: 0; }
 .phone-frame--training { aspect-ratio: 9 / 20; }
 .phone-frame--small { width: min(38%, 230px); }
 .project-card-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; }
-.project-store-button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 9px; padding: 0 16px; border-radius: 4px; background: var(--ink); color: var(--ground); font-size: 13px; font-weight: 650; text-decoration: none; transition: transform 180ms var(--ease-out), background-color 180ms ease; }
+.project-store-button { display: inline-flex; min-height: 44px; align-items: center; justify-content: center; gap: 9px; padding: 0 16px; border-radius: 4px; background: var(--ink); color: var(--ground); font-size: 13px; font-weight: 650; text-decoration: none; transition: transform 180ms var(--ease-out), background-color 180ms ease, border-color 180ms ease, color 180ms ease; }
 .project-store-button:hover { transform: translateY(-2px); background: var(--accent); }
 .project-store-button span { font-size: 16px; }
 .project-store-button:focus-visible { outline-offset: 4px; }
@@ -262,6 +262,7 @@ h1, h2, h3, p { margin-top: 0; }
 .saluun-preview--secondary { z-index: 2; width: 125%; margin-left: -24%; transform: translateY(23px); }
 .saluun-preview img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; }
 .project-store-button--saluun { border-color: rgba(102, 77, 196, .22); background: rgba(255, 255, 255, .72); color: #5141a1; }
+.project-link--saluun:hover .project-store-button--saluun, .project-link--saluun:focus-within .project-store-button--saluun { border-color: #4f3bad; background: #4f3bad; color: #fff; }
 .project-link--saluun:hover .saluun-preview--primary { transform: translateY(-5px); }
 .project-link--saluun:hover .saluun-preview--secondary { transform: translateY(18px); }
 .saluun-page { --accent: #6751c9; --terracotta: #c92c3a; --line: rgba(62, 53, 112, .13); background: radial-gradient(ellipse at 86% 8%, rgba(194, 184, 255, .25), transparent 34rem), var(--ground); }
