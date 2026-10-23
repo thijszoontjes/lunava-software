@@ -15,6 +15,38 @@ if (!('IntersectionObserver' in window)) {
 }
 
 (() => {
+  document.querySelectorAll('.site-header').forEach((header) => {
+    const toggle = header.querySelector('.nav-toggle');
+    const nav = header.querySelector('.nav');
+    if (!toggle || !nav) return;
+
+    header.classList.add('nav-ready');
+    const setOpen = (open, returnFocus = false) => {
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      nav.classList.toggle('is-open', open);
+      if (returnFocus) toggle.focus();
+    };
+
+    toggle.addEventListener('click', () => setOpen(toggle.getAttribute('aria-expanded') !== 'true'));
+    nav.addEventListener('click', (event) => {
+      if (event.target.closest('a')) setOpen(false);
+    });
+    document.addEventListener('pointerdown', (event) => {
+      if (toggle.getAttribute('aria-expanded') === 'true' && !header.contains(event.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && toggle.getAttribute('aria-expanded') === 'true') setOpen(false, true);
+    });
+
+    const desktop = window.matchMedia('(min-width: 621px)');
+    const closeAtDesktop = (event) => { if (event.matches) setOpen(false); };
+    if (desktop.addEventListener) desktop.addEventListener('change', closeAtDesktop);
+    else desktop.addListener(closeAtDesktop);
+  });
+})();
+
+(() => {
   const measurementId = 'G-8890ZF2NTH';
   const storageKey = 'lunava-analytics-consent';
   const deniedConsent = {

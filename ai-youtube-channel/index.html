@@ -13,7 +13,7 @@
   <link rel="icon" href="../assets/branding/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="icon" href="../assets/branding/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/branding/apple-touch-icon.png">
-  <link rel="stylesheet" href="../assets/site.css?v=saluun-pilot-hover-contrast-20261023">
+  <link rel="stylesheet" href="../assets/site.css?v=20261024-mobile-menu">
   <link rel="stylesheet" href="../assets/consent.css?v=20261023-analytics-consent">
   <title>AI YouTube Channel | Lunava Software</title>
   <script>document.documentElement.classList.add('js');</script>
@@ -26,7 +26,10 @@
         <img src="../assets/branding/lunava-logo.png" alt="" width="54" height="54">
         <span>Lunava Software</span>
       </a>
-      <nav class="nav" aria-label="Main navigation">
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+        <span class="nav-toggle__icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+      <nav class="nav" id="primary-navigation" aria-label="Main navigation">
         <a href="../saluun/">Saluun</a>
         <a href="../securesets/">SecureSets</a>
         <a href="../sunrise-alarm/">Sunrise Alarm</a>
@@ -110,6 +113,6 @@
     </div>
   </footer>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script src="../assets/site.js?v=20261023-remove-contact-age" defer></script>
+  <script src="../assets/site.js?v=20261024-mobile-menu" defer></script>
 </body>
 </html>
