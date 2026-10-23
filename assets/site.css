@@ -27,6 +27,7 @@ h1, h2, h3, p { margin-top: 0; }
 .nav, .footer-nav { display: flex; align-items: center; gap: clamp(20px, 3vw, 42px); }
 .nav a, .footer-nav a { color: var(--soft-ink); font-size: 14px; text-decoration: none; transition: color 180ms ease; }
 .nav a:hover, .footer-nav a:hover { color: var(--accent); }
+.nav a[aria-current="page"], .nav a[aria-current="location"] { color: var(--accent); font-weight: 650; }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 5px; }
 
 .hero { display: grid; min-height: min(780px, calc(100svh - 92px)); grid-template-columns: 1.1fr .9fr; align-items: center; gap: 7vw; padding-block: 72px 100px; }
@@ -264,19 +265,20 @@ h1, h2, h3, p { margin-top: 0; }
 .project-link--saluun:hover .saluun-preview--primary { transform: translateY(-5px); }
 .project-link--saluun:hover .saluun-preview--secondary { transform: translateY(18px); }
 .saluun-page { --accent: #6751c9; --terracotta: #c92c3a; --line: rgba(62, 53, 112, .13); background: radial-gradient(ellipse at 86% 8%, rgba(194, 184, 255, .25), transparent 34rem), var(--ground); }
-.saluun-page .product-hero { min-height: 490px; border-color: rgba(104, 81, 201, .14); background: linear-gradient(125deg, #fffefd 8%, #f1efff 100%); box-shadow: 0 18px 55px rgba(57, 48, 119, .075); }
+.saluun-page .product-hero { min-height: 430px; border-color: rgba(104, 81, 201, .14); background: linear-gradient(125deg, #fffefd 8%, #f1efff 100%); box-shadow: 0 18px 55px rgba(57, 48, 119, .075); }
 .saluun-page .product-eyebrow { color: #6652c4; }
 .saluun-page .product-button { background: #6751c9; color: #fff; }
 .saluun-page .product-button:hover { background: #4f3bad; }
 .saluun-page .product-trustline { color: #6556a3; }
 .saluun-status { display: inline-flex; align-items: center; gap: 9px; width: fit-content; margin-bottom: 20px; padding: 8px 12px; border: 1px solid rgba(104, 81, 201, .17); border-radius: 99px; background: rgba(255, 255, 255, .64); color: #5146a0; font-size: 12px; font-weight: 650; }
 .saluun-status::before { width: 7px; height: 7px; border-radius: 50%; background: #7861dd; content: ""; }
-.saluun-page .product-hero .product-title { max-width: 600px; font-size: clamp(3.2rem, 5.2vw, 4.4rem); }
+.saluun-page .product-hero .product-title { max-width: 600px; font-size: clamp(2.9rem, 4.5vw, 3.8rem); }
 .saluun-hero-visual { display: grid; min-height: 260px; grid-template-columns: 1.2fr .8fr; align-items: center; gap: 0; }
 .saluun-page .product-final-cta { border-color: rgba(104, 81, 201, .14); background: linear-gradient(120deg, #f2efff, #f9f7ff); }
-.saluun-showcase { padding-block: 88px 24px; }
+.saluun-showcase { padding-block: 68px 20px; }
 .saluun-showcase .section-intro { margin-bottom: 30px; }
-.saluun-showcase .section-intro h2 { font-size: clamp(2.6rem, 4.8vw, 4.5rem); }
+.saluun-showcase .section-intro h2 { font-size: clamp(2.25rem, 4vw, 3.5rem); }
+.saluun-screenshot-note { display: block; margin-top: 9px; color: #817c90; font-size: 12px; }
 .saluun-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; gap: 18px; }
 .saluun-shot { overflow: hidden; margin: 0; border: 1px solid rgba(66, 52, 135, .13); border-radius: 18px; background: #fff; box-shadow: 0 14px 38px rgba(46, 40, 86, .075); }
 .saluun-shot:first-child { grid-column: 1 / -1; }
@@ -285,10 +287,11 @@ h1, h2, h3, p { margin-top: 0; }
 .saluun-shot figcaption span { color: #7563cf; font-size: 11px; font-weight: 750; letter-spacing: .08em; }
 .saluun-shot figcaption strong { font-size: 14px; font-weight: 620; }
 .saluun-shot figcaption small { margin-left: auto; color: var(--soft-ink); font-size: 11px; }
-.saluun-page .product-tier-section--saluun { background: linear-gradient(135deg, #f1efff, #f8f6ff); }
+.saluun-page .product-tier-section--saluun { margin-top: 62px; padding: clamp(24px, 4vw, 48px); background: linear-gradient(135deg, #f1efff, #f8f6ff); }
+.saluun-page .product-tier-heading h2 { font-size: clamp(2.2rem, 4vw, 3.5rem); }
 .saluun-page .product-tier--saluun { border-color: rgba(104, 81, 201, .18); box-shadow: 0 10px 32px rgba(57, 48, 119, .07); }
 .saluun-page .product-benefits { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
-.saluun-price { margin: 0 0 5px; color: #c92c3a; font-size: clamp(2.4rem, 4.5vw, 4rem); font-weight: 650; letter-spacing: -.06em; line-height: 1; }
+.saluun-price { margin: 0 0 5px; color: #c92c3a; font-size: clamp(2.2rem, 3.6vw, 3.2rem); font-weight: 650; letter-spacing: -.06em; line-height: 1; }
 .saluun-price small { display: block; margin-top: 8px; color: #c92c3a; font-size: .34em; font-weight: 600; letter-spacing: -.02em; }
 .saluun-price-note { margin: 0 0 22px; color: #a32834; font-size: 12px; font-weight: 650; }
 .saluun-page .product-final-cta .product-button { flex: 0 0 auto; }
@@ -333,10 +336,10 @@ h1, h2, h3, p { margin-top: 0; }
 
 @media (max-width: 620px) {
   .wrap { width: calc(100% - 36px); }
-  .header-inner { min-height: 78px; }
+  .header-inner { min-height: 78px; flex-wrap: wrap; justify-content: center; gap: 7px; padding-block: 10px; }
   .brand { gap: 8px; font-size: 13px; }
   .brand img { width: 42px; height: 42px; }
-  .nav { gap: 15px; }
+  .nav { width: 100%; justify-content: center; flex-wrap: wrap; gap: 8px 17px; }
   .nav a { font-size: 13px; }
   .hero { grid-template-columns: minmax(0, 1fr); gap: 44px; padding-block: 68px 65px; }
   .hero-copy { padding-bottom: 0; }
