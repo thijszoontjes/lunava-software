@@ -358,6 +358,20 @@ h1, h2, h3, p { margin-top: 0; }
   .product-final-cta { align-items: flex-start; flex-direction: column; margin-top: 22px; padding: 26px 22px; }
 }
 
+@media (max-width: 760px) {
+  .project-images .phone-frame,
+  .product-visual .phone-frame { padding: 0; }
+  .project-images .phone-frame img,
+  .product-visual .phone-frame img {
+    position: absolute;
+    top: 7px;
+    left: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 19px);
+    object-position: center;
+  }
+}
+
 @media (hover: none) {
   .project-cta { color: var(--accent); }
 }

@@ -179,6 +179,15 @@
       .screens { grid-template-columns: 1fr 1fr; gap: 10px; }
       .screen:last-child { grid-column: 1 / -1; width: min(75%, 300px); justify-self: center; }
       .screen .phone-frame { width: min(100%, 190px); }
+      .phone-frame { padding: 0; }
+      .phone-frame img {
+        position: absolute;
+        top: 7px;
+        left: 6px;
+        width: calc(100% - 12px);
+        height: calc(100% - 19px);
+        object-position: center;
+      }
       .screen figcaption { min-height: 58px; font-size: 12px; }
       .split, .privacy-grid { grid-template-columns: 1fr; gap: 28px; }
       .pro-shot { width: min(84%, 290px); }
