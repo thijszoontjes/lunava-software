@@ -522,12 +522,12 @@ h1, h2, h3, p { margin-top: 0; }
 .saluun-section-heading { max-width: 740px; margin-bottom: 30px; }
 .saluun-section-heading h2, .saluun-management-copy h2, .saluun-pilot h2, .saluun-language h2, .saluun-final-cta h2 { margin: 0 0 14px; color: #27243c; font-size: clamp(2.35rem, 4.2vw, 3.65rem); font-weight: 430; letter-spacing: -.07em; line-height: 1.01; }
 .saluun-section-heading > p:last-child, .saluun-management-copy > p:not(.saluun-eyebrow), .saluun-language > div > p:last-child, .saluun-pilot-intro > p:not(.saluun-eyebrow), .saluun-final-cta > div > p:last-child { max-width: 700px; margin: 0; color: #656173; font-size: 16px; line-height: 1.7; }
-.saluun-steps { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 0 0 18px; padding: 0; list-style: none; }
+.saluun-steps { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin: 0 0 18px; padding: 0; list-style: none; }
 .saluun-steps li { display: flex; min-width: 0; gap: 12px; padding: 18px 16px; border: 1px solid rgba(62, 53, 112, .11); border-radius: 12px; background: rgba(255, 255, 255, .76); }
 .saluun-steps li > span { display: grid; width: 28px; height: 28px; flex: 0 0 28px; place-items: center; border-radius: 50%; background: #f0edff; color: #5948ba; font-size: 11px; font-weight: 800; }
 .saluun-steps h3 { margin: 1px 0 5px; color: #29263d; font-size: 14px; font-weight: 690; }
 .saluun-steps p { margin: 0; color: #696576; font-size: 12px; line-height: 1.5; }
-.saluun-gallery { display: grid; max-width: 1100px; grid-template-columns: minmax(0, 1fr); gap: 20px; }
+.saluun-gallery { display: grid; max-width: 1100px; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
 .saluun-shot:first-child { grid-column: auto; }
 .saluun-shot { min-width: 0; overflow: hidden; margin: 0; border: 1px solid rgba(66, 52, 135, .13); border-radius: 14px; background: #fff; box-shadow: 0 12px 34px rgba(46, 40, 86, .07); }
 .saluun-shot figcaption { display: flex; align-items: baseline; gap: 10px; padding: 12px 15px 14px; }
