@@ -489,7 +489,7 @@ h1, h2, h3, p { margin-top: 0; }
 .saluun-page .nav .saluun-nav-cta:hover { background: var(--accent-dark); color: #fff; }
 .saluun-main { padding-block: 0 104px; }
 .saluun-eyebrow { margin: 0 0 14px; color: #5c49b5; font-size: 12px; font-weight: 750; letter-spacing: .1em; line-height: 1.4; text-transform: uppercase; }
-.saluun-hero { display: grid; grid-template-columns: minmax(0, .92fr) minmax(0, 1.08fr); align-items: center; gap: clamp(38px, 6vw, 82px); padding-block: 76px 82px; }
+.saluun-hero { display: grid; grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr); align-items: center; gap: clamp(32px, 4vw, 56px); padding-block: 76px 82px; }
 .saluun-hero-copy { max-width: 600px; }
 .saluun-status { display: inline-flex; align-items: center; gap: 9px; margin: 0 0 22px; padding: 8px 12px; border: 1px solid rgba(101, 81, 203, .18); border-radius: 99px; background: rgba(255, 255, 255, .74); color: #5146a0; font-size: 12px; font-weight: 650; }
 .saluun-status::before { width: 7px; height: 7px; border-radius: 50%; background: #7664e9; content: ""; }
@@ -533,17 +533,6 @@ h1, h2, h3, p { margin-top: 0; }
 .saluun-management-copy > p:not(.saluun-eyebrow) { margin-bottom: 15px; }
 .saluun-management-copy .saluun-secondary-link { display: inline-block; margin-top: 4px; }
 .saluun-management-screen { width: 100%; max-width: 1100px; box-shadow: 0 16px 42px rgba(46, 40, 86, .09); }
-.saluun-capabilities { padding-top: 104px; }
-.saluun-capabilities .saluun-section-heading { margin-bottom: 25px; }
-.saluun-capability-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-.saluun-capability-card { min-width: 0; padding: clamp(22px, 3vw, 34px); border: 1px solid rgba(62, 53, 112, .13); border-radius: 16px; background: rgba(255, 255, 255, .8); }
-.saluun-capability-card--limits { background: linear-gradient(140deg, #f0edff, #f8f6ff); }
-.saluun-capability-card h3 { margin: 0 0 19px; color: #29263d; font-size: 20px; font-weight: 620; letter-spacing: -.035em; }
-.saluun-capability-card ul { display: grid; gap: 13px; margin: 0; padding: 0; list-style: none; }
-.saluun-capability-card li { position: relative; padding-left: 23px; color: #5f5b6c; font-size: 14px; line-height: 1.6; }
-.saluun-capability-card li::before { position: absolute; top: 0; left: 0; color: #5948ba; content: "✓"; font-weight: 800; }
-.saluun-capability-card--limits li::before { color: #89524a; content: "—"; }
-.saluun-capability-card > p { margin: 19px 0 0; padding-top: 15px; border-top: 1px solid rgba(62, 53, 112, .12); color: #686476; font-size: 13px; line-height: 1.6; }
 .saluun-language { display: grid; grid-template-columns: 100px minmax(0, 1fr); align-items: center; gap: 25px; margin-top: 34px; padding: clamp(24px, 4vw, 38px); border: 1px solid rgba(101, 81, 203, .15); border-radius: 16px; background: linear-gradient(115deg, #f1efff, #faf9ff); }
 .saluun-language-mark { display: grid; width: 82px; height: 82px; place-items: center; border: 1px solid rgba(101, 81, 203, .16); border-radius: 23px; background: #fff; color: #5948ba; font-size: 28px; font-weight: 750; letter-spacing: -.07em; box-shadow: 0 8px 22px rgba(57, 48, 119, .08); }
 .saluun-language-mark span { margin-left: 2px; color: #8d83bd; font-size: 14px; letter-spacing: 0; }
@@ -588,7 +577,7 @@ h1, h2, h3, p { margin-top: 0; }
   .saluun-management { grid-template-columns: 1fr; gap: 26px; padding-top: 82px; }
   .saluun-management-copy { max-width: 700px; }
   .saluun-management-screen { width: 100%; }
-  .saluun-capabilities, .saluun-faq { padding-top: 82px; }
+  .saluun-faq { padding-top: 82px; }
   .saluun-pilot { margin-top: 82px; }
 }
 
@@ -618,9 +607,7 @@ h1, h2, h3, p { margin-top: 0; }
   .saluun-steps li { padding: 14px; }
   .saluun-gallery { grid-template-columns: 1fr; gap: 12px; }
   .saluun-management { padding-top: 68px; }
-  .saluun-capabilities, .saluun-faq { padding-top: 68px; }
-  .saluun-capability-grid { grid-template-columns: 1fr; gap: 10px; }
-  .saluun-capability-card { padding: 21px; }
+  .saluun-faq { padding-top: 68px; }
   .saluun-language { grid-template-columns: 1fr; gap: 18px; margin-top: 22px; padding: 22px; }
   .saluun-language-mark { width: 68px; height: 68px; border-radius: 18px; font-size: 24px; }
   .saluun-language h2 { font-size: 1.8rem; }
