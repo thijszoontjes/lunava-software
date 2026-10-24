@@ -15,6 +15,7 @@ if (!('IntersectionObserver' in window)) {
 }
 
 (() => {
+  const isDutch = document.documentElement.lang.toLowerCase().startsWith('nl');
   document.querySelectorAll('.site-header').forEach((header) => {
     const toggle = header.querySelector('.nav-toggle');
     const nav = header.querySelector('.nav');
@@ -23,7 +24,9 @@ if (!('IntersectionObserver' in window)) {
     header.classList.add('nav-ready');
     const setOpen = (open, returnFocus = false) => {
       toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+      toggle.setAttribute('aria-label', isDutch
+        ? (open ? 'Sluit het navigatiemenu' : 'Open het navigatiemenu')
+        : (open ? 'Close navigation menu' : 'Open navigation menu'));
       nav.classList.toggle('is-open', open);
       if (returnFocus) toggle.focus();
     };
@@ -49,6 +52,22 @@ if (!('IntersectionObserver' in window)) {
 (() => {
   const measurementId = 'G-8890ZF2NTH';
   const storageKey = 'lunava-analytics-consent';
+  const isDutch = document.documentElement.lang.toLowerCase().startsWith('nl');
+  const consentCopy = isDutch ? {
+    title: 'Help deze website te verbeteren?',
+    message: 'Met je toestemming meet Google Analytics bezoeken aan Lunava Software. Analytics blijft uit totdat je toestemming geeft. Je kunt je keuze op elk moment aanpassen.',
+    link: 'Lees meer over privacy en analytics',
+    group: 'Analyticskeuze',
+    reject: 'Weiger analytics',
+    accept: 'Sta analytics toe'
+  } : {
+    title: 'Help improve this website?',
+    message: 'With your permission, Google Analytics measures visits to Lunava Software. Analytics stays off unless you accept. You can change your choice at any time.',
+    link: 'Read about privacy and analytics',
+    group: 'Analytics choice',
+    reject: 'Reject analytics',
+    accept: 'Accept analytics'
+  };
   const deniedConsent = {
     analytics_storage: 'denied',
     ad_storage: 'denied',
@@ -65,12 +84,12 @@ if (!('IntersectionObserver' in window)) {
   banner.hidden = true;
   banner.innerHTML = `
     <div class="analytics-consent__copy">
-      <h2 id="analytics-consent-title">Help improve this website?</h2>
-      <p>With your permission, Google Analytics measures visits to Lunava Software. Analytics stays off unless you accept. You can change your choice at any time. <a href="/privacy/">Read about privacy and analytics</a>.</p>
+      <h2 id="analytics-consent-title">${consentCopy.title}</h2>
+      <p>${consentCopy.message} <a href="/privacy/">${consentCopy.link}</a>.</p>
     </div>
-    <div class="analytics-consent__actions" role="group" aria-label="Analytics choice">
-      <button type="button" data-analytics-reject>Reject analytics</button>
-      <button type="button" data-analytics-accept>Accept analytics</button>
+    <div class="analytics-consent__actions" role="group" aria-label="${consentCopy.group}">
+      <button type="button" data-analytics-reject>${consentCopy.reject}</button>
+      <button type="button" data-analytics-accept>${consentCopy.accept}</button>
     </div>`;
   document.body.append(banner);
 
