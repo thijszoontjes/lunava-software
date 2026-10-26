@@ -15,6 +15,56 @@ if (!('IntersectionObserver' in window)) {
 }
 
 (() => {
+  const faqList = document.querySelector('.saluun-faq-list');
+  if (!faqList) return;
+
+  const closingDetails = new WeakMap();
+  faqList.addEventListener('click', (event) => {
+    const summary = event.target.closest('summary');
+    const details = summary?.closest('details');
+    if (!details || !faqList.contains(details)) return;
+
+    const closing = closingDetails.get(details);
+    if (closing) {
+      event.preventDefault();
+      details.classList.remove('is-closing');
+      closing.answer.removeEventListener('transitionend', closing.onTransitionEnd);
+      window.clearTimeout(closing.timer);
+      closingDetails.delete(details);
+      return;
+    }
+
+    if (!details.open) return;
+    event.preventDefault();
+
+    const answer = details.querySelector('.saluun-faq-answer');
+    if (!answer || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      details.open = false;
+      return;
+    }
+
+    details.classList.add('is-closing');
+    let timer;
+    const finishClose = () => {
+      answer.removeEventListener('transitionend', onTransitionEnd);
+      window.clearTimeout(timer);
+      details.open = false;
+      details.classList.remove('is-closing');
+      closingDetails.delete(details);
+    };
+    const onTransitionEnd = (transitionEvent) => {
+      if (transitionEvent.target === answer && transitionEvent.propertyName === 'grid-template-rows') {
+        finishClose();
+      }
+    };
+
+    answer.addEventListener('transitionend', onTransitionEnd);
+    timer = window.setTimeout(finishClose, 600);
+    closingDetails.set(details, { answer, onTransitionEnd, timer });
+  });
+})();
+
+(() => {
   const isDutch = document.documentElement.lang.toLowerCase().startsWith('nl');
   document.querySelectorAll('.site-header').forEach((header) => {
     const toggle = header.querySelector('.nav-toggle');

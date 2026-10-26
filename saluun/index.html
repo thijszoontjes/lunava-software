@@ -20,7 +20,7 @@
   <link rel="icon" href="../assets/branding/favicon.svg" type="image/svg+xml" sizes="any">
   <link rel="icon" href="../assets/branding/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/branding/apple-touch-icon.png">
-  <link rel="stylesheet" href="../assets/site.css?v=20261025-saluun-desktop-shots">
+  <link rel="stylesheet" href="../assets/site.css?v=20261026-saluun-accordion">
   <link rel="stylesheet" href="../assets/consent.css?v=20261023-analytics-consent">
   <title>Saluun | Online booking for hair salons | Lunava Software</title>
   <script>document.documentElement.classList.add('js');</script>
@@ -53,7 +53,7 @@
 
   <main id="main" class="saluun-main wrap">
     <section class="saluun-hero" id="top" aria-labelledby="saluun-title">
-      <div class="saluun-hero-copy">
+      <div class="saluun-hero-copy" data-reveal>
         <p class="saluun-eyebrow">Online booking for independent hair salons</p>
         <h1 id="saluun-title"><span>Let clients book online.</span><span>Keep your salon in order.</span></h1>
         <p class="saluun-lead">Clients choose a service, stylist and time online. You manage appointments, services and availability from one salon workspace.</p>
@@ -68,7 +68,7 @@
           <li>Dutch by default · English available</li>
         </ul>
       </div>
-      <figure class="saluun-hero-screen">
+      <figure class="saluun-hero-screen" data-reveal style="--delay: 140ms">
         <picture>
           <source type="image/webp" srcset="../assets/screens/saluun/salon-dashboard-720.webp 720w, ../assets/screens/saluun/salon-dashboard.webp 1440w" sizes="(max-width: 900px) calc(100vw - 48px), 850px">
           <img src="../assets/screens/saluun/salon-dashboard.jpg" srcset="../assets/screens/saluun/salon-dashboard-720.jpg 720w, ../assets/screens/saluun/salon-dashboard.jpg 1440w" sizes="(max-width: 900px) calc(100vw - 48px), 850px" alt="Saluun dashboard in English showing four appointments today, three team members, four services and upcoming bookings" width="1440" height="810" fetchpriority="high" decoding="async">
@@ -78,40 +78,40 @@
     </section>
 
     <section class="saluun-section saluun-booking" id="booking" aria-labelledby="booking-title">
-      <div class="saluun-section-heading">
+      <div class="saluun-section-heading" data-reveal>
         <p class="saluun-eyebrow">The client journey</p>
         <h2 id="booking-title">From service to appointment in four steps.</h2>
         <p>The booking page guides clients through each choice. No account is needed, and payment takes place at the salon.</p>
       </div>
       <ol class="saluun-steps">
-        <li><span>01</span><div><h3>Service</h3><p>Clients can review descriptions, duration and price.</p></div></li>
-        <li><span>02</span><div><h3>Stylist</h3><p>Choose a team member or let Saluun find the first available slot.</p></div></li>
-        <li><span>03</span><div><h3>Date and time</h3><p>Available start times reflect the service and stylist selected.</p></div></li>
-        <li><span>04</span><div><h3>Details</h3><p>A name and email address are all that’s needed to confirm.</p></div></li>
+        <li data-reveal style="--delay: 0ms"><span>01</span><div><h3>Service</h3><p>Clients can review descriptions, duration and price.</p></div></li>
+        <li data-reveal style="--delay: 70ms"><span>02</span><div><h3>Stylist</h3><p>Choose a team member or let Saluun find the first available slot.</p></div></li>
+        <li data-reveal style="--delay: 140ms"><span>03</span><div><h3>Date and time</h3><p>Available start times reflect the service and stylist selected.</p></div></li>
+        <li data-reveal style="--delay: 210ms"><span>04</span><div><h3>Details</h3><p>A name and email address are all that’s needed to confirm.</p></div></li>
       </ol>
       <div class="saluun-gallery saluun-booking-gallery">
-        <figure class="saluun-shot">
+        <figure class="saluun-shot" data-reveal style="--delay: 0ms">
           <picture>
             <source type="image/webp" srcset="../assets/screens/saluun/booking-services-720.webp?v=20261025-saluun-desktop-shots 720w, ../assets/screens/saluun/booking-services.webp?v=20261025-saluun-desktop-shots 1672w" sizes="(max-width: 620px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 60px) / 2), 540px">
             <img src="../assets/screens/saluun/booking-services.jpg?v=20261025-saluun-desktop-shots" srcset="../assets/screens/saluun/booking-services-720.jpg?v=20261025-saluun-desktop-shots 720w, ../assets/screens/saluun/booking-services.jpg?v=20261025-saluun-desktop-shots 1672w" sizes="(max-width: 620px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 60px) / 2), 540px" alt="Online booking step with services, descriptions, categories and prices at Studio Noord" width="1672" height="941" loading="lazy" decoding="async">
           </picture>
           <figcaption><span>01</span><strong>Choose a service</strong></figcaption>
         </figure>
-        <figure class="saluun-shot">
+        <figure class="saluun-shot" data-reveal style="--delay: 70ms">
           <picture>
             <source type="image/webp" srcset="../assets/screens/saluun/booking-stylists-720.webp?v=20261025-saluun-desktop-shots 720w, ../assets/screens/saluun/booking-stylists.webp?v=20261025-saluun-desktop-shots 1672w" sizes="(max-width: 620px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 60px) / 2), 540px">
             <img src="../assets/screens/saluun/booking-stylists.jpg?v=20261025-saluun-desktop-shots" srcset="../assets/screens/saluun/booking-stylists-720.jpg?v=20261025-saluun-desktop-shots 720w, ../assets/screens/saluun/booking-stylists.jpg?v=20261025-saluun-desktop-shots 1672w" sizes="(max-width: 620px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 60px) / 2), 540px" alt="Stylist selection with Lisa Jansen, Noor Bakker and Sanne de Vries, plus an option to choose no preference" width="1672" height="941" loading="lazy" decoding="async">
           </picture>
           <figcaption><span>02</span><strong>Choose a stylist</strong></figcaption>
         </figure>
-        <figure class="saluun-shot">
+        <figure class="saluun-shot" data-reveal style="--delay: 140ms">
           <picture>
             <source type="image/webp" srcset="../assets/screens/saluun/booking-times-720.webp?v=20261025-saluun-desktop-shots 720w, ../assets/screens/saluun/booking-times.webp?v=20261025-saluun-desktop-shots 1672w" sizes="(max-width: 620px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 60px) / 2), 540px">
             <img src="../assets/screens/saluun/booking-times.jpg?v=20261025-saluun-desktop-shots" srcset="../assets/screens/saluun/booking-times-720.jpg?v=20261025-saluun-desktop-shots 720w, ../assets/screens/saluun/booking-times.jpg?v=20261025-saluun-desktop-shots 1672w" sizes="(max-width: 620px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 60px) / 2), 540px" alt="Booking calendar for Monday, 26 October with 12 available start times for Wash & cut; the stylist is assigned after time selection" width="1672" height="941" loading="lazy" decoding="async">
           </picture>
           <figcaption><span>03</span><strong>Choose a time</strong></figcaption>
         </figure>
-        <figure class="saluun-shot">
+        <figure class="saluun-shot" data-reveal style="--delay: 210ms">
           <picture>
             <source type="image/webp" srcset="../assets/screens/saluun/booking-details-720.webp?v=20261025-saluun-desktop-shots 720w, ../assets/screens/saluun/booking-details.webp?v=20261025-saluun-desktop-shots 1672w" sizes="(max-width: 620px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 60px) / 2), 540px">
             <img src="../assets/screens/saluun/booking-details.jpg?v=20261025-saluun-desktop-shots" srcset="../assets/screens/saluun/booking-details-720.jpg?v=20261025-saluun-desktop-shots 720w, ../assets/screens/saluun/booking-details.jpg?v=20261025-saluun-desktop-shots 1672w" sizes="(max-width: 620px) calc(100vw - 36px), (max-width: 900px) calc((100vw - 60px) / 2), 540px" alt="Appointment details for Monday, 26 October at 10:30 with Noor Bakker, showing contact fields and the appointment confirmation button" width="1672" height="941" loading="lazy" decoding="async">
@@ -122,13 +122,13 @@
     </section>
 
     <section class="saluun-section saluun-management" id="management" aria-labelledby="management-title">
-      <div class="saluun-management-copy">
+      <div class="saluun-management-copy" data-reveal>
         <p class="saluun-eyebrow">For the salon owner</p>
         <h2 id="management-title">See appointments and schedules in one place.</h2>
         <p>The dashboard shows appointments for today and the days ahead. In the appointment list, review bookings by date, service, team member, amount and status.</p>
         <p>Manage services, prices, team members, opening hours and closing days in the same workspace.</p>
       </div>
-      <figure class="saluun-management-screen">
+      <figure class="saluun-management-screen" data-reveal style="--delay: 120ms">
         <picture>
           <source type="image/webp" srcset="../assets/screens/saluun/appointment-list-720.webp 720w, ../assets/screens/saluun/appointment-list.webp 1440w" sizes="(max-width: 900px) calc(100vw - 48px), 1100px">
           <img src="../assets/screens/saluun/appointment-list.jpg" srcset="../assets/screens/saluun/appointment-list-720.jpg 720w, ../assets/screens/saluun/appointment-list.jpg 1440w" sizes="(max-width: 900px) calc(100vw - 48px), 1100px" alt="Appointments list in English showing clients, times, services, stylists, prices and confirmation statuses" width="1440" height="810" loading="lazy" decoding="async">
@@ -137,7 +137,7 @@
       </figure>
     </section>
 
-    <section class="saluun-language" aria-labelledby="language-title">
+    <section class="saluun-language" data-reveal aria-labelledby="language-title">
       <div class="saluun-language-mark" aria-hidden="true">NL<span>EN</span></div>
       <div>
         <p class="saluun-eyebrow">Language options</p>
@@ -147,7 +147,7 @@
     </section>
 
     <section class="saluun-pilot" id="start" aria-labelledby="start-title">
-      <div class="saluun-pilot-intro">
+      <div class="saluun-pilot-intro" data-reveal>
         <p class="saluun-eyebrow">Get started with Saluun</p>
         <h2 id="start-title">Online booking for your salon.</h2>
         <p>Make online booking part of your salon. Contact Thijs to discuss setup, costs and a start date.</p>
@@ -158,7 +158,7 @@
         </ol>
         <a class="saluun-button" href="mailto:lunavasoftware@gmail.com?subject=Saluun%20enquiry">Get in touch <span aria-hidden="true">↗</span></a>
       </div>
-      <aside class="saluun-price-card" aria-label="Monthly costs">
+      <aside class="saluun-price-card" data-reveal style="--delay: 150ms" aria-label="Monthly costs">
         <p class="saluun-price-label">Monthly price</p>
         <p class="saluun-price">€44.95</p>
         <p class="saluun-price-period">per salon, per month · excl. VAT</p>
@@ -167,35 +167,45 @@
     </section>
 
     <section class="saluun-faq" id="questions" aria-labelledby="faq-title">
-      <div class="saluun-section-heading">
+      <div class="saluun-section-heading" data-reveal>
         <p class="saluun-eyebrow">Frequently asked questions</p>
         <h2 id="faq-title">Good to know.</h2>
       </div>
       <div class="saluun-faq-list">
-        <details>
+        <details data-reveal style="--delay: 0ms">
           <summary>How do I get started with Saluun?</summary>
+          <div class="saluun-faq-answer">
           <p>Contact Thijs to discuss the setup for your salon and agree on a start date together.</p>
+        </div>
         </details>
-        <details>
+        <details data-reveal style="--delay: 55ms">
           <summary>What happens after I get in touch?</summary>
+          <div class="saluun-faq-answer">
           <p>Your message goes to Thijs at Lunava Software. He’ll follow up to learn about your salon and discuss how Saluun fits the way you work. You’ll agree on a start date, price, VAT and terms in advance.</p>
+        </div>
         </details>
-        <details>
+        <details data-reveal style="--delay: 110ms">
           <summary>Do clients need an account to book?</summary>
+          <div class="saluun-faq-answer">
           <p>No. Clients can choose a service, stylist and available time, then enter their name and email to confirm. Payment takes place at the salon.</p>
+        </div>
         </details>
-        <details>
+        <details data-reveal style="--delay: 165ms">
           <summary>Which languages can I use?</summary>
+          <div class="saluun-faq-answer">
           <p>Dutch is the default language. You can switch the dashboard to English, and client communications are available in either Dutch or English.</p>
+        </div>
         </details>
-        <details>
+        <details data-reveal style="--delay: 220ms">
           <summary>How much does Saluun cost?</summary>
+          <div class="saluun-faq-answer">
           <p>€44.95 per salon, per month, excluding VAT. Including 21% Dutch VAT, the total is €54.39 per month.</p>
+        </div>
         </details>
       </div>
     </section>
 
-    <section class="saluun-final-cta" aria-labelledby="final-cta-title">
+    <section class="saluun-final-cta" data-reveal aria-labelledby="final-cta-title">
       <div>
         <p class="saluun-eyebrow">Saluun · Lunava Software</p>
         <h2 id="final-cta-title">Tell us how your salon manages appointments.</h2>
@@ -222,6 +232,6 @@
       <span>© 2026 · The Netherlands</span>
     </div>
   </footer>
-  <script src="../assets/site.js?v=20261024-saluun-english" defer></script>
+  <script src="../assets/site.js?v=20261026-saluun-accordion" defer></script>
 </body>
 </html>

@@ -562,9 +562,13 @@ h1, h2, h3, p { margin-top: 0; }
 .saluun-faq-list details { border-bottom: 1px solid rgba(62, 53, 112, .16); }
 .saluun-faq-list summary { position: relative; padding: 19px 42px 19px 0; color: #302d44; font-size: 16px; font-weight: 650; line-height: 1.4; cursor: pointer; list-style: none; }
 .saluun-faq-list summary::-webkit-details-marker { display: none; }
-.saluun-faq-list summary::after { position: absolute; top: 17px; right: 4px; color: #5948ba; content: "+"; font-size: 22px; font-weight: 500; }
-.saluun-faq-list details[open] summary::after { content: "−"; }
-.saluun-faq-list details p { max-width: 850px; margin: -2px 0 20px; padding-right: 42px; color: #656173; font-size: 14px; line-height: 1.7; }
+.saluun-faq-list summary::after { position: absolute; top: 17px; right: 4px; display: grid; width: 24px; height: 24px; place-items: center; color: #5948ba; content: "+"; font-size: 22px; font-weight: 500; transform-origin: center; transition: transform 300ms var(--ease-out); }
+.saluun-faq-list details[open] summary::after { transform: rotate(45deg); }
+.saluun-faq-list details.is-closing summary::after { transform: rotate(0); }
+.saluun-faq-list .saluun-faq-answer { display: grid; grid-template-rows: 0fr; overflow: hidden; padding-bottom: 0; opacity: 0; transition: grid-template-rows 460ms var(--ease-out), padding-bottom 460ms var(--ease-out), opacity 260ms ease; }
+.saluun-faq-list details[open] .saluun-faq-answer { grid-template-rows: 1fr; padding-bottom: 20px; opacity: 1; }
+.saluun-faq-list details.is-closing .saluun-faq-answer { grid-template-rows: 0fr; padding-bottom: 0; opacity: 0; }
+.saluun-faq-list .saluun-faq-answer > p { min-height: 0; overflow: hidden; max-width: 850px; margin: 0; padding-right: 42px; color: #656173; font-size: 14px; line-height: 1.7; }
 .saluun-final-cta { display: flex; align-items: center; justify-content: space-between; gap: 28px; margin-top: 76px; padding: clamp(26px, 4vw, 46px); border: 1px solid rgba(101, 81, 203, .15); border-radius: 18px; background: #f2efff; }
 .saluun-final-cta .saluun-eyebrow { margin-bottom: 9px; }
 .saluun-final-cta h2 { max-width: 700px; margin-bottom: 9px; font-size: clamp(2rem, 3.6vw, 3.1rem); }
