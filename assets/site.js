@@ -102,7 +102,9 @@ if (!('IntersectionObserver' in window)) {
 (() => {
   const measurementId = 'G-8890ZF2NTH';
   const storageKey = 'lunava-analytics-consent';
-  const isDutch = document.documentElement.lang.toLowerCase().startsWith('nl');
+  const pageLanguage = document.documentElement.lang.toLowerCase();
+  const isDutch = pageLanguage.startsWith('nl');
+  const isFrench = pageLanguage.startsWith('fr');
   const consentCopy = isDutch ? {
     title: 'Help deze website te verbeteren?',
     message: 'Met je toestemming meet Google Analytics bezoeken aan Lunava Software. Analytics blijft uit totdat je toestemming geeft. Je kunt je keuze op elk moment aanpassen.',
@@ -110,6 +112,13 @@ if (!('IntersectionObserver' in window)) {
     group: 'Analyticskeuze',
     reject: 'Weiger analytics',
     accept: 'Sta analytics toe'
+  } : isFrench ? {
+    title: 'Aidez-nous à améliorer ce site ?',
+    message: 'Avec votre accord, Google Analytics mesure les visites sur Lunava Software. Analytics reste désactivé tant que vous ne l’acceptez pas. Vous pouvez modifier votre choix à tout moment.',
+    link: 'En savoir plus sur la confidentialité et Analytics',
+    group: 'Préférences Analytics',
+    reject: 'Refuser Analytics',
+    accept: 'Autoriser Analytics'
   } : {
     title: 'Help improve this website?',
     message: 'With your permission, Google Analytics measures visits to Lunava Software. Analytics stays off unless you accept. You can change your choice at any time.',
