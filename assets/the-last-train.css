@@ -1,0 +1,140 @@
+.project-link--last-train {
+  border-color: rgba(247, 194, 67, .2);
+  background: linear-gradient(128deg, #071b2b 0%, #102b43 58%, #21183a 100%);
+  box-shadow: 0 18px 48px rgba(12, 27, 47, .12);
+  color: #fff8e4;
+}
+.project-link--last-train::before {
+  top: -165px;
+  right: 4%;
+  width: 440px;
+  background: radial-gradient(circle, rgba(247, 194, 67, .23), rgba(102, 109, 190, .12) 50%, transparent 72%);
+}
+.project-link--last-train .project-meta { color: #ffd166; }
+.project-link--last-train .project-copy > p:not(.project-kicker) { color: rgba(255, 248, 228, .76); }
+.project-link--last-train .project-cta { color: #fff8e4; }
+.project-link--last-train .project-cta span { color: #ffd166; }
+.project-link--last-train .project-store-button--last-train { background: #ffd166; color: #152437; }
+.project-link--last-train .project-copy h3 { color: #fff8e4; }
+.project-link--last-train:hover .project-copy h3,
+.project-link--last-train:focus-within .project-copy h3 { color: #ffd166; }
+.project-link--last-train:hover .project-cta,
+.project-link--last-train:focus-within .project-cta { color: #ffd166; }
+.project-link--last-train:hover .project-store-button--last-train { background: #ffe39a; }
+.project-link--last-train:hover { box-shadow: 0 24px 58px rgba(12, 27, 47, .2); }
+
+.project-images--last-train {
+  display: grid;
+  grid-template-columns: .82fr 1.08fr .82fr;
+  align-items: center;
+  gap: clamp(10px, 2vw, 20px);
+  max-width: 610px;
+  margin-inline: auto;
+}
+.last-train-home-shot {
+  overflow: hidden;
+  aspect-ratio: 9 / 16;
+  margin: 0;
+  border: 1px solid rgba(255, 248, 228, .3);
+  border-radius: 19px;
+  background: #081c2e;
+  box-shadow: 0 22px 48px rgba(0, 0, 0, .28);
+  transition: transform 550ms cubic-bezier(.22, 1, .36, 1), box-shadow 300ms ease;
+}
+.last-train-home-shot img { width: 100%; height: 100%; object-fit: cover; }
+.last-train-home-shot--side:first-child { transform: translateY(10px) rotate(-4deg); }
+.last-train-home-shot--side:last-child { transform: translateY(10px) rotate(4deg); }
+.last-train-home-shot--main { z-index: 1; transform: translateY(-7px); }
+.project-link--last-train:hover .last-train-home-shot--side:first-child { transform: translateY(2px) rotate(-4deg); }
+.project-link--last-train:hover .last-train-home-shot--side:last-child { transform: translateY(2px) rotate(4deg); }
+.project-link--last-train:hover .last-train-home-shot--main { transform: translateY(-14px); }
+
+.last-train-page { padding-bottom: 96px; }
+.last-train-page .product-breadcrumb { color: #817b7c; }
+.last-train-page .product-breadcrumb a:hover { color: #a57518; }
+.last-train-markline { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.last-train-markline img { width: 42px; height: 42px; border: 1px solid rgba(255, 248, 228, .26); border-radius: 13px; box-shadow: 0 8px 22px rgba(0, 0, 0, .22); object-fit: cover; }
+.last-train-markline .product-eyebrow { margin: 0; }
+.last-train-page .product-hero {
+  min-height: 620px;
+  border-color: rgba(247, 194, 67, .2);
+  background: radial-gradient(ellipse at 79% 20%, rgba(74, 105, 151, .34), transparent 28rem), linear-gradient(128deg, #071b2b 0%, #102b43 58%, #21183a 100%);
+  box-shadow: 0 22px 62px rgba(15, 29, 53, .18);
+  color: #fff8e4;
+}
+.last-train-page .product-eyebrow { color: #ffd166; }
+.last-train-page .product-title { max-width: 620px; color: #fff8e4; font-size: clamp(3.3rem, 6.3vw, 6rem); }
+.last-train-page .product-lead { color: rgba(255, 248, 228, .78); }
+.last-train-page .product-button { border-radius: 999px; background: #ffd166; color: #152437; }
+.last-train-page .product-button:hover { background: #ffe39a; }
+.last-train-page .product-back-link { color: rgba(255, 248, 228, .78); }
+.last-train-page .product-back-link:hover { color: #ffd166; }
+.last-train-page .product-trustline { color: #f4ca6c; }
+.last-train-hero-art { position: relative; min-height: 510px; }
+.last-train-hero-art figure {
+  position: absolute;
+  overflow: hidden;
+  margin: 0;
+  border: 1px solid rgba(255, 248, 228, .38);
+  border-radius: 27px;
+  background: #081c2e;
+  box-shadow: 0 28px 65px rgba(0, 0, 0, .38);
+}
+.last-train-hero-art img { display: block; width: 100%; height: auto; }
+.last-train-hero-poster { top: 50%; left: 1%; width: min(73%, 330px); transform: translateY(-50%) rotate(-3deg); }
+.last-train-hero-map { right: 0; bottom: 4%; width: min(52%, 235px); transform: rotate(4deg); }
+.last-train-story { padding-block: 86px 38px; }
+.last-train-page .product-benefit { border-color: rgba(116, 80, 57, .1); background: rgba(255, 253, 249, .84); }
+.last-train-page .product-benefit span { color: #a57518; }
+.last-train-gallery-section { padding-block: 78px 20px; }
+.last-train-gallery-heading { max-width: 760px; margin: 0 0 34px; }
+.last-train-gallery-heading .product-eyebrow { margin-bottom: 12px; }
+.last-train-gallery-heading h2 { max-width: 740px; margin: 0 0 14px; font-size: clamp(2.7rem, 5vw, 4.8rem); font-weight: 390; letter-spacing: -.07em; line-height: .98; }
+.last-train-gallery-heading > p:last-child { max-width: 630px; margin: 0; color: var(--soft-ink); font-size: 16px; line-height: 1.65; }
+.last-train-gallery { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(14px, 2.5vw, 28px); }
+.last-train-gallery figure { overflow: hidden; aspect-ratio: 9 / 16; margin: 0; border: 1px solid rgba(34, 40, 60, .1); border-radius: 22px; background: #091c30; box-shadow: 0 15px 40px rgba(28, 34, 55, .12); }
+.last-train-gallery img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 650ms cubic-bezier(.22, 1, .36, 1); }
+.last-train-gallery figure:hover img { transform: scale(1.025); }
+.last-train-page .product-final-cta { border-color: rgba(247, 194, 67, .2); background: linear-gradient(128deg, #071b2b 0%, #102b43 62%, #21183a 100%); color: #fff8e4; }
+.last-train-page .product-final-cta h2 { color: #fff8e4; }
+.last-train-final-note { margin: 10px 0 0; color: rgba(255, 248, 228, .72); font-size: 14px; }
+.last-train-final-actions { display: flex; flex: 0 0 auto; flex-wrap: wrap; align-items: center; gap: 12px; }
+.last-train-secondary-button { display: inline-flex; min-height: 54px; align-items: center; justify-content: center; padding: 0 18px; border: 1px solid rgba(255, 248, 228, .36); border-radius: 999px; color: #fff8e4; font-size: 14px; font-weight: 620; text-decoration: none; transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease; }
+.last-train-secondary-button:hover { border-color: #ffd166; background: rgba(255, 209, 102, .1); color: #ffd166; }
+.last-train-page .footer-nav a:hover { color: #a57518; }
+
+@media (max-width: 900px) {
+  .last-train-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) and (min-width: 621px) {
+  .site-header .nav { gap: 12px; }
+  .site-header .nav a { font-size: 12px; }
+}
+@media (max-width: 760px) {
+  .last-train-page .product-hero { min-height: 0; }
+  .last-train-hero-art { min-height: 455px; }
+  .last-train-hero-poster { left: 7%; width: min(68%, 310px); }
+  .last-train-hero-map { right: 3%; width: min(48%, 220px); }
+  .last-train-gallery-section { padding-top: 60px; }
+}
+@media (max-width: 620px) {
+  .project-link--last-train .project-images--last-train { grid-template-columns: 1fr 1fr; gap: 15px; }
+  .project-link--last-train .last-train-home-shot--side:last-child { display: none; }
+  .last-train-home-shot { border-radius: 15px; }
+  .last-train-page .product-hero { padding: 30px 23px 32px; }
+  .last-train-hero-art { min-height: 390px; }
+  .last-train-hero-poster { left: 0; width: min(72%, 285px); }
+  .last-train-hero-map { right: 0; bottom: 1%; width: min(49%, 195px); }
+  .last-train-story { padding-top: 58px; }
+  .last-train-gallery { gap: 12px; }
+  .last-train-gallery figure { border-radius: 16px; }
+  .last-train-page .product-final-cta { gap: 20px; }
+  .last-train-final-actions { width: 100%; }
+  .last-train-final-actions a { flex: 1 1 auto; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .last-train-home-shot, .last-train-gallery img, .project-link--last-train { transition: none; }
+  .project-link--last-train:hover { transform: none; }
+  .last-train-home-shot--side:first-child, .last-train-home-shot--side:last-child, .last-train-home-shot--main { transform: none; }
+  .last-train-gallery figure:hover img { transform: none; }
+}
