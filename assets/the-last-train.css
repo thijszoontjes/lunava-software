@@ -25,13 +25,16 @@
 
 .project-images--last-train {
   display: grid;
-  grid-template-columns: .82fr 1.08fr .82fr;
+  width: 100%;
+  min-width: 0;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.08fr) minmax(0, .82fr);
   align-items: center;
   gap: clamp(10px, 2vw, 20px);
   max-width: 610px;
   margin-inline: auto;
 }
 .last-train-home-shot {
+  min-width: 0;
   overflow: hidden;
   aspect-ratio: 9 / 16;
   margin: 0;
