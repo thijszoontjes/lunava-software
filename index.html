@@ -38,7 +38,7 @@
   </script>
   <link rel="icon" href="assets/branding/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20261108-tunebeat">
+  <link rel="stylesheet" href="assets/site.css?v=20261109-apps-menu">
   <link rel="stylesheet" href="assets/the-last-train.css?v=20261105-last-train-layout">
   <link rel="stylesheet" href="assets/consent.css?v=20261023-analytics-consent">
   <title>Lunava Software | Android Apps &amp; Digital Projects</title>
@@ -57,10 +57,15 @@
       </button>
       <nav class="nav" id="primary-navigation" aria-label="Main navigation">
         <a href="saluun/">Saluun</a>
-        <a href="securesets/">SecureSets</a>
-        <a href="sunrise-alarm/">Sunrise Alarm</a>
-        <a href="the-last-train/">The Last Train</a>
-        <a href="tunebeat/">Tunebeat</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown__toggle" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="apps-menu">Apps <span class="nav-dropdown__chevron" aria-hidden="true"></span></button>
+          <div class="nav-dropdown__menu" id="apps-menu">
+            <a href="securesets/">SecureSets</a>
+            <a href="sunrise-alarm/">Sunrise Alarm</a>
+            <a href="the-last-train/">The Last Train</a>
+            <a href="tunebeat/">Tunebeat</a>
+          </div>
+        </div>
         <a href="contact/">Contact</a>
       </nav>
     </div>
@@ -257,6 +262,6 @@
     </div>
   </footer>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script src="assets/site.js?v=20261108-tunebeat" defer></script>
+  <script src="assets/site.js?v=20261109-apps-menu" defer></script>
 </body>
 </html>

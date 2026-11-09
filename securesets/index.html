@@ -227,6 +227,36 @@
         will-change: auto !important;
       }
     }
+
+/* Apps dropdown in the shared header */
+.nav-dropdown { position: relative; }
+.nav-dropdown__toggle { display: inline-flex; align-items: center; gap: 7px; padding: 0; border: 0; background: transparent; color: #625b61; font: inherit; font-size: 14px; cursor: pointer; transition: color 180ms ease; }
+.nav-dropdown__toggle:hover, .nav-dropdown.is-open .nav-dropdown__toggle, .nav-dropdown__toggle.is-current { color: #7152b2; }
+.nav-dropdown__toggle.is-current { font-weight: 650; }
+.nav-dropdown__chevron { width: 6px; height: 6px; margin-top: -3px; border-right: 1.5px solid currentColor; border-bottom: 1.5px solid currentColor; transform: rotate(45deg); transition: transform 180ms ease; }
+.nav-dropdown.is-open .nav-dropdown__chevron { margin-top: 3px; transform: rotate(-135deg); }
+.nav-dropdown__menu { position: absolute; z-index: 6; top: 100%; left: 50%; display: none; min-width: 190px; flex-direction: column; gap: 2px; margin-top: 14px; padding: 8px; border: 1px solid var(--line); border-radius: 14px; background: #fffdf9; box-shadow: 0 18px 38px rgba(41, 36, 42, .12); transform: translateX(-50%); }
+.nav-dropdown__menu::before { content: ""; position: absolute; top: -16px; right: 0; left: 0; height: 16px; }
+.nav-dropdown__menu a { display: block; padding: 10px 14px; border-radius: 9px; white-space: nowrap; }
+.nav-dropdown__menu a:hover, .nav-dropdown__menu a:focus-visible { background: #f7f3fb; }
+@media (hover: hover) and (min-width: 621px) {
+  .nav-dropdown:hover .nav-dropdown__menu { display: flex; }
+  .nav-dropdown:hover .nav-dropdown__toggle { color: #7152b2; }
+  .nav-dropdown:hover .nav-dropdown__chevron { margin-top: 3px; transform: rotate(-135deg); }
+}
+.nav-dropdown.is-open .nav-dropdown__menu { display: flex; }
+
+@media (max-width: 620px) {
+  .nav-dropdown { width: 100%; }
+  .site-header.nav-ready .nav-dropdown__toggle { width: 100%; justify-content: space-between; padding: 13px 14px; border-radius: 10px; font-size: 14px; }
+  .site-header.nav-ready .nav-dropdown__toggle:hover { background: #f7f3fb; }
+  .nav-dropdown__menu { position: static; display: none; min-width: 0; margin: 0 0 4px 12px; padding: 0 0 0 8px; border: 0; border-left: 2px solid var(--line); border-radius: 0; background: transparent; box-shadow: none; transform: none; }
+  .nav-dropdown.is-open .nav-dropdown__menu { display: flex; }
+  .nav-dropdown__menu::before { display: none; }
+  .site-header:not(.nav-ready) .nav-dropdown { width: auto; }
+  .site-header:not(.nav-ready) .nav-dropdown__menu { position: absolute; margin-top: 8px; }
+}
+
   </style>
   <link rel="stylesheet" href="../assets/consent.css?v=20261023-analytics-consent">
 </head>
@@ -242,8 +272,15 @@
       </button>
       <nav class="nav" id="primary-navigation" aria-label="Main navigation">
         <a href="../saluun/">Saluun</a>
-        <a href="../securesets/" aria-current="page">SecureSets</a>
-        <a href="../sunrise-alarm/">Sunrise Alarm</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown__toggle is-current" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="apps-menu">Apps <span class="nav-dropdown__chevron" aria-hidden="true"></span></button>
+          <div class="nav-dropdown__menu" id="apps-menu">
+            <a href="../securesets/" aria-current="page">SecureSets</a>
+            <a href="../sunrise-alarm/">Sunrise Alarm</a>
+            <a href="../the-last-train/">The Last Train</a>
+            <a href="../tunebeat/">Tunebeat</a>
+          </div>
+        </div>
         <a href="../contact/">Contact</a>
       </nav>
     </div>
@@ -415,6 +452,6 @@
       elements.forEach((element) => observer.observe(element));
     })();
   </script>
-  <script src="../assets/site.js?v=20261024-mobile-menu" defer></script>
+  <script src="../assets/site.js?v=20261109-apps-menu" defer></script>
 </body>
 </html>

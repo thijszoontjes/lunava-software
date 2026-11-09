@@ -218,3 +218,24 @@ if (!('IntersectionObserver' in window)) {
     });
   });
 })();
+
+(() => {
+  document.querySelectorAll('.nav-dropdown').forEach((dropdown) => {
+    const toggle = dropdown.querySelector('.nav-dropdown__toggle');
+    if (!toggle) return;
+    const setOpen = (open) => {
+      dropdown.classList.toggle('is-open', open);
+      toggle.setAttribute('aria-expanded', String(open));
+    };
+    toggle.addEventListener('click', () => setOpen(!dropdown.classList.contains('is-open')));
+    document.addEventListener('pointerdown', (event) => {
+      if (!dropdown.contains(event.target)) setOpen(false);
+    });
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && dropdown.classList.contains('is-open')) { setOpen(false); toggle.focus(); }
+    });
+    dropdown.addEventListener('focusout', (event) => {
+      if (!dropdown.contains(event.relatedTarget)) setOpen(false);
+    });
+  });
+})();
