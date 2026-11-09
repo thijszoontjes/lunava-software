@@ -694,3 +694,7 @@ h1, h2, h3, p { margin-top: 0; }
   .site-header:not(.nav-ready) .nav-dropdown { width: auto; }
   .site-header:not(.nav-ready) .nav-dropdown__menu { position: absolute; margin-top: 8px; }
 }
+
+.nav-dropdown__menu a { display: flex; align-items: center; gap: 12px; }
+.nav-app-icon { flex: 0 0 28px; width: 28px; height: 28px; border-radius: 7px; object-fit: cover; }
+.nav-app-icon--letter { display: grid; place-items: center; background: #7152b2; color: #fff; font-size: 13px; font-weight: 700; line-height: 1; }
