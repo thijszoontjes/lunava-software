@@ -697,22 +697,18 @@ h1, h2, h3, p { margin-top: 0; }
 
 .nav-dropdown__menu a { display: flex; align-items: center; gap: 12px; }
 .nav-app-icon { flex: 0 0 28px; width: 28px; height: 28px; border-radius: 7px; object-fit: cover; }
-.nav-app-icon--letter { display: grid; place-items: center; background: #7152b2; color: #fff; font-size: 13px; font-weight: 700; line-height: 1; }
 
-/* Homepage: apps in a 2 x 2 grid on desktop, Saluun full width below */
+/* Homepage: SecureSets and Sunrise Alarm side by side on desktop, the other projects full width */
 @media (min-width: 901px) {
   .apps-section { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
   .apps-section > .section-intro { grid-column: 1 / -1; margin-bottom: 18px; }
   .apps-section > .project-link + .project-link { margin-top: 0; }
-  .apps-section > .project-link { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; align-items: start; gap: 34px; padding: clamp(28px, 3.2vw, 46px); }
-  .apps-section > .project-link .project-copy { grid-column: auto; grid-row: auto; }
-  .apps-section > .project-link .project-images { grid-column: auto; grid-row: auto; align-self: end; justify-content: center; }
-  .apps-section > .project-link .project-copy h3 { font-size: clamp(2.2rem, 3.2vw, 3.2rem); }
-  .apps-section > .project-link .project-copy > p:not(.project-kicker) { max-width: none; font-size: 16px; }
-  .apps-section > .project-link .phone-frame { width: min(44%, 220px); }
-  .apps-section > .project-link .phone-frame--small { width: min(37%, 185px); }
-  .apps-section > .project-link--saluun { grid-column: 1 / -1; grid-template-columns: .82fr 1.18fr; grid-template-rows: auto; align-items: center; gap: clamp(32px, 6vw, 84px); padding: clamp(32px, 5vw, 68px); }
-  .apps-section > .project-link--saluun .project-images { align-self: center; }
-  .apps-section > .project-link--saluun .project-copy > p:not(.project-kicker) { max-width: 470px; font-size: 17px; }
-  .apps-section > .project-link--saluun .project-copy h3 { font-size: clamp(2.5rem, 4vw, 4rem); }
+  .apps-section > .project-link--last-train, .apps-section > .project-link--tunebeat, .apps-section > .project-link--saluun { grid-column: 1 / -1; }
+  .apps-section > #securesets, .apps-section > #sunrise-alarm { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr; align-items: start; gap: 34px; padding: clamp(28px, 3.2vw, 46px); }
+  .apps-section > #securesets .project-copy, .apps-section > #sunrise-alarm .project-copy, .apps-section > #securesets .project-images, .apps-section > #sunrise-alarm .project-images { grid-column: auto; grid-row: auto; }
+  .apps-section > #securesets .project-images, .apps-section > #sunrise-alarm .project-images { align-self: end; justify-content: center; }
+  .apps-section > #securesets .project-copy h3, .apps-section > #sunrise-alarm .project-copy h3 { font-size: clamp(2.2rem, 3.2vw, 3.2rem); }
+  .apps-section > #securesets .project-copy > p:not(.project-kicker), .apps-section > #sunrise-alarm .project-copy > p:not(.project-kicker) { max-width: none; font-size: 16px; }
+  .apps-section > #securesets .phone-frame, .apps-section > #sunrise-alarm .phone-frame { width: min(44%, 220px); }
+  .apps-section > #securesets .phone-frame--small, .apps-section > #sunrise-alarm .phone-frame--small { width: min(37%, 185px); }
 }
