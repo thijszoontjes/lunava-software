@@ -23,7 +23,7 @@ h1, h2, h3, p { margin-top: 0; }
 .site-header { position: relative; z-index: 30; border-bottom: 1px solid var(--line); }
 .header-inner { display: flex; min-height: 92px; align-items: center; justify-content: space-between; }
 .brand { display: flex; align-items: center; gap: 12px; font-size: 15px; font-weight: 560; letter-spacing: -.03em; text-decoration: none; }
-.brand img { width: 54px; height: 54px; object-fit: cover; }
+.brand img { width: 54px; height: 54px; object-fit: cover; border-radius: 50%; }
 .nav, .footer-nav { display: flex; align-items: center; gap: clamp(20px, 3vw, 42px); }
 .nav a, .footer-nav a { color: var(--soft-ink); font-size: 14px; text-decoration: none; transition: color 180ms ease; }
 .nav a:hover, .footer-nav a:hover { color: var(--accent); }
