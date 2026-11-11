@@ -241,29 +241,6 @@ if (!('IntersectionObserver' in window)) {
 })();
 
 (() => {
-  // YouTube subscribe widget: only load Google's script after an explicit click.
-  document.querySelectorAll('[data-yt-gate]').forEach((gate) => {
-    const button = gate.querySelector('button');
-    if (!button) return;
-    button.addEventListener('click', () => {
-      const widget = document.createElement('div');
-      widget.className = 'g-ytsubscribe';
-      widget.dataset.channelid = gate.dataset.channelid;
-      widget.dataset.layout = 'full';
-      widget.dataset.theme = 'default';
-      widget.dataset.count = 'default';
-      widget.setAttribute('role', 'group');
-      widget.setAttribute('aria-label', 'YouTube channel subscriber count and subscribe button');
-      gate.replaceChildren(widget);
-      const script = document.createElement('script');
-      script.src = 'https://apis.google.com/js/platform.js';
-      script.async = true;
-      document.head.append(script);
-    });
-  });
-})();
-
-(() => {
   // Contact page: copy the email address.
   document.querySelectorAll('[data-copy-email]').forEach((button) => {
     const idle = button.textContent;

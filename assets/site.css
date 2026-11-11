@@ -772,11 +772,6 @@ h1, h2, h3, p { margin-top: 0; }
 .saluun-band .section-intro h2 { font-size: clamp(2.4rem, 4.4vw, 4rem); }
 .saluun-band .project-link { margin: 0; }
 
-.yt-gate { display: grid; justify-items: start; gap: 12px; }
-.yt-gate button { min-height: 44px; padding: 0 16px; border: 1px solid rgba(189, 61, 50, .28); border-radius: 4px; background: var(--paper); color: var(--ink); font: inherit; font-size: 14px; font-weight: 620; cursor: pointer; transition: background-color 180ms ease, border-color 180ms ease; }
-.yt-gate button:hover { border-color: #bd3d32; background: #fff5f3; }
-.yt-gate small { color: var(--soft-ink); font-size: 12px; line-height: 1.5; }
-
 /* Bigger tap targets */
 .project-cta, .youtube-channel-link, .project-store-link, .studio-contact { min-height: 44px; }
 .footer-nav a, .footer-nav [data-analytics-settings] { display: inline-flex; min-height: 44px; align-items: center; }
