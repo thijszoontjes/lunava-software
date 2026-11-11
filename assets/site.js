@@ -275,3 +275,30 @@ if (!('IntersectionObserver' in window)) {
     });
   });
 })();
+
+(() => {
+  // App cards: swipeable screenshot strip with previous/next buttons for mouse users.
+  document.querySelectorAll('[data-shots]').forEach((box) => {
+    const strip = box.querySelector('.shots');
+    const prev = box.querySelector('.shots-nav--prev');
+    const next = box.querySelector('.shots-nav--next');
+    if (!strip || !prev || !next) return;
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const update = () => {
+      const max = strip.scrollWidth - strip.clientWidth;
+      const scrollable = max > 4;
+      prev.hidden = !scrollable || strip.scrollLeft <= 4;
+      next.hidden = !scrollable || strip.scrollLeft >= max - 4;
+    };
+    const step = (direction) => strip.scrollBy({
+      left: direction * Math.max(strip.clientWidth * 0.8, 150),
+      behavior: reduce.matches ? 'auto' : 'smooth'
+    });
+    prev.addEventListener('click', () => step(-1));
+    next.addEventListener('click', () => step(1));
+    strip.addEventListener('scroll', update, { passive: true });
+    window.addEventListener('resize', update);
+    strip.querySelectorAll('img').forEach((img) => img.addEventListener('load', update));
+    update();
+  });
+})();
