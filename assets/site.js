@@ -239,3 +239,62 @@ if (!('IntersectionObserver' in window)) {
     });
   });
 })();
+
+(() => {
+  // YouTube subscribe widget: only load Google's script after an explicit click.
+  document.querySelectorAll('[data-yt-gate]').forEach((gate) => {
+    const button = gate.querySelector('button');
+    if (!button) return;
+    button.addEventListener('click', () => {
+      const widget = document.createElement('div');
+      widget.className = 'g-ytsubscribe';
+      widget.dataset.channelid = gate.dataset.channelid;
+      widget.dataset.layout = 'full';
+      widget.dataset.theme = 'default';
+      widget.dataset.count = 'default';
+      widget.setAttribute('role', 'group');
+      widget.setAttribute('aria-label', 'YouTube channel subscriber count and subscribe button');
+      gate.replaceChildren(widget);
+      const script = document.createElement('script');
+      script.src = 'https://apis.google.com/js/platform.js';
+      script.async = true;
+      document.head.append(script);
+    });
+  });
+})();
+
+(() => {
+  // Contact page: copy the email address.
+  document.querySelectorAll('[data-copy-email]').forEach((button) => {
+    const idle = button.textContent;
+    const isDutch = document.documentElement.lang.toLowerCase().startsWith('nl');
+    const doneText = isDutch ? 'Gekopieerd' : 'Copied';
+    let timer;
+    const done = () => {
+      button.classList.add('is-copied');
+      button.textContent = doneText;
+      window.clearTimeout(timer);
+      timer = window.setTimeout(() => {
+        button.classList.remove('is-copied');
+        button.textContent = idle;
+      }, 2200);
+    };
+    button.addEventListener('click', async () => {
+      const email = button.dataset.copyEmail;
+      try {
+        await navigator.clipboard.writeText(email);
+        done();
+      } catch {
+        const field = document.createElement('textarea');
+        field.value = email;
+        field.setAttribute('readonly', '');
+        field.style.position = 'fixed';
+        field.style.opacity = '0';
+        document.body.append(field);
+        field.select();
+        try { if (document.execCommand('copy')) done(); } catch { /* The address stays visible to copy by hand. */ }
+        field.remove();
+      }
+    });
+  });
+})();

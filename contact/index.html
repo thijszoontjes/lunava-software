@@ -4,15 +4,59 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fbf8f2">
-  <meta name="description" content="Meet Thijs Zoontjes, the independent maker behind Lunava Software. Get in touch about apps, ideas, collaborations or just to say hello.">
+  <meta name="description" content="Contact Thijs Zoontjes at Lunava Software. Email about an app, Saluun for your salon, an idea or a collaboration. Replies in English or Dutch.">
   <meta property="og:title" content="Contact | Lunava Software">
   <meta property="og:description" content="A little about Thijs, the independent maker behind Lunava Software. Get in touch about apps, ideas, collaborations or just to say hello.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://lunavasoftware.nl/assets/branding/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lunava Software: Android apps, calm and private">
+  <meta name="twitter:card" content="summary_large_image">
   <meta property="og:url" content="https://lunavasoftware.nl/contact/">
   <link rel="canonical" href="https://lunavasoftware.nl/contact/">
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "ContactPage",
+          "@id": "https://lunavasoftware.nl/contact/#page",
+          "url": "https://lunavasoftware.nl/contact/",
+          "name": "Contact | Lunava Software",
+          "isPartOf": {
+            "@id": "https://lunavasoftware.nl/#website"
+          },
+          "about": {
+            "@id": "https://lunavasoftware.nl/#organization"
+          }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://lunavasoftware.nl/#organization",
+          "name": "Lunava Software",
+          "url": "https://lunavasoftware.nl/",
+          "email": "lunavasoftware@gmail.com",
+          "founder": {
+            "@type": "Person",
+            "name": "Thijs Zoontjes"
+          },
+              "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer support",
+            "email": "lunavasoftware@gmail.com",
+            "availableLanguage": [
+              "English",
+              "Dutch"
+            ]
+          }
+        }
+      ]
+    }
+  </script>
   <link rel="icon" href="../assets/branding/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../assets/branding/apple-touch-icon.png">
-  <link rel="stylesheet" href="../assets/site.css?v=20261110-stowmark">
+  <link rel="stylesheet" href="../assets/site.css?v=20261111-apps-overview">
   <link rel="stylesheet" href="../assets/consent.css?v=20261023-analytics-consent">
   <title>Contact | Lunava Software</title>
   <script>document.documentElement.classList.add('js');</script>
@@ -22,7 +66,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="../" aria-label="Lunava Software home" data-reveal>
-        <img src="../assets/branding/lunava-logo.png" alt="" width="54" height="54">
+        <img src="../assets/branding/lunava-logo-300.png" alt="" width="54" height="54">
         <span>Lunava Software</span>
       </a>
       <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
@@ -38,6 +82,7 @@
             <a href="../the-last-train/"><img class="nav-app-icon" src="../assets/branding/the-last-train-icon.webp" alt="" width="28" height="28"><span>The Last Train</span></a>
             <a href="../tunebeat/"><img class="nav-app-icon" src="../assets/branding/tunebeat-icon.png" alt="" width="28" height="28"><span>Tunebeat</span></a>
             <a href="../stowmark/"><img class="nav-app-icon" src="../assets/branding/stowmark-app-icon.png" alt="" width="28" height="28"><span>Stowmark</span></a>
+            <a class="nav-all-apps" href="../apps/">See all apps <span aria-hidden="true">→</span></a>
           </div>
         </div>
         <a href="../contact/" aria-current="page">Contact</a>
@@ -52,32 +97,87 @@
     </figure>
     <div class="contact-content">
       <h1 id="contact-title" data-reveal>Get in touch.</h1>
-      <p data-reveal style="--delay: 100ms">I’m Thijs, an independent developer from the Netherlands. I love turning everyday ideas into thoughtful software, from the first sketch to the details that make an app feel right. Lunava is where I build, experiment and share the projects I care about. Have a question, an idea, or just want to say hello? I’d love to hear from you.</p>
-      <a class="contact-email" href="mailto:lunavasoftware@gmail.com" data-reveal style="--delay: 180ms">
-        <svg class="contact-email-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.25" y="5.25" width="17.5" height="13.5" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="m4.5 7 6.45 5.2a1.7 1.7 0 0 0 2.1 0L19.5 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <span class="contact-email-copy"><small>Email</small><strong>lunavasoftware@gmail.com</strong></span>
-        <span class="contact-email-arrow" aria-hidden="true">↗</span>
-      </a>
-      <p class="contact-name" data-reveal style="--delay: 260ms">Thijs Zoontjes · Founder</p>
+      <p data-reveal style="--delay: 100ms">I’m Thijs, an independent developer from the Netherlands. I love turning everyday ideas into thoughtful software, from the first sketch to the details that make an app feel right. Have a question, an idea, or just want to say hello? I’d love to hear from you.</p>
+      <div class="contact-email-row" data-reveal style="--delay: 180ms">
+        <a class="contact-email" href="mailto:lunavasoftware@gmail.com">
+          <svg class="contact-email-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.25" y="5.25" width="17.5" height="13.5" rx="3" stroke="currentColor" stroke-width="1.6"/><path d="m4.5 7 6.45 5.2a1.7 1.7 0 0 0 2.1 0L19.5 7" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span class="contact-email-copy"><small>Email</small><strong>lunavasoftware@gmail.com</strong></span>
+          <span class="contact-email-arrow" aria-hidden="true">↗</span>
+        </a>
+        <button class="contact-copy" type="button" data-copy-email="lunavasoftware@gmail.com" aria-label="Copy email address">Copy</button>
+      </div>
+      <p class="contact-note" data-reveal style="--delay: 240ms">I read every message myself. You’re welcome to write in English or Dutch.</p>
+      <p class="contact-name" data-reveal style="--delay: 300ms">Thijs Zoontjes · Founder</p>
     </div>
    </section>
+
+    <section class="contact-topics wrap" aria-labelledby="contact-topics-title">
+      <h2 id="contact-topics-title" data-reveal>What is it about?</h2>
+      <div class="contact-topic-grid">
+        <a class="contact-topic" href="mailto:lunavasoftware@gmail.com?subject=Question%20about%20an%20app&amp;body=Which%20app%3A%0AWhat%20happened%3A%0AYour%20phone%20and%20Android%20version%3A%0A" data-reveal>
+          <h3>A question about an app</h3>
+          <p>Something not working, or a feature you’re missing? Tell me which app and what you ran into.</p>
+          <span class="contact-topic__cta">Email about an app <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="contact-topic" href="mailto:lunavasoftware@gmail.com?subject=Question%20about%20Saluun&amp;body=Salon%20name%3A%0AWhat%20would%20you%20like%20to%20know%3A%0A" data-reveal style="--delay: 80ms">
+          <h3>Saluun for your salon</h3>
+          <p>Questions about online booking, pricing or getting your salon started? I’m happy to help.</p>
+          <span class="contact-topic__cta">Ask about Saluun <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="contact-topic" href="mailto:lunavasoftware@gmail.com?subject=Idea%20or%20collaboration" data-reveal style="--delay: 160ms">
+          <h3>Ideas &amp; collaboration</h3>
+          <p>Got a project in mind, a collaboration, or just want to say hello? Send me a short note.</p>
+          <span class="contact-topic__cta">Share an idea <span aria-hidden="true">↗</span></span>
+        </a>
+      </div>
+    </section>
+
     <section class="contact-apps wrap" aria-labelledby="contact-apps-title">
       <h2 id="contact-apps-title" data-reveal>Questions about an app?</h2>
       <div class="contact-app-list">
         <a class="contact-app" href="../securesets/" aria-label="Open SecureSets project details">
+          <img class="contact-app-icon" src="../assets/branding/securesets-app-icon.png" alt="" width="52" height="52" loading="lazy" decoding="async">
           <span class="contact-app-title" data-reveal>SecureSets <span aria-hidden="true">↗</span></span>
         </a>
         <a class="contact-app" href="../sunrise-alarm/" aria-label="Open Sunrise Alarm project details">
+          <img class="contact-app-icon" src="../assets/branding/sunrise-alarm-icon.png" alt="" width="52" height="52" loading="lazy" decoding="async">
           <span class="contact-app-title" data-reveal>Sunrise Alarm <span aria-hidden="true">↗</span></span>
         </a>
+        <a class="contact-app" href="../the-last-train/" aria-label="Open The Last Train project details">
+          <img class="contact-app-icon" src="../assets/branding/the-last-train-icon.webp" alt="" width="52" height="52" loading="lazy" decoding="async">
+          <span class="contact-app-title" data-reveal>The Last Train <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="contact-app" href="../tunebeat/" aria-label="Open Tunebeat project details">
+          <img class="contact-app-icon" src="../assets/branding/tunebeat-icon.png" alt="" width="52" height="52" loading="lazy" decoding="async">
+          <span class="contact-app-title" data-reveal>Tunebeat <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="contact-app" href="../stowmark/" aria-label="Open Stowmark project details">
+          <img class="contact-app-icon" src="../assets/branding/stowmark-app-icon.png" alt="" width="52" height="52" loading="lazy" decoding="async">
+          <span class="contact-app-title" data-reveal>Stowmark <span aria-hidden="true">↗</span></span>
+        </a>
+        <a class="contact-app contact-app--all" href="../apps/">
+          <span class="contact-app-title" data-reveal>See all apps <span aria-hidden="true">→</span></span>
+        </a>
       </div>
+    </section>
+
+    <section class="contact-company wrap" aria-labelledby="contact-company-title">
+      <h2 id="contact-company-title">Company details</h2>
+      <dl>
+        <div><dt>Business name</dt><dd>Lunava Software</dd></div>
+        <div><dt>Owner</dt><dd>Thijs Zoontjes</dd></div>
+        <div><dt>KVK</dt><dd>42195099</dd></div>
+        <div><dt>Country</dt><dd>The Netherlands</dd></div>
+        <div><dt>Email</dt><dd><a href="mailto:lunavasoftware@gmail.com">lunavasoftware@gmail.com</a></dd></div>
+      </dl>
     </section>
   </main>
 
   <footer class="site-footer">
     <div class="wrap footer-top">
-      <img class="footer-logo" src="../assets/branding/lunava-logo.png" alt="Lunava Software logo" width="150" height="150" loading="lazy" data-reveal>
+      <img class="footer-logo" src="../assets/branding/lunava-logo-300.png" alt="Lunava Software logo" width="150" height="150" loading="lazy" data-reveal>
       <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="../apps/" data-reveal>All apps</a>
         <a href="../#apps" data-reveal>Projects</a>
         <a href="../#studio" data-reveal>Studio</a>
         <a href="../privacy/" data-reveal>Privacy &amp; analytics</a>
@@ -91,6 +191,6 @@
       <span data-reveal>© 2026 · The Netherlands</span>
     </div>
   </footer>
-  <script src="../assets/site.js?v=20261109-apps-menu" defer></script>
+  <script src="../assets/site.js?v=20261111-apps-overview" defer></script>
 </body>
 </html>

@@ -4,10 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#fbf8f2">
-  <meta name="description" content="Lunava Software creates Android apps and digital products, including SecureSets, Sunrise Alarm, The Last Train, Tunebeat, Stowmark and Saluun.">
+  <meta name="description" content="Independent Android apps with calm interfaces and privacy in mind: SecureSets, Sunrise Alarm, The Last Train, Tunebeat and Stowmark, plus the Saluun salon booking platform.">
   <meta name="google-site-verification" content="GsjJGZc0oKuvWBZpQny0kcY4O_nEGJ9Fuy-WOLv4fyc">
   <meta property="og:title" content="Lunava Software | Android Apps &amp; Digital Projects">
-  <meta property="og:description" content="Explore Android apps and digital products from Lunava Software, including The Last Train, a story puzzle mystery.">
+  <meta property="og:description" content="Android apps, calm and private. SecureSets, Sunrise Alarm, The Last Train, Tunebeat, Stowmark and the Saluun salon booking platform.">
+  <meta property="og:image" content="https://lunavasoftware.nl/assets/branding/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Lunava Software: Android apps, calm and private, with screens from Sunrise Alarm, SecureSets and Stowmark">
+  <meta name="twitter:card" content="summary_large_image">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://lunavasoftware.nl/">
   <link rel="canonical" href="https://lunavasoftware.nl/">
@@ -21,9 +26,11 @@
           "name": "Lunava Software",
           "url": "https://lunavasoftware.nl/",
           "description": "Independent maker of Android apps and useful digital products, including The Last Train story puzzle game and the Saluun salon booking platform.",
+          "email": "lunavasoftware@gmail.com",
+          "founder": { "@type": "Person", "name": "Thijs Zoontjes" },
           "logo": {
             "@type": "ImageObject",
-            "url": "https://lunavasoftware.nl/assets/branding/lunava-logo.png"
+            "url": "https://lunavasoftware.nl/assets/branding/lunava-logo-300.png"
           }
         },
         {
@@ -38,7 +45,7 @@
   </script>
   <link rel="icon" href="assets/branding/favicon-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20261110-stowmark">
+  <link rel="stylesheet" href="assets/site.css?v=20261111-apps-overview">
   <link rel="stylesheet" href="assets/the-last-train.css?v=20261105-last-train-layout">
   <link rel="stylesheet" href="assets/consent.css?v=20261023-analytics-consent">
   <title>Lunava Software | Android Apps &amp; Digital Projects</title>
@@ -49,7 +56,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="index.html" aria-label="Lunava Software home" data-reveal>
-        <img src="assets/branding/lunava-logo.png" alt="" width="54" height="54">
+        <img src="assets/branding/lunava-logo-300.png" alt="" width="54" height="54">
         <span>Lunava Software</span>
       </a>
       <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
@@ -65,6 +72,7 @@
             <a href="the-last-train/"><img class="nav-app-icon" src="assets/branding/the-last-train-icon.webp" alt="" width="28" height="28"><span>The Last Train</span></a>
             <a href="tunebeat/"><img class="nav-app-icon" src="assets/branding/tunebeat-icon.png" alt="" width="28" height="28"><span>Tunebeat</span></a>
             <a href="stowmark/"><img class="nav-app-icon" src="assets/branding/stowmark-app-icon.png" alt="" width="28" height="28"><span>Stowmark</span></a>
+            <a class="nav-all-apps" href="apps/">See all apps <span aria-hidden="true">→</span></a>
           </div>
         </div>
         <a href="contact/">Contact</a>
@@ -77,15 +85,18 @@
       <div class="hero-copy">
         <p class="hero-eyebrow" data-reveal>Independent software studio <span aria-hidden="true">·</span> The Netherlands</p>
         <h1 class="hero-title">
-          <span class="mask"><span data-line style="--i: 0">Android apps.</span></span>
-          <span class="mask"><span data-line style="--i: 1">Digital projects.</span></span>
+          <span class="mask"><span data-line style="--i: 0">Android apps,</span></span>
+          <span class="mask"><span data-line style="--i: 1">calm and private.</span></span>
         </h1>
-        <p class="hero-text" data-reveal style="--delay: 260ms">Lunava Software is an independent maker of Android apps and other useful digital projects.</p>
-        <a class="button" href="#apps" data-reveal style="--delay: 340ms">Explore the work <span aria-hidden="true">↘</span></a>
+        <p class="hero-text" data-reveal style="--delay: 260ms">Independent Android apps with calm interfaces and a clear purpose. Tunebeat and Stowmark need no account, and Sunrise Alarm keeps its insights on your device.</p>
+        <div class="hero-actions" data-reveal style="--delay: 340ms">
+          <a class="button" href="apps/">See all apps <span aria-hidden="true">→</span></a>
+          <a class="hero-link" href="saluun/">Booking software for salons <span aria-hidden="true">→</span></a>
+        </div>
       </div>
       <figure class="hero-image" data-reveal style="--delay: 260ms" aria-label="Screens from SecureSets and Sunrise Alarm">
         <span class="hero-orbit" aria-hidden="true"></span>
-        <span class="hero-phone hero-phone--main"><img src="assets/screens/sunrise-alarm-home-emulator.png?v=20261022-emulator" alt="Sunrise Alarm home screen with a 9:00 AM wake-up and I’m going to sleep button" width="1080" height="2400" fetchpriority="high"></span>
+        <span class="hero-phone hero-phone--main"><img src="assets/screens/sunrise-alarm-home-emulator.webp" alt="Sunrise Alarm home screen with a 9:00 AM wake-up and I’m going to sleep button" width="1080" height="2400" fetchpriority="high" decoding="async"></span>
         <span class="hero-phone hero-phone--left"><img src="assets/screens/securesets-pro-progress.png?v=20261022-1.0.5" alt="Illustrative SecureSets Pro chart showing a six-week bench press trend and next-workout proposal" width="1080" height="2400" fetchpriority="high"></span>
         <span class="hero-phone hero-phone--right"><img src="assets/screens/securesets-home.png?v=20261022-1.0.5" alt="SecureSets Today screen with a workout in progress and saved routines" width="1080" height="2400" loading="lazy" decoding="async"></span>
       </figure>
@@ -93,97 +104,118 @@
 
     <section class="apps-section wrap" id="apps" aria-labelledby="apps-title">
       <div class="section-intro" data-reveal>
-        <h2 id="apps-title">Selected projects.</h2>
-        <p>Four Android apps and Saluun, an online booking platform for salons.</p>
+        <h2 id="apps-title">The apps.</h2>
+        <p>Five Android apps with calm interfaces and clear purposes.</p>
       </div>
-
-      <article class="project-link" id="securesets" aria-labelledby="securesets-card-title">
-        <div class="project-copy" data-reveal>
-          <h3 id="securesets-card-title">SecureSets</h3>
-          <p class="project-meta">Strength training · Android</p>
-          <p>Choose your goal, training days, equipment and session length. Optional on-device AI creates a workout plan; log each session, then use Pro charts to follow your strength over time.</p>
-          <div class="project-card-actions">
-            <a class="project-cta" href="securesets/">Explore SecureSets <span aria-hidden="true">↗</span></a>
-            <a class="project-store-button" href="https://play.google.com/store/apps/details?id=com.securesets.app&amp;utm_source=lunava_software&amp;utm_medium=website&amp;utm_campaign=ss_first10_2026-10&amp;utm_content=securesets_card" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+      <div class="app-grid">
+        <article class="app-card app-card--securesets" aria-labelledby="securesets-card-title">
+          <div class="app-card__shot" data-reveal>
+            <img src="assets/screens/securesets-home.png?v=20261022-1.0.5" alt="SecureSets Today screen with a workout in progress and saved routines" width="1080" height="2400" loading="lazy" decoding="async">
           </div>
-        </div>
-        <div class="project-images project-images--training" aria-label="SecureSets app screenshots">
-          <span class="phone-frame phone-frame--training" data-reveal><img src="assets/screens/securesets-home.png?v=20261022-1.0.5" alt="SecureSets Today screen with a workout in progress and saved routines" width="1080" height="2400" loading="lazy" decoding="async"></span>
-          <span class="phone-frame phone-frame--training phone-frame--small" data-reveal style="--delay: 100ms"><img src="assets/screens/securesets-pro-progress.png?v=20261022-1.0.5" alt="Illustrative SecureSets Pro chart showing a six-week bench press trend and next-workout proposal" width="1080" height="2400" loading="lazy" decoding="async"></span>
-        </div>
-      </article>
-
-      <article class="project-link project-link--sunrise" id="sunrise-alarm" aria-labelledby="sunrise-card-title">
-        <div class="project-copy" data-reveal>
-          <h3 id="sunrise-card-title">Sunrise Alarm</h3>
-          <p class="project-meta">Gentler mornings · Android</p>
-          <p>Wake to a gradual sunrise, then explore optional sleep tracking and private, on-device insights.</p>
-          <div class="project-card-actions">
-            <a class="project-cta" href="sunrise-alarm/">Explore Sunrise Alarm <span aria-hidden="true">↗</span></a>
-            <a class="project-store-button" href="https://play.google.com/store/apps/details?id=com.lunavasoftware.sunrisealarm" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+          <div class="app-card__body">
+            <div class="app-card__head">
+              <img class="app-card__icon" src="assets/branding/securesets-app-icon.png" alt="" width="52" height="52" loading="lazy" decoding="async">
+              <div>
+                <h3 id="securesets-card-title">SecureSets</h3>
+                <p class="app-card__meta">Strength training · Android</p>
+              </div>
+            </div>
+            <p class="app-card__text">Plan strength workouts around your goal, log every session and follow your progress with Pro charts. Optional on-device AI builds your plan.</p>
+            <div class="app-card__actions">
+              <a class="app-card__more" href="securesets/">Details <span aria-hidden="true">→</span></a>
+              <a class="project-store-button" href="https://play.google.com/store/apps/details?id=com.securesets.app&amp;utm_source=lunava_software&amp;utm_medium=website&amp;utm_campaign=ss_first10_2026-10&amp;utm_content=securesets_card" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
-        </div>
-        <div class="project-images project-images--sunrise" aria-label="Sunrise Alarm app screenshots">
-          <span class="phone-frame phone-frame--sunrise" data-reveal><img src="assets/screens/sunrise-alarm-home-emulator.png?v=20261022-emulator" alt="Sunrise Alarm home screen with a 9:00 AM wake-up and I’m going to sleep button" width="1080" height="2400" loading="lazy" decoding="async"></span>
-          <span class="phone-frame phone-frame--sunrise phone-frame--small" data-reveal style="--delay: 100ms"><img src="assets/screens/sunrise-sleep-report-emulator.png?v=20261022-emulator" alt="Example Sunrise Alarm sleep report with estimated stages and sample sleep data" width="1080" height="2400" loading="lazy" decoding="async"></span>
-        </div>
-      </article>
-
-      <article class="project-link project-link--last-train" id="the-last-train" aria-labelledby="last-train-card-title">
-        <div class="project-copy" data-reveal>
-          <h3 id="last-train-card-title">The Last Train</h3>
-          <p class="project-meta">Story puzzle mystery · Android</p>
-          <p>Join Inspector Finch and Pippin on a journey through 60 story-led cases. Follow the clues, solve a different puzzle at every stop and uncover the mystery of the vanished train.</p>
-          <div class="project-card-actions">
-            <a class="project-cta" href="the-last-train/">Explore The Last Train <span aria-hidden="true">↗</span></a>
-            <a class="project-store-button project-store-button--last-train" href="https://play.google.com/store/apps/details?id=com.thijszoontjes.mysterypuzzleprototype" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+        </article>
+        <article class="app-card app-card--sunrise" aria-labelledby="sunrise-alarm-card-title">
+          <div class="app-card__shot" data-reveal>
+            <img src="assets/screens/sunrise-alarm-home-emulator.webp" alt="Sunrise Alarm home screen with a 9:00 AM wake-up and I’m going to sleep button" width="1080" height="2400" loading="lazy" decoding="async">
           </div>
-        </div>
-        <div class="project-images project-images--last-train" aria-label="The Last Train game screenshots">
-          <figure class="last-train-home-shot last-train-home-shot--side" data-reveal>
-            <img src="assets/screens/the-last-train/04-lamps.webp" alt="A train-carriage puzzle about lighting a row of lamps" width="1080" height="1920" loading="lazy" decoding="async">
-          </figure>
-          <figure class="last-train-home-shot last-train-home-shot--main" data-reveal style="--delay: 100ms">
+          <div class="app-card__body">
+            <div class="app-card__head">
+              <img class="app-card__icon" src="assets/branding/sunrise-alarm-icon.png" alt="" width="52" height="52" loading="lazy" decoding="async">
+              <div>
+                <h3 id="sunrise-alarm-card-title">Sunrise Alarm</h3>
+                <p class="app-card__meta">Gentler mornings · Android</p>
+              </div>
+            </div>
+            <p class="app-card__text">Wake to a gradual sunrise, with optional sleep tracking and private, on-device insights.</p>
+            <div class="app-card__actions">
+              <a class="app-card__more" href="sunrise-alarm/">Details <span aria-hidden="true">→</span></a>
+              <a class="project-store-button" href="https://play.google.com/store/apps/details?id=com.lunavasoftware.sunrisealarm" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="app-card app-card--last-train" aria-labelledby="the-last-train-card-title">
+          <div class="app-card__shot" data-reveal>
             <img src="assets/screens/the-last-train/02-title.webp" alt="The Last Train title artwork with Inspector Finch at a moonlit station" width="1080" height="1920" loading="lazy" decoding="async">
-          </figure>
-          <figure class="last-train-home-shot last-train-home-shot--side" data-reveal style="--delay: 180ms">
-            <img src="assets/screens/the-last-train/06-stars.webp" alt="A star-connecting puzzle aboard The Last Train" width="1080" height="1920" loading="lazy" decoding="async">
-          </figure>
-        </div>
-      </article>
-
-      <article class="project-link project-link--tunebeat" id="tunebeat" aria-labelledby="tunebeat-card-title">
-        <div class="project-copy" data-reveal>
-          <h3 id="tunebeat-card-title">Tunebeat</h3>
-          <p class="project-meta">Tuner &amp; metronome · Android</p>
-          <p>A fast, accurate tuner and a rock-steady metronome in one clean app. Tune guitar, bass, ukulele and violin with 30+ tunings, then practise with a metronome that counts you in, remembers your setlist and tracks your practice time. No account, works offline.</p>
-          <div class="project-card-actions">
-            <a class="project-cta" href="tunebeat/">Explore Tunebeat <span aria-hidden="true">↗</span></a>
-            <a class="project-store-button" href="https://play.google.com/store/apps/details?id=com.lunavasoftware.tunebeat" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
           </div>
-        </div>
-        <div class="project-images project-images--training" aria-label="Tunebeat app screenshots">
-          <span class="phone-frame phone-frame--training" data-reveal><img src="assets/screens/tunebeat/tuner.webp" alt="Tunebeat tuner showing the note E2 slightly sharp with a gauge needle and the six guitar strings" width="900" height="1950" loading="lazy" decoding="async"></span>
-          <span class="phone-frame phone-frame--training phone-frame--small" data-reveal style="--delay: 100ms"><img src="assets/screens/tunebeat/tunings.webp" alt="Tunebeat tuning picker with guitar, bass, ukulele and violin tunings" width="900" height="1950" loading="lazy" decoding="async"></span>
-        </div>
-      </article>
-
-      <article class="project-link project-link--stowmark" id="stowmark" aria-labelledby="stowmark-card-title">
-        <div class="project-copy" data-reveal>
-          <h3 id="stowmark-card-title">Stowmark</h3>
-          <p class="project-meta">Home inventory &amp; warranty tracker · Android</p>
-          <p>Know what you own, where it is and when the warranty ends. Build your home inventory room by room, keep receipts and serial numbers with every item and get a reminder before a warranty runs out. No account, and everything stays on your phone.</p>
-          <div class="project-card-actions">
-            <a class="project-cta" href="stowmark/">Explore Stowmark <span aria-hidden="true">↗</span></a>
-            <a class="project-store-button" href="https://play.google.com/store/apps/details?id=com.lunavasoftware.stowmark" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+          <div class="app-card__body">
+            <div class="app-card__head">
+              <img class="app-card__icon" src="assets/branding/the-last-train-icon.webp" alt="" width="52" height="52" loading="lazy" decoding="async">
+              <div>
+                <h3 id="the-last-train-card-title">The Last Train</h3>
+                <p class="app-card__meta">Story puzzle mystery · Android</p>
+              </div>
+            </div>
+            <p class="app-card__text">Join Inspector Finch and Pippin through 60 story-led cases and uncover the mystery of the vanished train.</p>
+            <div class="app-card__actions">
+              <a class="app-card__more" href="the-last-train/">Details <span aria-hidden="true">→</span></a>
+              <a class="project-store-button" href="https://play.google.com/store/apps/details?id=com.thijszoontjes.mysterypuzzleprototype" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+            </div>
           </div>
-        </div>
-        <div class="project-images project-images--training" aria-label="Stowmark app screenshots">
-          <span class="phone-frame phone-frame--training" data-reveal><img src="assets/screens/stowmark/home.webp" alt="Stowmark home screen with an item count, an estimated value and rooms marked complete or needing attention" width="900" height="1951" loading="lazy" decoding="async"></span>
-          <span class="phone-frame phone-frame--training phone-frame--small" data-reveal style="--delay: 100ms"><img src="assets/screens/stowmark/attention.webp" alt="Stowmark items that need attention, including an e-bike with an expired warranty" width="900" height="1951" loading="lazy" decoding="async"></span>
-        </div>
-      </article>
+        </article>
+        <article class="app-card app-card--tunebeat" aria-labelledby="tunebeat-card-title">
+          <div class="app-card__shot" data-reveal>
+            <img src="assets/screens/tunebeat/tuner.webp" alt="Tunebeat tuner showing the note E2 slightly sharp with a gauge needle and the six guitar strings" width="900" height="1950" loading="lazy" decoding="async">
+          </div>
+          <div class="app-card__body">
+            <div class="app-card__head">
+              <img class="app-card__icon" src="assets/branding/tunebeat-icon.png" alt="" width="52" height="52" loading="lazy" decoding="async">
+              <div>
+                <h3 id="tunebeat-card-title">Tunebeat</h3>
+                <p class="app-card__meta">Tuner &amp; metronome · Android</p>
+              </div>
+            </div>
+            <p class="app-card__text">A fast, accurate tuner and a rock-steady metronome in one clean app. No account, works offline.</p>
+            <div class="app-card__actions">
+              <a class="app-card__more" href="tunebeat/">Details <span aria-hidden="true">→</span></a>
+              <a class="project-store-button" href="https://play.google.com/store/apps/details?id=com.lunavasoftware.tunebeat" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="app-card app-card--stowmark" aria-labelledby="stowmark-card-title">
+          <div class="app-card__shot" data-reveal>
+            <img src="assets/screens/stowmark/home.webp" alt="Stowmark home screen with an item count, an estimated value and rooms marked complete or needing attention" width="900" height="1951" loading="lazy" decoding="async">
+          </div>
+          <div class="app-card__body">
+            <div class="app-card__head">
+              <img class="app-card__icon" src="assets/branding/stowmark-app-icon.png" alt="" width="52" height="52" loading="lazy" decoding="async">
+              <div>
+                <h3 id="stowmark-card-title">Stowmark</h3>
+                <p class="app-card__meta">Home inventory &amp; warranty tracker · Android</p>
+              </div>
+            </div>
+            <p class="app-card__text">Know what you own and when the warranty ends. No account, and everything stays on your phone.</p>
+            <div class="app-card__actions">
+              <a class="app-card__more" href="stowmark/">Details <span aria-hidden="true">→</span></a>
+              <a class="project-store-button" href="https://play.google.com/store/apps/details?id=com.lunavasoftware.stowmark" target="_blank" rel="noopener noreferrer">Google Play <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </article>
+        <article class="app-card app-card--all" aria-labelledby="all-apps-title">
+          <h3 id="all-apps-title">All apps in one place.</h3>
+          <p>Compare every app, see what each one does and jump to its detail page or Google Play listing.</p>
+          <a class="button" href="apps/">See all apps <span aria-hidden="true">→</span></a>
+        </article>
+      </div>
+    </section>
 
+    <section class="saluun-band wrap" id="salons" aria-labelledby="salons-title">
+      <div class="section-intro" data-reveal>
+        <h2 id="salons-title">For salons.</h2>
+        <p>Saluun is a web platform for online bookings, separate from the Android apps above.</p>
+      </div>
       <article class="project-link project-link--saluun" id="saluun" aria-labelledby="saluun-card-title">
         <div class="project-copy" data-reveal>
           <h3 id="saluun-card-title">Saluun</h3>
@@ -225,7 +257,10 @@
         <div class="youtube-project-metrics" data-reveal style="--delay: 100ms">
           <div class="youtube-project-stat">
             <p class="youtube-project-stat-label">Live subscribers</p>
-            <div class="g-ytsubscribe" data-channelid="UCQMWj6hVE-dOn1vf22ZLtEg" data-layout="full" data-theme="default" data-count="default" role="group" aria-label="YouTube channel subscriber count and subscribe button"></div>
+            <div class="yt-gate" data-yt-gate data-channelid="UCQMWj6hVE-dOn1vf22ZLtEg" aria-live="polite">
+              <button type="button">Show live subscriber count</button>
+              <small>Loads the YouTube widget from Google when you click.</small>
+            </div>
           </div>
           <div class="youtube-project-stat youtube-project-stat--views">
             <p class="youtube-project-stat-label">Views in the past year</p>
@@ -245,7 +280,7 @@
         </div>
         <div class="extension-preview" data-reveal style="--delay: 100ms">
           <a class="extension-preview-link" href="https://chromewebstore.google.com/detail/developer-nightmare/fgoccceflklhcggdbneocmkncigclnfh" target="_blank" rel="noopener noreferrer" aria-label="Open Developer Nightmare in the Chrome Web Store">
-            <img src="assets/developer-nightmare-preview.jpg" alt="Preview artwork for the Developer Nightmare Chrome extension">
+            <img src="assets/developer-nightmare-preview.jpg" alt="Preview artwork for the Developer Nightmare Chrome extension" width="900" height="900" loading="lazy" decoding="async">
           </a>
           <span class="extension-preview-caption">Available on the Chrome Web Store</span>
         </div>
@@ -263,8 +298,9 @@
 
   <footer class="site-footer">
     <div class="wrap footer-top">
-      <img class="footer-logo" src="assets/branding/lunava-logo.png" alt="Lunava Software logo" width="150" height="150" loading="lazy" data-reveal>
+      <img class="footer-logo" src="assets/branding/lunava-logo-300.png" alt="Lunava Software logo" width="150" height="150" loading="lazy" data-reveal>
       <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="apps/">All apps</a>
         <a href="#apps">Projects</a>
         <a href="#studio">Studio</a>
         <a href="privacy/">Privacy &amp; analytics</a>
@@ -278,7 +314,6 @@
       <span>© 2026 · The Netherlands</span>
     </div>
   </footer>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script src="assets/site.js?v=20261109-apps-menu" defer></script>
+  <script src="assets/site.js?v=20261111-apps-overview" defer></script>
 </body>
 </html>
