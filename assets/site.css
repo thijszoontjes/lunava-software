@@ -944,3 +944,14 @@ h1, h2, h3, p { margin-top: 0; }
 .towerlit-page .product-final-cta { background: linear-gradient(135deg, #12206a, #2140a8); }
 .towerlit-page .site-footer { background: #080f2c; }
 @media (max-width: 900px) { .towerlit-page .product-tier-grid { grid-template-columns: 1fr; } }
+.towerlit-page .phone-frame { aspect-ratio: 592 / 1342; padding: 6px; border-radius: 36px; }
+.towerlit-page .phone-frame::after { display: none; }
+.towerlit-page .phone-frame img { border-radius: 30px; object-fit: fill; }
+.towerlit-page .product-visual { align-items: center; }
+.towerlit-page .product-visual .phone-frame { width: min(44%, 250px); }
+.towerlit-page .product-visual .phone-frame--small { width: min(44%, 250px); margin-top: 8%; }
+.towerlit-page .product-gallery .phone-frame { max-width: 230px; aspect-ratio: 592 / 1342; }
+@media (max-width: 760px) {
+  .towerlit-page .product-visual .phone-frame { padding: 6px; }
+  .towerlit-page .product-visual .phone-frame img { position: static; width: 100%; height: 100%; }
+}
