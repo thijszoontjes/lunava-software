@@ -763,6 +763,7 @@ h1, h2, h3, p { margin-top: 0; }
 .app-card--scribeloft { --shot: linear-gradient(160deg, #efe6d4, #dccdb0); }
 .app-card--packwick { --shot: linear-gradient(160deg, #f3d9a6, #dca867); }
 .app-card--cardwren { --shot: linear-gradient(160deg, #dbe9ff, #9ec2ff); }
+.app-card--towerlit { --shot: linear-gradient(160deg, #3a63c4, #1e2f76); }
 .app-card__body { display: flex; flex: 1; flex-direction: column; padding: 26px 26px 28px; }
 .app-card__head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .app-card__icon { flex: 0 0 52px; width: 52px; height: 52px; border-radius: 13px; object-fit: cover; }
@@ -922,3 +923,24 @@ h1, h2, h3, p { margin-top: 0; }
 .cardwren-page .phone-frame::after { display: none; }
 .cardwren-page .phone-frame img { border-radius: 25px; object-fit: contain; }
 @media (max-width: 900px) { .cardwren-page .product-tier-grid { grid-template-columns: 1fr; gap: 12px; } }
+
+/* Towerlit detail page: dusk blue sky and warm gold, like the game */
+.towerlit-page {
+  --ground: #0c1640;
+  --paper: #15236a;
+  --ink: #f6f2e6;
+  --soft-ink: #b8c2e6;
+  --accent: #ffc83d;
+  --terracotta: #ffd978;
+  --line: rgba(246, 242, 230, .16);
+  background: radial-gradient(ellipse at 82% 10%, rgba(255, 200, 61, .13), transparent 36rem), radial-gradient(ellipse at 6% 58%, rgba(80, 120, 230, .2), transparent 34rem), var(--ground);
+  color: var(--ink);
+}
+.towerlit-page .product-hero { border-color: var(--line); background: radial-gradient(circle at 78% 30%, rgba(255, 200, 61, .16), transparent 24rem), linear-gradient(125deg, #12206a 8%, #1d3490 100%); box-shadow: 0 18px 55px rgba(0, 0, 0, .35); }
+.towerlit-page .product-tier-section { background: linear-gradient(135deg, #12206a, #172b82); }
+.towerlit-page .product-tier-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.towerlit-page .product-tier { border-color: var(--line); }
+.towerlit-page .product-tier--pro { border-color: rgba(255, 200, 61, .5); box-shadow: 0 10px 32px rgba(0, 0, 0, .3); }
+.towerlit-page .product-final-cta { background: linear-gradient(135deg, #12206a, #2140a8); }
+.towerlit-page .site-footer { background: #080f2c; }
+@media (max-width: 900px) { .towerlit-page .product-tier-grid { grid-template-columns: 1fr; } }
