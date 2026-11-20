@@ -762,6 +762,7 @@ h1, h2, h3, p { margin-top: 0; }
 .app-card--stowmark { --shot: linear-gradient(160deg, #d7ece9, #b5dad5); }
 .app-card--scribeloft { --shot: linear-gradient(160deg, #efe6d4, #dccdb0); }
 .app-card--packwick { --shot: linear-gradient(160deg, #f3d9a6, #dca867); }
+.app-card--cardwren { --shot: linear-gradient(160deg, #dbe9ff, #9ec2ff); }
 .app-card__body { display: flex; flex: 1; flex-direction: column; padding: 26px 26px 28px; }
 .app-card__head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .app-card__icon { flex: 0 0 52px; width: 52px; height: 52px; border-radius: 13px; object-fit: cover; }
@@ -909,3 +910,15 @@ h1, h2, h3, p { margin-top: 0; }
 .packwick-page .product-button:hover { background: #cf6a1c; }
 .packwick-page .nav-dropdown__menu a:hover, .packwick-page .nav-dropdown__menu a:focus-visible { background: rgba(251, 239, 217, .08); }
 @media (max-width: 900px) { .packwick-page .product-tier-grid { grid-template-columns: 1fr; gap: 12px; } }
+
+/* Cardwren detail page: calm study blue on the light site theme */
+.cardwren-page .product-hero { border-color: rgba(30, 90, 200, .14); background: radial-gradient(circle at 78% 30%, rgba(60, 130, 255, .14), transparent 24rem), linear-gradient(125deg, #fbfdff 8%, #e6f0ff 100%); box-shadow: 0 14px 42px rgba(30, 70, 150, .08); }
+.cardwren-page .product-button { background: #1f6feb; color: #fff; }
+.cardwren-page .product-button:hover { background: #3a82f2; }
+.cardwren-page .product-tier-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.cardwren-page .product-final-cta { border-color: rgba(30, 90, 200, .16); background: linear-gradient(135deg, #eaf2ff, #d3e5ff); }
+.cardwren-page .product-tier--pro { border-color: rgba(31, 111, 235, .45); }
+.cardwren-page .phone-frame { aspect-ratio: 9 / 16; padding: 0; border: 1px solid rgba(30, 90, 200, .18); border-radius: 26px; background: #fff; box-shadow: 0 18px 42px rgba(30, 70, 150, .16); }
+.cardwren-page .phone-frame::after { display: none; }
+.cardwren-page .phone-frame img { border-radius: 25px; object-fit: contain; }
+@media (max-width: 900px) { .cardwren-page .product-tier-grid { grid-template-columns: 1fr; gap: 12px; } }
