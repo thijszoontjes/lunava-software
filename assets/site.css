@@ -1034,3 +1034,8 @@ h1, h2, h3, p { margin-top: 0; }
 /* real phone bezel (default .phone-frame), ratio 9:20 like the other app pages, matching the 9:20 app captures */
 .pagevane-page .phone-frame, .pagevane-page .product-gallery .phone-frame { aspect-ratio: 9 / 20; }
 @media (max-width: 900px) { .pagevane-page .product-tier-grid { grid-template-columns: 1fr; gap: 12px; } }
+
+/* secondary action next to "See all apps" */
+.section-intro__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.button--outline { border: 1px solid var(--ink); background: transparent; color: var(--ink); }
+.button--outline:hover { border-color: var(--accent); background: var(--accent); color: var(--ground); }

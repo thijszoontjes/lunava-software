@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fbf8f2">
+  <meta name="description" content="Smash the stack: a small browser game from Lunava Software. Pick one of our app icons as your avatar and sling it at a tower built from the others.">
+  <meta property="og:title" content="Smash the stack | Lunava Software">
+  <meta property="og:description" content="Pick an app icon, pull back and knock down the tower of the others. A tiny physics game by Lunava Software.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://lunavasoftware.nl/play/">
+  <meta property="og:image" content="https://lunavasoftware.nl/assets/branding/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://lunavasoftware.nl/play/">
+  <link rel="icon" href="../assets/branding/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="../assets/branding/favicon-48.png" type="image/png" sizes="48x48">
+  <link rel="icon" href="../assets/branding/favicon-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="../assets/branding/apple-touch-icon.png">
+  <link rel="stylesheet" href="../assets/site.css?v=20261125-play">
+  <link rel="stylesheet" href="../assets/consent.css?v=20261023-analytics-consent">
+  <link rel="stylesheet" href="../assets/icon-smash.css?v=20261125-2">
+  <title>Smash the stack | Lunava Software</title>
+  <script>document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../" aria-label="Lunava Software home" data-reveal>
+        <img src="../assets/branding/lunava-logo-300.png" alt="" width="54" height="54">
+        <span>Lunava Software</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-navigation" aria-expanded="false">
+        <span class="nav-toggle__icon" aria-hidden="true"><span></span><span></span><span></span></span>
+      </button>
+      <nav class="nav" id="primary-navigation" aria-label="Main navigation">
+        <a href="../saluun/">Saluun</a>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown__toggle is-current" type="button" aria-expanded="false" aria-haspopup="true" aria-controls="apps-menu">Apps <span class="nav-dropdown__chevron" aria-hidden="true"></span></button>
+          <div class="nav-dropdown__menu" id="apps-menu">
+            <a href="../sunrise-alarm/"><img class="nav-app-icon" src="../assets/branding/sunrise-alarm-icon.png" alt="" width="28" height="28"><span>Sunrise Alarm</span></a>
+            <a href="../securesets/"><img class="nav-app-icon" src="../assets/branding/securesets-app-icon.png" alt="" width="28" height="28"><span>SecureSets</span></a>
+            <a href="../geowimble/"><img class="nav-app-icon" src="../assets/branding/geowimble-app-icon.png" alt="" width="28" height="28"><span>GeoWimble</span></a>
+            <a href="../towerlit/"><img class="nav-app-icon" src="../assets/branding/towerlit-app-icon.png" alt="" width="28" height="28"><span>Towerlit</span></a>
+            <a class="nav-all-apps" href="../apps/">See all apps <span aria-hidden="true">→</span></a>
+            <a class="nav-all-apps" href="../play/" aria-current="page">Play Smash the stack <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
+        <a href="../contact/">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="apps-hero wrap" aria-labelledby="play-title">
+      <p class="hero-eyebrow" data-reveal>Lunava Software <span aria-hidden="true">·</span> Play</p>
+      <h1 id="play-title" data-reveal style="--delay: 80ms">Smash the stack.</h1>
+      <p data-reveal style="--delay: 160ms">Pick one of the app icons as your avatar, pull back and knock over the tower built from all the others.</p>
+    </section>
+
+    <section class="wrap play-section" aria-label="Game">
+    <div class="smash" data-smash data-smash-base="../" aria-labelledby="play-title">
+      <span class="smash__label" id="smash-avatar-label">Your avatar</span>
+      <div class="smash__picker" role="radiogroup" aria-labelledby="smash-avatar-label" data-smash-picker></div>
+      <div class="smash__stage" data-smash-stage tabindex="0" role="group" aria-label="Icon Smash game. Use the arrow keys to aim and Space to launch.">
+        <canvas class="smash__canvas" data-smash-canvas aria-hidden="true"></canvas>
+        <div class="smash__aim" data-smash-aim></div>
+        <div class="smash__hud">
+          <div class="smash__stats">
+            <span class="smash__stat smash__stat--level" data-smash-level>Level 1</span>
+            <span class="smash__stat">Score <b data-smash-score>0</b></span>
+            <span class="smash__stat">Shots <b data-smash-shots>0</b></span>
+          </div>
+          <div class="smash__tools">
+            <button class="smash__pill" type="button" data-smash-restart>Restart</button>
+            <button class="smash__pill" type="button" data-smash-sound aria-pressed="false">Sound off</button>
+          </div>
+        </div>
+        <p class="smash__hint" data-smash-hint>Drag back on the left and let go. Tap mid-air for a boost.</p>
+        <div class="smash__panel" data-smash-panel hidden></div>
+        <div class="smash__loading">Loading the stack…</div>
+      </div>
+      <div class="smash__levels" data-smash-levels role="group" aria-label="Levels"></div>
+      <p class="smash__footnote">Keyboard: arrow keys to aim, Space to launch or boost. Best scores are saved on this device only.</p>
+      <p class="smash__sr" aria-live="polite" data-smash-live></p>
+    </div>
+      <p class="play-back"><a href="../apps/">← See all apps</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-top">
+      <img class="footer-logo" src="../assets/branding/lunava-logo-300.png" alt="Lunava Software logo" width="150" height="150" loading="lazy" data-reveal>
+      <nav class="footer-nav" aria-label="Footer navigation">
+        <a href="../apps/" data-reveal>All apps</a>
+        <a href="../#apps" data-reveal>Projects</a>
+        <a href="../#studio" data-reveal>Studio</a>
+        <a href="../privacy/" data-reveal>Privacy &amp; analytics</a>
+        <button type="button" data-analytics-settings>Analytics settings</button>
+        <a href="../contact/" data-reveal>Contact</a>
+      </nav>
+    </div>
+    <div class="wrap footer-bottom">
+      <span data-reveal>Lunava Software · Thijs Zoontjes</span>
+      <span data-reveal>KVK 42195099</span>
+      <span data-reveal>© 2026 · The Netherlands</span>
+    </div>
+  </footer>
+  <script src="../assets/site.js?v=20261125-pagevane4" defer></script>
+  <script src="../assets/icon-smash.js?v=20261125-2" defer></script>
+</body>
+</html>

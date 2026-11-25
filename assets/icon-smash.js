@@ -19,6 +19,9 @@
     { id: 'pagevane', name: 'Pagevane', src: 'assets/branding/pagevane-app-icon.png', href: 'pagevane/' }
   ];
 
+  const BASE = root.dataset.smashBase || '';
+  ICONS.forEach((i) => { i.src = BASE + i.src; i.href = BASE + i.href; });
+
   const S = 56;              // icon block size in world px
   const PR = 25;             // projectile radius
   const H = 560;             // world height
@@ -1079,7 +1082,7 @@
         new Promise((resolve, reject) => {
           if (window.Matter) { resolve(); return; }
           const s = document.createElement('script');
-          s.src = 'assets/vendor/matter.min.js?v=0.20.0';
+          s.src = `${BASE}assets/vendor/matter.min.js?v=0.20.0`;
           s.onload = resolve;
           s.onerror = reject;
           document.head.append(s);

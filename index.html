@@ -47,10 +47,9 @@
   <link rel="icon" href="assets/branding/favicon-48.png" type="image/png" sizes="48x48">
   <link rel="icon" href="assets/branding/favicon-192.png" type="image/png" sizes="192x192">
   <link rel="apple-touch-icon" href="assets/branding/apple-touch-icon.png">
-  <link rel="stylesheet" href="assets/site.css?v=20261124-tiles">
+  <link rel="stylesheet" href="assets/site.css?v=20261125-play">
   <link rel="stylesheet" href="assets/the-last-train.css?v=20261105-last-train-layout">
   <link rel="stylesheet" href="assets/consent.css?v=20261023-analytics-consent">
-  <link rel="stylesheet" href="assets/icon-smash.css?v=20261125-1">
   <title>Lunava Software | Android Apps &amp; Digital Projects</title>
   <script>document.documentElement.classList.add('js');</script>
 </head>
@@ -75,7 +74,7 @@
             <a href="geowimble/"><img class="nav-app-icon" src="assets/branding/geowimble-app-icon.png" alt="" width="28" height="28"><span>GeoWimble</span></a>
             <a href="towerlit/"><img class="nav-app-icon" src="assets/branding/towerlit-app-icon.png" alt="" width="28" height="28"><span>Towerlit</span></a>
             <a class="nav-all-apps" href="apps/">See all apps <span aria-hidden="true">→</span></a>
-            <a class="nav-all-apps" href="#play">Play Smash the stack <span aria-hidden="true">↓</span></a>
+            <a class="nav-all-apps" href="play/">Play Smash the stack <span aria-hidden="true">→</span></a>
           </div>
         </div>
         <a href="contact/">Contact</a>
@@ -112,7 +111,7 @@
           <p>Android apps with calm interfaces and clear purposes.</p>
           <div class="section-intro__actions">
             <a class="button" href="apps/">See all apps <span aria-hidden="true">→</span></a>
-            <a class="button button--outline" href="#play">Play a game <span aria-hidden="true">↓</span></a>
+            <a class="button button--outline" href="play/">Play a game <span aria-hidden="true">→</span></a>
           </div>
         </div>
       </div>
@@ -174,35 +173,6 @@
         </a></li>
       </ul>
 
-      <div class="smash" id="play" data-smash data-reveal aria-labelledby="smash-title">
-        <div class="smash__head">
-          <h3 class="smash__title" id="smash-title">Smash the stack.</h3>
-          <p class="smash__lede">Pick one of the app icons as your avatar, pull back and knock over the tower built from all the others.</p>
-        </div>
-        <span class="smash__label" id="smash-avatar-label">Your avatar</span>
-        <div class="smash__picker" role="radiogroup" aria-labelledby="smash-avatar-label" data-smash-picker></div>
-        <div class="smash__stage" data-smash-stage tabindex="0" role="group" aria-label="Icon Smash game. Use the arrow keys to aim and Space to launch.">
-          <canvas class="smash__canvas" data-smash-canvas aria-hidden="true"></canvas>
-          <div class="smash__aim" data-smash-aim></div>
-          <div class="smash__hud">
-            <div class="smash__stats">
-              <span class="smash__stat smash__stat--level" data-smash-level>Level 1</span>
-              <span class="smash__stat">Score <b data-smash-score>0</b></span>
-              <span class="smash__stat">Shots <b data-smash-shots>0</b></span>
-            </div>
-            <div class="smash__tools">
-              <button class="smash__pill" type="button" data-smash-restart>Restart</button>
-              <button class="smash__pill" type="button" data-smash-sound aria-pressed="false">Sound off</button>
-            </div>
-          </div>
-          <p class="smash__hint" data-smash-hint>Drag back on the left and let go. Tap mid-air for a boost.</p>
-          <div class="smash__panel" data-smash-panel hidden></div>
-          <div class="smash__loading">Loading the stack…</div>
-        </div>
-        <div class="smash__levels" data-smash-levels role="group" aria-label="Levels"></div>
-        <p class="smash__footnote">Keyboard: arrow keys to aim, Space to launch or boost. Best scores are saved on this device only.</p>
-        <p class="smash__sr" aria-live="polite" data-smash-live></p>
-      </div>
     </section>
 
     <section class="saluun-band wrap" id="salons" aria-labelledby="salons-title">
@@ -307,6 +277,5 @@
   </footer>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
   <script src="assets/site.js?v=20261125-pagevane4" defer></script>
-  <script src="assets/icon-smash.js?v=20261125-1" defer></script>
 </body>
 </html>

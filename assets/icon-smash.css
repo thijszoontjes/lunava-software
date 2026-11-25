@@ -124,8 +124,10 @@ html:not(.js) .smash { display: none; }
   .smash__avatar, .smash__level, .smash__pill, .smash__btn { transition: none; }
 }
 
-/* entry button in the apps section header */
-.section-intro__actions { display: flex; flex-wrap: wrap; gap: 10px; }
-.button--outline { border: 1px solid var(--ink); background: transparent; color: var(--ink); }
-.button--outline:hover { border-color: var(--accent); background: var(--accent); color: var(--ground); }
-.smash { scroll-margin-top: 90px; }
+/* standalone /play/ page */
+.play-section { padding-bottom: 90px; }
+.play-section .smash { margin-top: 0; }
+.play-back { margin: 22px 0 0; }
+.play-back a { color: var(--soft-ink); font-size: 14px; font-weight: 620; text-underline-offset: 4px; }
+.play-back a:hover { color: var(--accent); }
+@media (max-width: 700px) { .play-section { padding-bottom: 56px; } }
