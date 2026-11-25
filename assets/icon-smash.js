@@ -382,7 +382,8 @@
   const construct = (level) => {
     const { Engine, Bodies, Body, Composite, Events, Sleeping } = Matter;
     if (engine) Events.off(engine);
-    engine = Engine.create({ enableSleeping: true, positionIterations: 10, velocityIterations: 8 });
+    // no body sleeping: a sleeping block can freeze half-way through tipping over and then hang in the air
+    engine = Engine.create({ enableSleeping: false, positionIterations: 10, velocityIterations: 8 });
     world = engine.world;
     engine.gravity.y = 1;
     engine.gravity.scale = GRAVITY_SCALE;
@@ -443,7 +444,7 @@
     for (let i = 0; i < 120; i++) Engine.update(engine, STEP);
     starts.forEach(([b], i) => { drift = Math.max(drift, Math.hypot(b.position.x - snap[i][0], b.position.y - snap[i][1])); });
     Composite.allBodies(world).forEach((b) => {
-      if (!b.isStatic) { Body.setVelocity(b, { x: 0, y: 0 }); Body.setAngularVelocity(b, 0); Sleeping.set(b, true); }
+      if (!b.isStatic) { Body.setVelocity(b, { x: 0, y: 0 }); Body.setAngularVelocity(b, 0); }
     });
     Events.on(engine, 'collisionStart', onCollision);
     return drift;
@@ -474,6 +475,14 @@
     e.flash = 1;
   };
 
+  // Matter keeps sleeping bodies asleep when their support disappears, so things would hang in mid-air.
+  // Whenever something is removed we wake every loose body so gravity gets its say.
+  const wakeAll = () => {
+    const { Composite, Sleeping } = Matter;
+    for (const b of Composite.allBodies(world)) if (!b.isStatic && b.isSleeping) Sleeping.set(b, false);
+    calmSteps = 0;
+  };
+
   const destroy = (body, e, reason) => {
     e.dead = true;
     const { Composite } = Matter;
@@ -482,6 +491,7 @@
     makeShards(body, e, spr, color);
     makePuffs(body.position.x, body.position.y, e.mat === 'glass' ? '#cfe9f4' : color, e.k === 'icon' ? 11 : 7);
     Composite.remove(world, body);
+    wakeAll();
     if (e.k === 'tnt') blasts.push({ x: body.position.x, y: body.position.y });
     else sfx.crack(e.mat);
     if (!reducedMotion) shake = Math.max(shake, e.mat === 'glass' ? 3 : 7);
@@ -629,6 +639,7 @@
       Matter.Composite.remove(world, projectile);
       ents.delete(projectile.id);
       projectile = null;
+      wakeAll();
     }
     const remaining = targetsLeft();
     if (remaining === 0) return; // win timer handles it
