@@ -37,10 +37,81 @@
   const DMG_THRESHOLD = 3;
   const DMG_K = 12;
 
+  const MATS = {
+    wood:  { hp: 120, density: 0.0014, friction: 0.8, restitution: 0.04, shard: '#c98f5f' },
+    stone: { hp: 240, density: 0.0024, friction: 0.9, restitution: 0.02, shard: '#9a9791' },
+    glass: { hp: 36,  density: 0.0008, friction: 0.5, restitution: 0.02, shard: 'rgba(160, 215, 238, .8)' },
+    tile:  { hp: 110, density: 0.0013, friction: 0.8, restitution: 0.04, shard: '#c4543b' },
+    tnt:   { hp: 26,  density: 0.0012, friction: 0.7, restitution: 0.04, shard: '#c93a3a' }
+  };
+
   const icon = (x, y) => ({ k: 'icon', x, y, w: S, h: S });
-  const plank = (x, y, w, h = 20) => ({ k: 'plank', x, y, w, h });
+  const blk = (mat, x, y, w, h) => ({ k: 'block', mat, x, y, w, h });
+  const tnt = (x, y) => ({ k: 'tnt', mat: 'tnt', x, y, w: 44, h: 44 });
+  const ball = (x, y, r = 26, mat = 'stone') => ({ k: 'ball', mat, x, y, w: r * 2, h: r * 2, r });
+  const roof = (x, base, w, h) => ({ k: 'roof', mat: 'tile', x, y: base - h / 2, w, h });
+
+  // one storey: two walls, things inside, a ceiling. Returns the y of the next storey's floor.
+  const story = (parts, cx, base, { iw, wall = 'wood', ceil = 'wood', items = [] }) => {
+    const wx = iw / 2 + 10;
+    parts.push(blk(wall, cx - wx, base - 30, 20, 60), blk(wall, cx + wx, base - 30, 20, 60));
+    items.forEach(([type, dx]) => {
+      if (type === 'icon') parts.push(icon(cx + dx, base - S / 2));
+      else if (type === 'tnt') parts.push(tnt(cx + dx, base - 22));
+      else if (type === 'ball') parts.push(ball(cx + dx, base - 27, 26, 'stone'));
+    });
+    parts.push(blk(ceil, cx, base - 70, iw + 48, 20));
+    return base - 80;
+  };
 
   const LEVELS = [
+    {
+      name: 'Cottage', shots: 3,
+      build({ cx }) {
+        const p = [];
+        let b = GROUND;
+        b = story(p, cx, b, { iw: 112, wall: 'stone', items: [['icon', -29], ['icon', 29]] });
+        b = story(p, cx, b, { iw: 60, items: [['icon', 0]] });
+        p.push(roof(cx, b, 140, 60));
+        return p;
+      }
+    },
+    {
+      name: 'Glass house', shots: 4,
+      build({ cx }) {
+        const p = [];
+        let b = GROUND;
+        b = story(p, cx, b, { iw: 112, wall: 'stone', items: [['icon', -29], ['icon', 29]] });
+        b = story(p, cx, b, { iw: 112, wall: 'glass', ceil: 'glass', items: [['icon', -29], ['icon', 29]] });
+        b = story(p, cx, b, { iw: 60, wall: 'glass', items: [['icon', 0]] });
+        p.push(roof(cx, b, 150, 56));
+        return p;
+      }
+    },
+    {
+      name: 'Fortress', shots: 4,
+      build({ cx }) {
+        const p = [];
+        let b = GROUND;
+        b = story(p, cx, b, { iw: 112, wall: 'stone', ceil: 'stone', items: [['icon', -29], ['tnt', 30]] });
+        b = story(p, cx, b, { iw: 112, wall: 'stone', items: [['icon', -29], ['icon', 29]] });
+        b = story(p, cx, b, { iw: 60, items: [['icon', 0]] });
+        p.push(roof(cx, b, 140, 60));
+        return p;
+      }
+    },
+    {
+      name: 'Twin houses', shots: 5,
+      build({ cx }) {
+        const p = [];
+        story(p, cx - 118, GROUND, { iw: 60, items: [['tnt', 0]] });
+        story(p, cx + 118, GROUND, { iw: 60, items: [['icon', 0]] });
+        p.push(blk('wood', cx, GROUND - 90, 344, 20));
+        p.push(icon(cx - 118, GROUND - 100 - S / 2), icon(cx + 118, GROUND - 100 - S / 2));
+        p.push(ball(cx, GROUND - 100 - 26));
+        return p;
+      }
+    },
     {
       name: 'Pyramid', shots: 5,
       build({ cx }) {
@@ -53,62 +124,31 @@
       }
     },
     {
-      name: 'The gate', shots: 5,
-      build({ cx }) {
-        const p = [];
-        for (const dx of [-80, 80]) for (let r = 0; r < 4; r++) p.push(icon(cx + dx, GROUND - S / 2 - r * S));
-        p.push(plank(cx, GROUND - 4 * S - 10, 250));
-        for (const dx of [-80, 80]) p.push(icon(cx + dx, GROUND - 4 * S - 20 - S / 2));
-        return p;
-      }
-    },
-    {
-      name: 'Skyscraper', shots: 5,
-      build({ cx }) {
-        const p = [];
-        const wob = [0, 2, -3, 3, -2, 3, -3, 2];
-        for (let r = 0; r < 8; r++) p.push(icon(cx + wob[r], GROUND - S / 2 - r * S));
-        p.push(icon(cx - S - 1, GROUND - S / 2), icon(cx + S + 1, GROUND - S / 2));
-        return p;
-      }
-    },
-    {
-      name: 'Castle', shots: 5,
-      build({ cx }) {
-        const p = [];
-        for (let i = 0; i < 5; i++) p.push(icon(cx + (i - 2) * S, GROUND - S / 2));
-        for (const i of [0, 1, 3, 4]) p.push(icon(cx + (i - 2) * S, GROUND - S - S / 2));
-        p.push(plank(cx, GROUND - 2 * S - 10, 168));
-        p.push(icon(cx, GROUND - 2 * S - 20 - S / 2));
-        return p;
-      }
-    },
-    {
-      name: 'Tables', shots: 4,
-      build({ cx }) {
-        const p = [];
-        for (const dx of [-122, 0, 122]) {
-          const x = cx + dx;
-          p.push(plank(x - 40, GROUND - 30, 20, 60), plank(x + 40, GROUND - 30, 20, 60));
-          p.push(icon(x, GROUND - S / 2));
-          p.push(plank(x, GROUND - 70, 112));
-          p.push(icon(x, GROUND - 80 - S / 2));
-        }
-        return p;
-      }
-    },
-    {
-      name: 'Surprise pile', shots: 6, random: true,
+      name: 'Surprise house', shots: 5, random: true,
       build({ cx, rnd }) {
-        const cols = 4 + Math.floor(rnd() * 2);
-        let heights;
-        do {
-          heights = Array.from({ length: cols }, () => 1 + Math.floor(rnd() * 5));
-        } while (heights.reduce((a, b) => a + b, 0) < 10 || heights.reduce((a, b) => a + b, 0) > 15);
         const p = [];
-        heights.forEach((h, c) => {
-          for (let r = 0; r < h; r++) p.push(icon(cx + (c - (cols - 1) / 2) * (S + 1), GROUND - S / 2 - r * S));
-        });
+        const pick = (list) => list[Math.floor(rnd() * list.length)];
+        const floors = 2 + Math.floor(rnd() * 2);
+        let b = GROUND;
+        let width = 112;
+        for (let f = 0; f < floors; f++) {
+          if (f > 0 && rnd() < 0.45) width = 60;
+          const items = [];
+          if (width === 112) {
+            const combo = pick([['icon', 'icon'], ['icon', 'icon'], ['icon', 'tnt'], ['tnt', 'icon']]);
+            items.push([combo[0], combo[0] === 'tnt' ? -28 : -29], [combo[1], combo[1] === 'tnt' ? 30 : 29]);
+          } else {
+            items.push([rnd() < 0.2 ? 'tnt' : 'icon', 0]);
+          }
+          b = story(p, cx, b, {
+            iw: width,
+            wall: pick(['wood', 'wood', 'stone', 'glass']),
+            ceil: pick(['wood', 'wood', 'glass', 'stone']),
+            items
+          });
+        }
+        if (rnd() < 0.7) p.push(roof(cx, b, width + 80, 58));
+        else p.push(tnt(cx, b - 22));
         return p;
       }
     }
@@ -159,6 +199,8 @@
   let colors = {};
   let ents = new Map();
   let shards = [];
+  let blasts = [];
+  let rings = [];
   let puffs = [];
   let floaters = [];
   let trail = [];
@@ -238,7 +280,13 @@
         lastThud = now;
         burst(260 + Math.random() * 120, 0.1 + Math.min(speed, 14) * 0.008, Math.min(0.9, 0.18 + speed * 0.05));
       },
-      crack() { if (ensure()) { burst(2200, 0.22, 0.5, 'bandpass', 1.2); burst(180, 0.18, 0.7); } },
+      crack(mat) {
+        if (!ensure()) return;
+        if (mat === 'glass') { burst(5200, 0.28, 0.45, 'highpass', 0.8); tone(2400, 1500, 0.12, 0.12, 'triangle'); }
+        else if (mat === 'stone') { burst(900, 0.26, 0.7, 'bandpass', 0.9); burst(120, 0.22, 0.8); }
+        else { burst(2200, 0.22, 0.5, 'bandpass', 1.2); burst(180, 0.18, 0.7); }
+      },
+      boom() { if (ensure()) { burst(160, 0.7, 1, 'lowpass', 0.6); tone(110, 38, 0.6, 0.55, 'sawtooth'); } },
       win() { if (ensure()) [523, 659, 784, 1047].forEach((f, i) => tone(f, f * 1.004, 0.26, 0.3, 'triangle', i * 0.11)); },
       lose() { if (ensure()) { tone(330, 210, 0.3, 0.3, 'triangle'); tone(247, 150, 0.4, 0.3, 'triangle', 0.18); } }
     };
@@ -310,25 +358,38 @@
 
   const buildLevel = () => {
     generation++;
+    const level = LEVELS[levelIndex];
+    W = worldWidth();
+    resizeCanvas();
+    let drift = 0;
+    // random houses are rebuilt a few times if one turns out to be wobbly
+    for (let attempt = 0; attempt < 12; attempt++) {
+      drift = construct(level);
+      if (!level.random || drift < 1.5) break;
+    }
+    shotsLeft = level.shots;
+    shards = []; puffs = []; floaters = []; trail = []; blasts = []; rings = [];
+    projectile = null; boosted = false; armed = true; dragging = false;
+    flightTime = 0; calmSteps = 0; winTimer = 0; shake = 0;
+    score = 0; shotsUsed = 0;
+    phase = 'ready';
+    hidePanel();
+    updateHud();
+    announce(`${level.name}. ${shotsLeft} shots.`);
+  };
+
+  // creates the engine and all bodies, lets everything settle, returns how far things moved while settling
+  const construct = (level) => {
     const { Engine, Bodies, Body, Composite, Events, Sleeping } = Matter;
     if (engine) Events.off(engine);
     engine = Engine.create({ enableSleeping: true, positionIterations: 10, velocityIterations: 8 });
     world = engine.world;
     engine.gravity.y = 1;
     engine.gravity.scale = GRAVITY_SCALE;
-
-    W = worldWidth();
-    resizeCanvas();
     ents = new Map();
-    shards = []; puffs = []; floaters = []; trail = [];
-    projectile = null; boosted = false; armed = false; dragging = false;
-    flightTime = 0; calmSteps = 0; winTimer = 0; shake = 0;
-    score = 0; shotsUsed = 0;
-    const level = LEVELS[levelIndex];
-    shotsLeft = level.shots;
+    armed = false;
 
-    const ground = Bodies.rectangle(W / 2, GROUND + 60, W * 3, 120, { isStatic: true, friction: 1, frictionStatic: 1, label: 'ground' });
-    Composite.add(world, ground);
+    Composite.add(world, Bodies.rectangle(W / 2, GROUND + 60, W * 3, 120, { isStatic: true, friction: 1, frictionStatic: 1, label: 'ground' }));
 
     const rnd = level.random ? Math.random : seeded(7 + levelIndex);
     const others = ICONS.filter((i) => i.id !== avatarId);
@@ -336,39 +397,56 @@
     if (level.random) order.sort(() => Math.random() - 0.5);
     const parts = level.build({ cx: W - 200, rnd });
     let n = 0;
+    const starts = [];
     parts.forEach((part) => {
+      const mat = MATS[part.mat || 'wood'];
       const isIcon = part.k === 'icon';
-      const body = Bodies.rectangle(part.x, part.y, part.w, part.h, {
-        friction: isIcon ? 0.7 : 0.8,
+      const opts = {
+        friction: isIcon ? 0.7 : mat.friction,
         frictionStatic: 1.2,
-        restitution: 0.04,
-        density: isIcon ? 0.0016 : 0.0014,
-        chamfer: { radius: isIcon ? 10 : 4 },
+        restitution: isIcon ? 0.04 : mat.restitution,
+        density: isIcon ? 0.0016 : mat.density,
         slop: 0.04,
         sleepThreshold: 45,
         label: part.k
-      });
+      };
+      let body;
+      if (part.k === 'ball') {
+        body = Bodies.circle(part.x, part.y, part.r, opts);
+      } else if (part.k === 'roof') {
+        const hw = part.w / 2;
+        body = Bodies.fromVertices(part.x, part.y + part.h / 6, [[
+          { x: -hw, y: part.h / 3 }, { x: hw, y: part.h / 3 }, { x: 0, y: -part.h * 2 / 3 }
+        ]], opts);
+      } else {
+        opts.chamfer = { radius: isIcon ? 10 : part.k === 'tnt' ? 6 : 3 };
+        body = Bodies.rectangle(part.x, part.y, part.w, part.h, opts);
+      }
+      const hp = isIcon ? 64 : mat.hp;
       const meta = {
-        k: part.k, w: part.w, h: part.h, hp: isIcon ? 64 : 120, max: isIcon ? 64 : 120,
-        flash: 0, seed: 11 + n * 7 + levelIndex * 101, dead: false, down: false
+        k: part.k, mat: part.mat || (isIcon ? 'icon' : 'wood'), w: part.w, h: part.h, r: part.r,
+        hp, max: hp, flash: 0, seed: 11 + n * 7 + levelIndex * 101 + parts.indexOf(part) * 13, dead: false, down: false
       };
       if (isIcon) { meta.icon = order[n % order.length]; n++; }
       ents.set(body.id, meta);
       Composite.add(world, body);
+      starts.push([body, body.position.x, body.position.y]);
     });
 
-    // let the tower settle before the player sees it
-    for (let i = 0; i < 140; i++) Engine.update(engine, STEP);
+    // let the structure settle before the player sees it
+    for (let i = 0; i < 220; i++) Engine.update(engine, STEP);
+    let drift = 0;
+    starts.forEach(([b, x, y]) => { drift = Math.max(drift, Math.hypot(b.position.x - x, b.position.y - y)); });
+    // wake everything up once more: a structure that only holds while asleep is no good
+    const snap = starts.map(([b]) => [b.position.x, b.position.y]);
+    Composite.allBodies(world).forEach((b) => { if (!b.isStatic) Sleeping.set(b, false); });
+    for (let i = 0; i < 120; i++) Engine.update(engine, STEP);
+    starts.forEach(([b], i) => { drift = Math.max(drift, Math.hypot(b.position.x - snap[i][0], b.position.y - snap[i][1])); });
     Composite.allBodies(world).forEach((b) => {
       if (!b.isStatic) { Body.setVelocity(b, { x: 0, y: 0 }); Body.setAngularVelocity(b, 0); Sleeping.set(b, true); }
     });
-
     Events.on(engine, 'collisionStart', onCollision);
-    armed = true;
-    phase = 'ready';
-    hidePanel();
-    updateHud();
-    announce(`${level.name}. ${shotsLeft} shots.`);
+    return drift;
   };
 
   /* ---------- collisions and damage ---------- */
@@ -400,12 +478,13 @@
     e.dead = true;
     const { Composite } = Matter;
     const spr = e.icon ? sprites[e.icon.id] : null;
-    const color = spr ? spr.color : '#b9794a';
+    const color = spr ? spr.color : (MATS[e.mat] || MATS.wood).shard;
     makeShards(body, e, spr, color);
-    makePuffs(body.position.x, body.position.y, color, e.k === 'icon' ? 11 : 7);
+    makePuffs(body.position.x, body.position.y, e.mat === 'glass' ? '#cfe9f4' : color, e.k === 'icon' ? 11 : 7);
     Composite.remove(world, body);
-    sfx.crack();
-    if (!reducedMotion) shake = Math.max(shake, 7);
+    if (e.k === 'tnt') blasts.push({ x: body.position.x, y: body.position.y });
+    else sfx.crack(e.mat);
+    if (!reducedMotion) shake = Math.max(shake, e.mat === 'glass' ? 3 : 7);
     if (e.k === 'icon') {
       e.down = true;
       const pts = reason === 'off' ? 50 : 100;
@@ -415,11 +494,36 @@
     }
   };
 
+  const blast = ({ x, y }) => {
+    const { Composite, Body, Sleeping } = Matter;
+    const R = 175;
+    sfx.boom();
+    rings.push({ x, y, t: 0 });
+    makePuffs(x, y, '#ff9a3c', 16);
+    makePuffs(x, y, '#5b4a42', 10);
+    if (!reducedMotion) shake = Math.max(shake, 12);
+    for (const b of Composite.allBodies(world)) {
+      if (b.isStatic) continue;
+      const dx = b.position.x - x;
+      const dy = b.position.y - y;
+      const d = Math.hypot(dx, dy);
+      if (d > R) continue;
+      const f = 1 - d / R;
+      const e = ents.get(b.id);
+      if (e && e.k !== 'proj') { e.hp -= 190 * f * f; e.flash = 1; }
+      Sleeping.set(b, false);
+      const dv = 13 * f * clamp(5 / b.mass, 0.35, 1.5);
+      const nx = d > 1 ? dx / d : 0;
+      const ny = d > 1 ? dy / d : -1;
+      Body.setVelocity(b, { x: b.velocity.x + nx * dv, y: b.velocity.y + ny * dv - dv * 0.35 });
+    }
+  };
+
   /* ---------- particles ---------- */
   const makeShards = (body, e, spr, color) => {
     const n = reducedMotion ? 5 : 8;
-    const w = e.w;
-    const h = e.h;
+    const w = e.k === 'roof' ? e.w * 0.7 : e.w;
+    const h = e.k === 'roof' ? e.h * 0.7 : e.h;
     const ring = [];
     for (let i = 0; i < n; i++) {
       const a = (i / n) * Math.PI * 2 + (Math.random() - 0.5) * 0.45;
@@ -576,6 +680,8 @@
       if (winTimer > 85) finish(true);
     }
 
+    while (blasts.length) blast(blasts.shift());
+
     for (const t of trail) t.a -= 0.025;
     trail = trail.filter((t) => t.a > 0);
 
@@ -598,6 +704,8 @@
     for (const p of puffs) { p.life++; p.x += p.vx; p.y += p.vy; p.vx *= 0.95; p.vy = p.vy * 0.95 - 0.015; p.r += p.grow; }
     puffs = puffs.filter((p) => p.life < p.max);
     for (const f of floaters) { f.t++; f.y -= 0.55; }
+    for (const r of rings) r.t++;
+    rings = rings.filter((r) => r.t < 22);
     floaters = floaters.filter((f) => f.t < 70);
     if (shake > 0) shake = Math.max(0, shake - 0.45);
   };
@@ -853,33 +961,156 @@
     ctx.restore();
   };
 
-  const drawPlank = (b, e) => {
+  const crackLines = (e, w, h, n = 2) => {
+    const rnd = seeded(e.seed + 5);
+    ctx.beginPath();
+    for (let c = 0; c < n; c++) {
+      let x = (rnd() - 0.5) * w * 0.8;
+      let y = -h / 2;
+      ctx.moveTo(x, y);
+      for (let k = 0; k < 3; k++) {
+        x += (rnd() - 0.5) * w * 0.28;
+        y += h * (0.28 + rnd() * 0.12);
+        ctx.lineTo(x, y);
+      }
+    }
+  };
+
+  const drawBlock = (b, e) => {
     ctx.save();
     ctx.translate(b.position.x, b.position.y);
     ctx.rotate(b.angle);
+    const hurt = e.hp / e.max;
+    let top = '#e2b183';
+    let bottom = '#bd8052';
+    let edge = 'rgba(86, 52, 30, .55)';
+    if (e.mat === 'stone') { top = '#c3c0ba'; bottom = '#8f8c87'; edge = 'rgba(48, 46, 44, .65)'; }
+    if (e.mat === 'glass') { top = 'rgba(214, 240, 250, .62)'; bottom = 'rgba(150, 205, 232, .5)'; edge = 'rgba(66, 130, 168, .9)'; }
     const g = ctx.createLinearGradient(0, -e.h / 2, 0, e.h / 2);
-    g.addColorStop(0, '#e2b183');
-    g.addColorStop(1, '#bd8052');
-    roundRectPath(ctx, -e.w / 2, -e.h / 2, e.w, e.h, 4);
+    g.addColorStop(0, top);
+    g.addColorStop(1, bottom);
+    roundRectPath(ctx, -e.w / 2, -e.h / 2, e.w, e.h, e.mat === 'stone' ? 5 : 4);
     ctx.fillStyle = g;
     ctx.fill();
-    ctx.lineWidth = 1.5;
-    ctx.strokeStyle = 'rgba(86, 52, 30, .55)';
+    ctx.lineWidth = e.mat === 'glass' ? 2 : 1.5;
+    ctx.strokeStyle = edge;
     ctx.stroke();
-    if (e.flash > 0) { ctx.fillStyle = `rgba(255,255,255,${e.flash * 0.6})`; ctx.fill(); }
-    if (e.hp / e.max < 0.55) {
-      ctx.strokeStyle = 'rgba(40, 22, 12, .6)';
-      ctx.lineWidth = 2;
+    ctx.save();
+    ctx.clip();
+    if (e.mat === 'stone') {
+      const rnd = seeded(e.seed);
+      ctx.fillStyle = 'rgba(60, 58, 55, .22)';
+      for (let k = 0; k < 7; k++) { ctx.beginPath(); ctx.arc((rnd() - 0.5) * e.w, (rnd() - 0.5) * e.h, 1.5 + rnd() * 2.5, 0, 6.3); ctx.fill(); }
+    } else if (e.mat === 'glass') {
+      ctx.strokeStyle = 'rgba(255, 255, 255, .85)';
+      ctx.lineWidth = 3;
+      const m = Math.min(e.w, e.h);
       ctx.beginPath();
-      const horizontal = e.w > e.h;
-      const len = horizontal ? e.w : e.h;
-      for (let k = -1; k <= 1; k += 2) {
-        const o = k * len * 0.18;
-        if (horizontal) { ctx.moveTo(o, -e.h / 2); ctx.lineTo(o + 4, 0); ctx.lineTo(o - 2, e.h / 2); }
-        else { ctx.moveTo(-e.w / 2, o); ctx.lineTo(0, o + 4); ctx.lineTo(e.w / 2, o - 2); }
-      }
+      ctx.moveTo(-e.w / 2 + 3, -e.h / 2 + m * 0.7); ctx.lineTo(-e.w / 2 + m * 0.7, -e.h / 2 + 3);
+      ctx.stroke();
+    } else {
+      ctx.strokeStyle = 'rgba(120, 76, 44, .28)';
+      ctx.lineWidth = 1;
+      const long = e.w > e.h;
+      ctx.beginPath();
+      if (long) { ctx.moveTo(-e.w / 2, -e.h * 0.1); ctx.lineTo(e.w / 2, -e.h * 0.1); } else { ctx.moveTo(-e.w * 0.1, -e.h / 2); ctx.lineTo(-e.w * 0.1, e.h / 2); }
       ctx.stroke();
     }
+    if (hurt < 0.6) {
+      ctx.strokeStyle = e.mat === 'glass' ? 'rgba(255, 255, 255, .95)' : 'rgba(30, 20, 14, .65)';
+      ctx.lineWidth = 2;
+      ctx.rotate(e.w > e.h ? 0 : Math.PI / 2);
+      const bw = e.w > e.h ? e.w : e.h;
+      const bh = e.w > e.h ? e.h : e.w;
+      crackLines(e, bw, bh, hurt < 0.3 ? 3 : 2);
+      ctx.stroke();
+    }
+    ctx.restore();
+    if (e.flash > 0) { roundRectPath(ctx, -e.w / 2, -e.h / 2, e.w, e.h, 4); ctx.fillStyle = `rgba(255,255,255,${e.flash * 0.6})`; ctx.fill(); }
+    ctx.restore();
+  };
+
+  const drawRoof = (b, e) => {
+    ctx.save();
+    ctx.translate(b.position.x, b.position.y);
+    ctx.rotate(b.angle);
+    const hw = e.w / 2;
+    ctx.beginPath();
+    ctx.moveTo(-hw, e.h / 3);
+    ctx.lineTo(hw, e.h / 3);
+    ctx.lineTo(0, -e.h * 2 / 3);
+    ctx.closePath();
+    const g = ctx.createLinearGradient(0, -e.h * 2 / 3, 0, e.h / 3);
+    g.addColorStop(0, '#d9694e');
+    g.addColorStop(1, '#a8432f');
+    ctx.fillStyle = g;
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.lineJoin = 'round';
+    ctx.strokeStyle = 'rgba(80, 30, 20, .7)';
+    ctx.stroke();
+    ctx.save();
+    ctx.clip();
+    ctx.strokeStyle = 'rgba(80, 30, 20, .35)';
+    ctx.lineWidth = 1.5;
+    for (let k = 1; k <= 2; k++) {
+      const y = e.h / 3 - (e.h * k) / 3;
+      ctx.beginPath(); ctx.moveTo(-hw, y); ctx.lineTo(hw, y); ctx.stroke();
+    }
+    if (e.hp / e.max < 0.6) {
+      ctx.strokeStyle = 'rgba(30, 14, 10, .7)';
+      ctx.lineWidth = 2;
+      ctx.beginPath(); ctx.moveTo(-hw * 0.3, e.h / 3); ctx.lineTo(-hw * 0.1, 0); ctx.lineTo(-hw * 0.28, -e.h * 0.3); ctx.stroke();
+    }
+    if (e.flash > 0) { ctx.fillStyle = `rgba(255,255,255,${e.flash * 0.55})`; ctx.fillRect(-hw, -e.h, e.w, e.h * 2); }
+    ctx.restore();
+    ctx.restore();
+  };
+
+  const drawBall = (b, e) => {
+    ctx.save();
+    ctx.translate(b.position.x, b.position.y);
+    ctx.rotate(b.angle);
+    const g = ctx.createRadialGradient(-e.r * 0.35, -e.r * 0.4, e.r * 0.1, 0, 0, e.r);
+    g.addColorStop(0, '#d2cfc9');
+    g.addColorStop(1, '#85827d');
+    ctx.beginPath();
+    ctx.arc(0, 0, e.r, 0, Math.PI * 2);
+    ctx.fillStyle = g;
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'rgba(48, 46, 44, .65)';
+    ctx.stroke();
+    ctx.fillStyle = 'rgba(60, 58, 55, .25)';
+    for (const [x, y, r] of [[8, 6, 5], [-9, 10, 4], [4, -12, 3.5], [-12, -4, 3]]) { ctx.beginPath(); ctx.arc(x, y, r, 0, 6.3); ctx.fill(); }
+    if (e.flash > 0) { ctx.beginPath(); ctx.arc(0, 0, e.r, 0, 6.3); ctx.fillStyle = `rgba(255,255,255,${e.flash * 0.55})`; ctx.fill(); }
+    ctx.restore();
+  };
+
+  const drawTnt = (b, e) => {
+    ctx.save();
+    ctx.translate(b.position.x, b.position.y);
+    ctx.rotate(b.angle);
+    roundRectPath(ctx, -e.w / 2, -e.h / 2, e.w, e.h, 6);
+    ctx.fillStyle = '#d1403a';
+    ctx.fill();
+    ctx.lineWidth = 2;
+    ctx.strokeStyle = 'rgba(80, 20, 16, .8)';
+    ctx.stroke();
+    ctx.save();
+    ctx.clip();
+    ctx.fillStyle = '#f3e3c8';
+    ctx.fillRect(-e.w / 2, -7, e.w, 14);
+    ctx.fillStyle = 'rgba(80, 20, 16, .5)';
+    ctx.fillRect(-e.w / 2 + 8, -e.h / 2, 3, e.h);
+    ctx.fillRect(e.w / 2 - 11, -e.h / 2, 3, e.h);
+    ctx.restore();
+    ctx.fillStyle = '#3a2a24';
+    ctx.font = '800 11px system-ui, -apple-system, "Segoe UI", sans-serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillText('TNT', 0, 1);
+    if (e.flash > 0) { roundRectPath(ctx, -e.w / 2, -e.h / 2, e.w, e.h, 6); ctx.fillStyle = `rgba(255,255,255,${e.flash * 0.6})`; ctx.fill(); }
     ctx.restore();
   };
 
@@ -923,7 +1154,10 @@
     for (const b of bodies) {
       const e = ents.get(b.id);
       if (!e || b.isStatic || e.dead) continue;
-      if (e.k === 'plank') drawPlank(b, e);
+      if (e.k === 'block') drawBlock(b, e);
+      else if (e.k === 'roof') drawRoof(b, e);
+      else if (e.k === 'ball') drawBall(b, e);
+      else if (e.k === 'tnt') drawTnt(b, e);
     }
     for (const b of bodies) {
       const e = ents.get(b.id);
@@ -1002,6 +1236,17 @@
       ctx.beginPath();
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fill();
+    }
+    ctx.globalAlpha = 1;
+
+    for (const r of rings) {
+      const k = r.t / 22;
+      ctx.globalAlpha = (1 - k) * 0.7;
+      ctx.lineWidth = 8 * (1 - k) + 1;
+      ctx.strokeStyle = '#ffb02e';
+      ctx.beginPath();
+      ctx.arc(r.x, r.y, 20 + k * 150, 0, Math.PI * 2);
+      ctx.stroke();
     }
     ctx.globalAlpha = 1;
 
