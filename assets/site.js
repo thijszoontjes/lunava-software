@@ -65,7 +65,13 @@ if (!('IntersectionObserver' in window)) {
 })();
 
 (() => {
-  const isDutch = document.documentElement.lang.toLowerCase().startsWith('nl');
+  const menuLanguage = document.documentElement.lang.toLowerCase().slice(0, 2);
+  const menuLabels = {
+    nl: ['Open het navigatiemenu', 'Sluit het navigatiemenu'],
+    fr: ['Ouvrir le menu de navigation', 'Fermer le menu de navigation'],
+    sv: ['Öppna navigationsmenyn', 'Stäng navigationsmenyn'],
+    fi: ['Avaa navigointivalikko', 'Sulje navigointivalikko']
+  }[menuLanguage] || ['Open navigation menu', 'Close navigation menu'];
   document.querySelectorAll('.site-header').forEach((header) => {
     const toggle = header.querySelector('.nav-toggle');
     const nav = header.querySelector('.nav');
@@ -74,9 +80,7 @@ if (!('IntersectionObserver' in window)) {
     header.classList.add('nav-ready');
     const setOpen = (open, returnFocus = false) => {
       toggle.setAttribute('aria-expanded', String(open));
-      toggle.setAttribute('aria-label', isDutch
-        ? (open ? 'Sluit het navigatiemenu' : 'Open het navigatiemenu')
-        : (open ? 'Close navigation menu' : 'Open navigation menu'));
+      toggle.setAttribute('aria-label', menuLabels[open ? 1 : 0]);
       nav.classList.toggle('is-open', open);
       if (returnFocus) toggle.focus();
     };
@@ -105,6 +109,8 @@ if (!('IntersectionObserver' in window)) {
   const pageLanguage = document.documentElement.lang.toLowerCase();
   const isDutch = pageLanguage.startsWith('nl');
   const isFrench = pageLanguage.startsWith('fr');
+  const isSwedish = pageLanguage.startsWith('sv');
+  const isFinnish = pageLanguage.startsWith('fi');
   const consentCopy = isDutch ? {
     title: 'Help deze website te verbeteren?',
     message: 'Met je toestemming meet Google Analytics bezoeken aan Lunava Software. Analytics blijft uit totdat je toestemming geeft. Je kunt je keuze op elk moment aanpassen.',
@@ -119,6 +125,20 @@ if (!('IntersectionObserver' in window)) {
     group: 'Préférences Analytics',
     reject: 'Refuser Analytics',
     accept: 'Autoriser Analytics'
+  } : isSwedish ? {
+    title: 'Vill du hjälpa oss förbättra webbplatsen?',
+    message: 'Med ditt samtycke mäter Google Analytics besök på Lunava Software. Analytics förblir avstängt tills du godkänner. Du kan ändra ditt val när som helst.',
+    link: 'Läs mer om integritet och analys',
+    group: 'Val för Analytics',
+    reject: 'Avvisa Analytics',
+    accept: 'Tillåt Analytics'
+  } : isFinnish ? {
+    title: 'Autatko parantamaan tätä sivustoa?',
+    message: 'Suostumuksellasi Google Analytics mittaa Lunava Softwaren kävijämääriä. Analytiikka pysyy pois päältä, kunnes hyväksyt sen. Voit muuttaa valintaasi milloin tahansa.',
+    link: 'Lue lisää tietosuojasta ja analytiikasta',
+    group: 'Analytiikkavalinta',
+    reject: 'Hylkää analytiikka',
+    accept: 'Salli analytiikka'
   } : {
     title: 'Help improve this website?',
     message: 'With your permission, Google Analytics measures visits to Lunava Software. Analytics stays off unless you accept. You can change your choice at any time.',
