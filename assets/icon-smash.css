@@ -1,0 +1,131 @@
+/* Icon Smash minigame (home page, apps section) */
+html:not(.js) .smash { display: none; }
+
+.smash {
+  margin-top: 64px;
+  padding: 30px;
+  border: 1px solid rgba(116, 80, 57, .1);
+  border-radius: 28px;
+  background: linear-gradient(125deg, #fffdf9 8%, #f8f0e6 100%);
+  box-shadow: 0 14px 42px rgba(83, 62, 48, .055);
+}
+.smash [hidden] { display: none !important; }
+.smash__head { display: flex; align-items: end; justify-content: space-between; gap: 32px; margin-bottom: 22px; }
+.smash__title { margin: 0; font-size: clamp(1.9rem, 3.4vw, 2.9rem); font-weight: 400; letter-spacing: -.055em; line-height: 1; }
+.smash__lede { max-width: 360px; margin: 0 0 3px; color: var(--soft-ink); font-size: 15px; line-height: 1.55; }
+
+.smash__label { display: block; margin: 0 0 10px; color: var(--soft-ink); font-size: 12px; font-weight: 620; letter-spacing: .08em; text-transform: uppercase; }
+.smash__picker { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 18px; }
+.smash__avatar {
+  width: 56px; height: 56px; padding: 4px; border: 2px solid transparent; border-radius: 17px;
+  background: transparent; cursor: pointer;
+  transition: transform 180ms var(--ease-out), border-color 180ms ease, box-shadow 180ms ease;
+}
+.smash__avatar img { display: block; width: 100%; height: 100%; border-radius: 12px; object-fit: cover; box-shadow: 0 4px 12px rgba(83, 62, 48, .16); }
+.smash__avatar:hover { transform: translateY(-3px); }
+.smash__avatar[aria-checked="true"] { border-color: var(--accent); box-shadow: 0 8px 22px rgba(113, 82, 178, .22); transform: translateY(-3px); }
+.smash__avatar:focus-visible, .smash__level:focus-visible, .smash__pill:focus-visible, .smash__btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px; }
+
+.smash__stage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 96 / 56;
+  overflow: hidden;
+  border: 1px solid rgba(116, 80, 57, .14);
+  border-radius: 22px;
+  background: linear-gradient(180deg, #fbe5d0 0%, #fff6e8 58%, #fffaf2 100%);
+  touch-action: pan-y;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+.smash__stage:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.smash__canvas { display: block; width: 100%; }
+.smash__aim { position: absolute; top: 0; bottom: 0; left: 0; width: 56%; cursor: grab; touch-action: none; }
+.smash__aim:active { cursor: grabbing; }
+
+.smash__hud { position: absolute; top: 12px; right: 14px; left: 14px; display: flex; align-items: flex-start; justify-content: space-between; gap: 10px; pointer-events: none; }
+.smash__stats { display: flex; flex-wrap: wrap; gap: 8px; }
+.smash__stat, .smash__pill {
+  display: inline-flex; align-items: center; gap: 7px; min-height: 34px; padding: 0 13px;
+  border: 1px solid rgba(116, 80, 57, .12); border-radius: 999px;
+  background: rgba(255, 253, 249, .86); color: var(--ink); font-size: 13px; font-weight: 600; line-height: 1;
+  white-space: nowrap; backdrop-filter: blur(6px);
+}
+.smash__stat b { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--accent); }
+.smash__tools { display: flex; gap: 8px; pointer-events: auto; }
+.smash__pill { cursor: pointer; font-family: inherit; transition: background-color 160ms ease, transform 160ms var(--ease-out); }
+.smash__pill:hover { background: #fff; transform: translateY(-1px); }
+.smash__pill[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
+
+.smash__hint {
+  position: absolute; left: 50%; top: 58px; margin: 0; max-width: calc(100% - 28px); padding: 9px 15px;
+  border-radius: 999px; background: rgba(41, 36, 42, .82); color: #fffdf9; font-size: 13px; line-height: 1.3; text-align: center;
+  transform: translateX(-50%); pointer-events: none; transition: opacity 400ms ease, transform 400ms var(--ease-out);
+}
+.smash__hint.is-gone { opacity: 0; transform: translate(-50%, 8px); }
+
+.smash__panel {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px;
+  padding: 20px; background: rgba(255, 248, 238, .8); text-align: center; backdrop-filter: blur(7px);
+  animation: smash-pop 340ms var(--ease-out) both;
+}
+.smash__panel h3 { margin: 0; font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 400; letter-spacing: -.06em; line-height: 1; }
+.smash__stars { margin: 8px 0 2px; color: #e0a02b; font-size: 2rem; letter-spacing: .12em; line-height: 1; }
+.smash__panel-sub { max-width: 380px; margin: 8px 0 16px; color: var(--soft-ink); font-size: 15px; line-height: 1.5; }
+.smash__panel-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+.smash__panel-link { margin-top: 14px; color: var(--accent); font-size: 14px; font-weight: 620; text-underline-offset: 4px; }
+
+.smash__btn {
+  min-height: 48px; padding: 0 22px; border: 1px solid rgba(41, 36, 42, .2); border-radius: 0;
+  background: transparent; color: var(--ink); font: inherit; font-size: 15px; font-weight: 620; cursor: pointer;
+  transition: transform 160ms var(--ease-out), background-color 180ms ease, color 180ms ease;
+}
+.smash__btn:hover { transform: translateY(-2px); background: rgba(41, 36, 42, .06); }
+.smash__btn--primary { border-color: var(--ink); background: var(--ink); color: var(--ground); }
+.smash__btn--primary:hover { background: var(--accent); border-color: var(--accent); }
+
+.smash__loading { position: absolute; inset: 0; display: none; align-items: center; justify-content: center; color: var(--soft-ink); font-size: 14px; }
+.smash.is-loading .smash__loading { display: flex; }
+.smash.is-broken .smash__stage::after { content: "The game could not load. Try refreshing the page."; position: absolute; inset: 0; display: grid; place-items: center; padding: 20px; color: var(--soft-ink); font-size: 14px; text-align: center; }
+
+.smash__levels { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
+.smash__level {
+  display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; min-width: 62px; min-height: 54px; padding: 6px 14px;
+  border: 1px solid rgba(116, 80, 57, .16); border-radius: 14px; background: rgba(255, 253, 249, .7); color: var(--ink);
+  font: inherit; font-size: 16px; font-weight: 620; line-height: 1; cursor: pointer;
+  transition: transform 160ms var(--ease-out), border-color 160ms ease, background-color 160ms ease;
+}
+.smash__level small { color: #d9a43a; font-size: 10px; letter-spacing: .12em; }
+.smash__level:hover { transform: translateY(-2px); background: #fff; }
+.smash__level[aria-current="true"] { border-color: var(--accent); background: #fff; box-shadow: 0 8px 20px rgba(113, 82, 178, .14); }
+.smash__footnote { margin: 14px 0 0; color: var(--soft-ink); font-size: 13px; line-height: 1.5; }
+.smash__sr { position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+@keyframes smash-pop { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 700px) {
+  .smash { margin-top: 44px; padding: 18px 14px 20px; border-radius: 22px; }
+  .smash__head { flex-direction: column; align-items: flex-start; gap: 10px; margin-bottom: 16px; }
+  .smash__picker { gap: 6px; }
+  .smash__avatar { width: 46px; height: 46px; border-radius: 14px; }
+  .smash__stage { aspect-ratio: 76 / 56; border-radius: 16px; }
+  .smash__hud { top: 8px; right: 8px; left: 8px; }
+  .smash__stat, .smash__pill { min-height: 30px; padding: 0 9px; font-size: 12px; }
+  .smash__stat--level { display: none; }
+  .smash__stats, .smash__tools { flex-wrap: nowrap; gap: 6px; }
+  .smash__hint { top: 44%; left: 10px; max-width: 50%; border-radius: 14px; font-size: 12px; text-align: left; transform: none; }
+  .smash__hint.is-gone { transform: translateY(6px); }
+  .smash__level { min-width: 50px; min-height: 48px; padding: 5px 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .smash__panel { animation: none; }
+  .smash__avatar, .smash__level, .smash__pill, .smash__btn { transition: none; }
+}
+
+/* entry button in the apps section header */
+.section-intro__actions { display: flex; flex-wrap: wrap; gap: 10px; }
+.button--outline { border: 1px solid var(--ink); background: transparent; color: var(--ink); }
+.button--outline:hover { border-color: var(--accent); background: var(--accent); color: var(--ground); }
+.smash { scroll-margin-top: 90px; }
