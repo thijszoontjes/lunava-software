@@ -776,6 +776,7 @@ h1, h2, h3, p { margin-top: 0; }
 .app-card--cardwren { --shot: linear-gradient(160deg, #dbe9ff, #9ec2ff); }
 .app-card--towerlit { --shot: linear-gradient(160deg, #3a63c4, #1e2f76); }
 .app-card--geowimble { --shot: linear-gradient(160deg, #1b2a52, #070b1f); }
+.app-card--pagevane { --shot: linear-gradient(160deg, #2b3170, #151a47); }
 .app-card__body { display: flex; flex: 1; flex-direction: column; padding: 26px 26px 28px; }
 .app-card__head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .app-card__icon { flex: 0 0 52px; width: 52px; height: 52px; border-radius: 13px; object-fit: cover; }
@@ -1007,3 +1008,30 @@ h1, h2, h3, p { margin-top: 0; }
   .app-tile { padding: 16px 14px 18px; border-radius: 18px; }
   .app-tile__icon { width: 60px; height: 60px; border-radius: 15px; }
 }
+
+/* Pagevane detail page: deep navy and warm orange, like the app */
+.pagevane-page {
+  --ground: #0f1238;
+  --paper: #181d52;
+  --ink: #f4f1ea;
+  --soft-ink: #b9bee3;
+  --accent: #f0912d;
+  --terracotta: #ffb35c;
+  --line: rgba(244, 241, 234, .16);
+  background: radial-gradient(ellipse at 82% 10%, rgba(240, 145, 45, .12), transparent 36rem), radial-gradient(ellipse at 6% 58%, rgba(110, 120, 220, .12), transparent 34rem), var(--ground);
+  color: var(--ink);
+}
+.pagevane-page .product-hero { border-color: var(--line); background: radial-gradient(circle at 78% 30%, rgba(240, 145, 45, .18), transparent 24rem), linear-gradient(125deg, #151a4a 8%, #232a72 100%); box-shadow: 0 18px 55px rgba(0, 0, 0, .35); }
+.pagevane-page .product-tier-section { background: linear-gradient(135deg, #151a4a, #1b2160); }
+.pagevane-page .product-tier-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.pagevane-page .product-tier { border-color: var(--line); }
+.pagevane-page .product-tier--pro { border-color: rgba(240, 145, 45, .5); box-shadow: 0 10px 32px rgba(0, 0, 0, .3); }
+.pagevane-page .product-final-cta { background: linear-gradient(135deg, #151a4a, #2a3180); }
+.pagevane-page .site-footer { background: #090b24; }
+.pagevane-page .product-button { background: var(--accent); color: #1b1305; }
+.pagevane-page .product-button:hover { background: #ffb35c; }
+.pagevane-page .nav-dropdown__menu a:hover, .pagevane-page .nav-dropdown__menu a:focus-visible { background: rgba(244, 241, 234, .08); }
+.pagevane-page .phone-frame, .pagevane-page .product-gallery .phone-frame { aspect-ratio: 9 / 16; padding: 0; border: 1px solid rgba(244, 241, 234, .2); border-radius: 26px; background: #f3f0e8; box-shadow: 0 18px 42px rgba(0, 0, 0, .35); }
+.pagevane-page .phone-frame::after { display: none; }
+.pagevane-page .phone-frame img { border-radius: 25px; }
+@media (max-width: 900px) { .pagevane-page .product-tier-grid { grid-template-columns: 1fr; gap: 12px; } }
