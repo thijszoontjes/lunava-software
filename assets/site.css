@@ -1031,7 +1031,6 @@ h1, h2, h3, p { margin-top: 0; }
 .pagevane-page .product-button { background: var(--accent); color: #1b1305; }
 .pagevane-page .product-button:hover { background: #ffb35c; }
 .pagevane-page .nav-dropdown__menu a:hover, .pagevane-page .nav-dropdown__menu a:focus-visible { background: rgba(244, 241, 234, .08); }
-.pagevane-page .phone-frame, .pagevane-page .product-gallery .phone-frame { aspect-ratio: 9 / 16; padding: 0; border: 1px solid rgba(244, 241, 234, .2); border-radius: 26px; background: #f3f0e8; box-shadow: 0 18px 42px rgba(0, 0, 0, .35); }
-.pagevane-page .phone-frame::after { display: none; }
-.pagevane-page .phone-frame img { border-radius: 25px; }
+/* real phone bezel (default .phone-frame), only the ratio is adapted to the 9:16 app captures */
+.pagevane-page .phone-frame, .pagevane-page .product-gallery .phone-frame { aspect-ratio: 9 / 15.9; }
 @media (max-width: 900px) { .pagevane-page .product-tier-grid { grid-template-columns: 1fr; gap: 12px; } }
