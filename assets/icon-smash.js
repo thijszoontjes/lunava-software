@@ -16,7 +16,8 @@
     { id: 'cardwren', name: 'Cardwren', src: 'assets/branding/cardwren-app-icon.png', href: 'cardwren/' },
     { id: 'towerlit', name: 'Towerlit', src: 'assets/branding/towerlit-app-icon.png', href: 'towerlit/' },
     { id: 'geowimble', name: 'GeoWimble', src: 'assets/branding/geowimble-app-icon.png', href: 'geowimble/' },
-    { id: 'pagevane', name: 'Pagevane', src: 'assets/branding/pagevane-app-icon.png', href: 'pagevane/' }
+    { id: 'pagevane', name: 'Pagevane', src: 'assets/branding/pagevane-app-icon.png', href: 'pagevane/' },
+    { id: 'crimpnest', name: 'Crimpnest', src: 'assets/branding/crimpnest-app-icon.png', href: 'crimpnest/' }
   ];
 
   const BASE = root.dataset.smashBase || '';

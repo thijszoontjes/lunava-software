@@ -777,6 +777,7 @@ h1, h2, h3, p { margin-top: 0; }
 .app-card--towerlit { --shot: linear-gradient(160deg, #3a63c4, #1e2f76); }
 .app-card--geowimble { --shot: linear-gradient(160deg, #1b2a52, #070b1f); }
 .app-card--pagevane { --shot: linear-gradient(160deg, #2b3170, #151a47); }
+.app-card--crimpnest { --shot: linear-gradient(160deg, #2a1b14, #101215); }
 .app-card__body { display: flex; flex: 1; flex-direction: column; padding: 26px 26px 28px; }
 .app-card__head { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
 .app-card__icon { flex: 0 0 52px; width: 52px; height: 52px; border-radius: 13px; object-fit: cover; }
@@ -1034,6 +1035,30 @@ h1, h2, h3, p { margin-top: 0; }
 /* real phone bezel (default .phone-frame), ratio 9:20 like the other app pages, matching the 9:20 app captures */
 .pagevane-page .phone-frame, .pagevane-page .product-gallery .phone-frame { aspect-ratio: 9 / 20; }
 @media (max-width: 900px) { .pagevane-page .product-tier-grid { grid-template-columns: 1fr; gap: 12px; } }
+.crimpnest-page {
+  --ground: #101215;
+  --paper: #181b20;
+  --ink: #f2f3f5;
+  --soft-ink: #9aa1ab;
+  --accent: #ff7a3d;
+  --terracotta: #ff9a66;
+  --line: rgba(242, 243, 245, .14);
+  background: radial-gradient(ellipse at 82% 10%, rgba(255, 122, 61, .12), transparent 36rem), radial-gradient(ellipse at 6% 58%, rgba(255, 122, 61, .06), transparent 34rem), var(--ground);
+  color: var(--ink);
+}
+.crimpnest-page .product-hero { border-color: var(--line); background: radial-gradient(circle at 78% 30%, rgba(255, 122, 61, .18), transparent 24rem), linear-gradient(125deg, #14171b 8%, #20242a 100%); box-shadow: 0 18px 55px rgba(0, 0, 0, .35); }
+.crimpnest-page .product-tier-section { background: linear-gradient(135deg, #14171b, #1b1f25); }
+.crimpnest-page .product-tier-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.crimpnest-page .product-tier { border-color: var(--line); }
+.crimpnest-page .product-tier--pro { border-color: rgba(255, 122, 61, .5); box-shadow: 0 10px 32px rgba(0, 0, 0, .3); }
+.crimpnest-page .product-final-cta { background: linear-gradient(135deg, #14171b, #2a1d16); }
+.crimpnest-page .site-footer { background: #0a0b0d; }
+.crimpnest-page .product-button { background: var(--accent); color: #1a0d05; }
+.crimpnest-page .product-button:hover { background: #ff9a66; }
+.crimpnest-page .nav-dropdown__menu a:hover, .crimpnest-page .nav-dropdown__menu a:focus-visible { background: rgba(242, 243, 245, .08); }
+/* app captures are 1:2 (592x1184) */
+.crimpnest-page .phone-frame, .crimpnest-page .product-gallery .phone-frame { aspect-ratio: 1 / 2; }
+@media (max-width: 900px) { .crimpnest-page .product-tier-grid { grid-template-columns: 1fr; gap: 12px; } }
 
 /* secondary action next to "See all apps" */
 .section-intro__actions { display: flex; flex-wrap: wrap; gap: 10px; }
